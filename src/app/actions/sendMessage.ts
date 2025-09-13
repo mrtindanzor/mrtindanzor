@@ -2,6 +2,8 @@
 
 import axios from "axios"
 
+export const runtime = "edge"
+
 type ContactData = {
   name: string
   email: string
@@ -11,8 +13,6 @@ type ContactData = {
 }
 
 export const sendMessage = async (payload: ContactData) => {
-  "use server"
-
   const { name, email, phone, message, honeypot } = payload
   if (honeypot)
     return {
