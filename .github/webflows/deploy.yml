@@ -1,0 +1,33 @@
+name: Push to deploy branch
+
+on:
+  push:
+    branches:
+      - main # the branch you work on
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1️⃣ Checkout your repo
+      - uses: actions/checkout@v3
+
+      # 4️⃣ Push build to deploy branch in another repo using a PAT
+      - name: Push to deploy branch
+
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          git checkout --orphan deploy
+
+          git reset --hard
+          git checkout main -- .
+
+          rm -rf webflow
+
+          git add .
+          git commit --allow-empty -m "Deploy [ci skip]"
+
+          git push -f origin HEAD:deploy
