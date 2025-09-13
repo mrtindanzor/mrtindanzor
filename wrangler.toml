@@ -1,0 +1,4 @@
+name = "my-next-app"
+main = ".open-next/worker.js"
+compatibility_date = "2025-09-13"
+command = "pnpm cf:build"
