@@ -28,6 +28,6 @@ jobs:
           rm -rf webflow
 
           git add .
-          git commit --allow-empty -m "Deploy to deploy [ci skip]"
+          git commit --allow-empty -m "Deploy [ci skip]"
 
           git push -f origin HEAD:deploy
