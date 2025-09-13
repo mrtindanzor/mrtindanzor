@@ -2,8 +2,6 @@
 
 import axios from "axios"
 
-export const runtime = "edge"
-
 type ContactData = {
   name: string
   email: string
