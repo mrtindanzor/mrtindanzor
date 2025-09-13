@@ -1,4 +1,9 @@
 name = "my-next-app"
 main = ".open-next/worker.js"
 compatibility_date = "2025-09-13"
+
+[build]
 command = "pnpm cf:build"
+
+[site]
+bucket = ".open-next/assets"
