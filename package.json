@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build --turbopack",
+    "cf:build": "pnpm exec opennextjs/cloudflare build",
     "start": "next start",
     "lint": "eslint"
   },
