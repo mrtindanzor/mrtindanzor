@@ -3,7 +3,7 @@ name: Push to deploy branch
 on:
   push:
     branches:
-      - main # the branch you work on
+      - master # the branch you work on
 
 jobs:
   deploy:
@@ -23,7 +23,7 @@ jobs:
           git checkout --orphan deploy
 
           git reset --hard
-          git checkout main -- .
+          git checkout master -- .
 
           rm -rf webflow
 
