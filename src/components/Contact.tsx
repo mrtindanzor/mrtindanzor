@@ -5,6 +5,9 @@ import { cn } from "@/lib/utils"
 import { ComponentProps, useCallback, useState } from "react"
 import { useForm } from "react-hook-form"
 import Message from "./Message"
+import { IconType } from "react-icons"
+import { EnvelopeIcon, PhoneIcon, UserIcon } from "@heroicons/react/24/solid"
+import { motion } from "framer-motion"
 
 type ContactData = {
   name: string
@@ -12,6 +15,46 @@ type ContactData = {
   phone: number
   message: string
   honeypot?: string
+}
+
+const formVariants = {
+  hidden: {
+    opacity: 0,
+    x: -40,
+  },
+  show: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      ease: "easeOut" as const,
+      staggerChildren: 0.2,
+    },
+  },
+}
+
+const formItemVariant = {
+  hidden: {
+    opacity: 0,
+    y: 20,
+  },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      ease: "easeInOut" as const,
+    },
+  },
+}
+const submitVariant = {
+  hidden: {
+    opacity: 0,
+  },
+  show: {
+    opacity: 1,
+    transition: {
+      ease: "easeOut" as const,
+    },
+  },
 }
 
 export default function Contact() {
@@ -52,6 +95,7 @@ export default function Contact() {
       if (res.status === 201) {
         setSuccess(true)
         reset()
+        window.scrollTo({ top: 0, behavior: "smooth" })
       }
       setError("root", { message: res.message })
     },
@@ -59,18 +103,26 @@ export default function Contact() {
   )
 
   return (
-    <section className="bg-stone-800 grid gap-6 px-3 sm:px-10 py-20 ">
-      <h2 className="text-white text-2xl font-sans font-bold">
-        Get in touch with me!
+    <motion.section
+      className="grid gap-6 px-3 sm:px-8 py-10 bg-slate-800 backdrop-blur-3xl max-w-xl mx-auto w-full sm:rounded-md"
+      variants={formVariants}
+      initial="hidden"
+      whileInView="show"
+    >
+      <h2 className="text-sky-400 text-center text-3xl font-sans font-bold">
+        Message Me
       </h2>
       {errors.root?.message && (
         <Message message={errors.root.message} success={success} />
       )}
-      <form
-        onSubmit={handleSubmit(handleMessage)}
-        className="grid md:grid-cols-2 col-start-1 gap-4"
-      >
-        <TextField title="Name" id="name" {...register("name")}>
+      <form onSubmit={handleSubmit(handleMessage)} className="grid gap-4">
+        <TextField
+          title="Name"
+          id="name"
+          {...register("name")}
+          icon={UserIcon}
+          placeholder="Enter your name"
+        >
           {errors.name?.message && (
             <Message message={errors.name.message} success={success} />
           )}
@@ -78,15 +130,21 @@ export default function Contact() {
         <TextField
           title="Phone"
           id="phone"
-          {...register("phone", {
-            valueAsNumber: true,
-          })}
+          {...register("phone")}
+          icon={PhoneIcon}
+          placeholder="Enter your phone number"
         >
           {errors.phone?.message && (
             <Message message={errors.phone.message} success={success} />
           )}
         </TextField>
-        <TextField title="Email" id="email" {...register("email")}>
+        <TextField
+          title="Email"
+          id="email"
+          {...register("email")}
+          icon={EnvelopeIcon}
+          placeholder="Enter your email address"
+        >
           {errors.email?.message && (
             <Message message={errors.email.message} success={success} />
           )}
@@ -97,46 +155,57 @@ export default function Contact() {
           {...register("honeypot")}
           autoComplete="off"
           className="!hidden"
+          icon={PhoneIcon}
         />
         <TextArea
           title="Message"
           id="message"
           {...register("message")}
-          className="md:row-start-1 md:col-start-2 md:row-span-3"
+          placeholder="Your message"
         >
           {errors.message?.message && (
             <Message message={errors.message.message} success={success} />
           )}
         </TextArea>
-        <button
+        <motion.button
           disabled={isSubmitting}
-          className="col-span-full md:col-span-1 bg-yellow-400 rounded-md py-2 px-2"
+          className="bg-sky-600 text-lg hover:bg-sky-800 text-white font-medium ease-in-out duration-500 transition rounded-md py-2 px-2"
+          variants={submitVariant}
         >
           Send Message
-        </button>
+        </motion.button>
       </form>
-    </section>
+    </motion.section>
   )
 }
 
 function TextField({
   title,
   id,
+  icon: Icon,
   className,
   children,
   ...props
-}: { title: string } & ComponentProps<"input">) {
+}: { title: string; icon: IconType } & ComponentProps<"input">) {
   return (
-    <div className={cn(className, "grid gap-2")}>
-      <label htmlFor={id} className="text-yellow-400 text-lg font-medium">
+    <motion.div
+      className={cn(className, "grid gap-2 relative")}
+      variants={formItemVariant}
+    >
+      <label htmlFor={id} className="text-white text-lg font-medium">
         {title}
       </label>
-      <input
-        {...props}
-        className="rounded-sm border-2 border-gray-300 py-2 px-3 text-gray-200"
-      />
+      <div className="relative w-full grid">
+        <input
+          {...props}
+          className="rounded-sm border-1 border-gray-300/10 py-2 pl-10 pr-3 text-gray-200 bg-slate-700"
+        />
+        <Icon
+          className={cn("absolute left-2 bottom-2.5 text-white/50 size-5")}
+        />
+      </div>
       {children}
-    </div>
+    </motion.div>
   )
 }
 
@@ -148,15 +217,18 @@ function TextArea({
   ...props
 }: { title: string } & ComponentProps<"textarea">) {
   return (
-    <div className={cn(className, "grid h-fit gap-2")}>
-      <label htmlFor={id} className="text-yellow-400 text-lg font-medium">
+    <motion.div
+      className={cn(className, "grid h-fit gap-2")}
+      variants={formItemVariant}
+    >
+      <label htmlFor={id} className="text-white text-lg font-medium">
         {title}
       </label>
       <textarea
         {...props}
-        className="rounded-sm min-h-30 text-gray-200 border-2 border-gray-300 px-4 py-2"
+        className="rounded-sm min-h-30 bg-slate-700 text-gray-200 border-1 border-gray-300/10 px-4 py-2"
       />
       {children}
-    </div>
+    </motion.div>
   )
 }

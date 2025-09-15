@@ -39,7 +39,7 @@ export const sendMessage = async (payload: ContactData) => {
 
   return {
     status: 201,
-    message: "Message sent successfully",
+    message: "Thanks! Your message was received. I'll be in touch soon.",
   }
 }
 

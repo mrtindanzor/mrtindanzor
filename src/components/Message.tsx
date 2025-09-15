@@ -16,7 +16,7 @@ export default function Message({
       )}
     >
       <Info className="size-4" />
-      <span>{message}</span>
+      <span className="font-medium text-sm">{message}</span>
     </p>
   )
 }

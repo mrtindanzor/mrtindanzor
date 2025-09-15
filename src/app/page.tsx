@@ -8,7 +8,7 @@ import Skills from "./(homepage)/_components/Skills"
 export default function Home() {
   return (
     <main
-      className="overflow-x-hidden bg-slate-950 @container w-screen"
+      className="overflow-x-hidden w-screen @container"
       style={{
         scrollbarWidth: "thin",
       }}

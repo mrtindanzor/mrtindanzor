@@ -131,3 +131,7 @@
     transform: translateX(-50%);
   }
 }
+
+button {
+  @apply cursor-pointer;
+}

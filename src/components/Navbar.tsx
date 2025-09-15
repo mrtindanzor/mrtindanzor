@@ -77,7 +77,7 @@ export default function Navbar() {
         {!active && <AlignRight />}
         {active && <X />}
       </span>
-      <ContactButton className="hidden @2xl:block" />
+      <DesktopContactButton />
       <div className="bg-gradient-to-r from-sky-600 to-cyan-700 via-white absolute top-full inset-x-0 h-0.5"></div>
     </motion.div>
   )
@@ -87,10 +87,6 @@ const links = [
   {
     title: "Home",
     path: "/",
-  },
-  {
-    title: "About",
-    path: "/about",
   },
 ]
 
@@ -131,10 +127,13 @@ function MobileNavLinks({
       exit="exit"
     >
       {links.map((link) => (
-        <NavLink key={link.title} {...link} />
+        <NavLink key={link.title} {...link} onClick={() => setActive(false)} />
       ))}
       <div className="border-1 border-white/5 w-full "></div>
-      <ContactButton className="flex w-full @2xl:hidden" />
+      <ContactButton
+        className="flex w-full @2xl:hidden"
+        onClick={() => setActive(false)}
+      />
     </motion.ul>
   )
 }
@@ -206,5 +205,22 @@ function ContactButton({ ...props }: MotionProps & ComponentProps<"button">) {
         Contact
       </Link>
     </motion.button>
+  )
+}
+
+function DesktopContactButton({
+  ...props
+}: MotionProps & ComponentProps<"button">) {
+  return (
+    <button {...props} className="hidden  @2xl:flex">
+      <Link
+        href="/contact"
+        className={cn(
+          "px-4 py-3 flex rounded-3xl border-2 w-full justify-center border-sky-600 text-sky-600 hover:text-white hover:bg-sky-600 transition-all duration-200 ease-in font-bold uppercase"
+        )}
+      >
+        Contact
+      </Link>
+    </button>
   )
 }

@@ -47,7 +47,7 @@ export default function Hero() {
         <motion.p
           className="text-base flex flex-col"
           initial={{
-            y: -20,
+            y: 20,
             opacity: 0,
           }}
           whileInView={{
@@ -77,7 +77,7 @@ export default function Hero() {
 
       <motion.div
         initial={{
-          x: -60,
+          x: 60,
           opacity: 0,
         }}
         whileInView={{
