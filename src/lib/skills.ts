@@ -1,48 +1,77 @@
-import expressJs from "@/assets/skill-images/expressjs.png"
-import nextJs from "@/assets/skill-images/nextjs.png"
-import reactJs from "@/assets/skill-images/reactjs.jpeg"
-import github from "@/assets/skill-images/github.png"
-import graphql from "@/assets/skill-images/graphql.png"
-import mern from "@/assets/skill-images/mernstack.png"
-import tailwindcss from "@/assets/skill-images/tailwindcss.png"
-import mongoDb from "@/assets/skill-images/mongoDb.png"
-import nodeJs from "@/assets/skill-images/nodeJs.png"
+import { DiMongodb } from "react-icons/di"
+import {
+  SiCss3,
+  SiExpress,
+  SiGit,
+  SiGithub,
+  SiGraphql,
+  SiHtml5,
+  SiJavascript,
+  SiNextdotjs,
+  SiNodedotjs,
+  SiReact,
+  SiTailwindcss,
+} from "react-icons/si"
 
 export const skillJs = [
   {
-    title: "Mongo Db",
-    image: mongoDb,
+    title: "HTML 5",
+    icon: SiHtml5,
+    color: "text-orange-400",
   },
   {
-    title: "Epress JS",
-    image: expressJs,
+    title: "CSS 3",
+    icon: SiCss3,
+    color: "text-sky-700",
   },
   {
-    title: "React JS",
-    image: reactJs,
+    title: "Javascript",
+    icon: SiJavascript,
+    color: "text-yellow-400",
   },
   {
     title: "Node JS",
-    image: nodeJs,
+    icon: SiNodedotjs,
+    color: "text-green-600",
   },
   {
-    title: "MERN Stack",
-    image: mern,
-  },
-  {
-    title: "Next JS",
-    image: nextJs,
+    title: "Epress JS",
+    icon: SiExpress,
+    color: "text-yellow-400",
   },
   {
     title: "QraphQL",
-    image: graphql,
+    icon: SiGraphql,
+    color: "text-[#E10098]",
+  },
+  {
+    title: "Mongo Db",
+    icon: DiMongodb,
+    color: "text-green-600",
+  },
+  {
+    title: "React JS",
+    icon: SiReact,
+    color: "text-sky-400",
+  },
+  {
+    title: "Next JS",
+    icon: SiNextdotjs,
+    color: "text-white",
   },
   {
     title: "Tailwindcss",
-    image: tailwindcss,
+    icon: SiTailwindcss,
+    color: "text-sky-600",
   },
   {
     title: "Github",
-    image: github,
+    icon: SiGithub,
+    color: "text-white",
+  },
+  {
+    title: "Git",
+    icon: SiGit,
+    color: "text-red-400",
   },
 ]
