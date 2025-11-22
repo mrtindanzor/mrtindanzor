@@ -1,8 +1,8 @@
 "use server"
 
+import axios from "axios"
 import { errorR, successR, tryCatch } from "@/lib/utils"
 import type { ContactData } from "@/types/types"
-import axios from "axios"
 
 export const sendMessage = async (payload: ContactData) => {
 	const { name, email, phone, message, honeypot } = payload

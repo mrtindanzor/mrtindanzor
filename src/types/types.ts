@@ -1,9 +1,9 @@
-import type { headingVariants } from "@/components/common/Heading"
-import type { pillVariants } from "@/components/common/Pill"
-import type { typographyVariants } from "@/components/common/Typography"
 import type { VariantProps } from "class-variance-authority"
 import type { LinkProps } from "next/link"
 import type { ComponentProps } from "react"
+import type { headingVariants } from "@/components/common/Heading"
+import type { pillVariants } from "@/components/common/Pill"
+import type { typographyVariants } from "@/components/common/Typography"
 
 export type ContactData = {
 	name: string
