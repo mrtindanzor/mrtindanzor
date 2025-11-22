@@ -1,33 +1,34 @@
 "use client"
-import React, { useEffect, useState } from "react"
+import type React from "react"
+import { useEffect, useState } from "react"
 
 export default function useIntersection<T>({
-  ref,
-  threshold = 0.5,
-  rootMargin = "0px",
+	ref,
+	threshold = 0.5,
+	rootMargin = "0px",
 }: {
-  ref: React.RefObject<T>
-  threshold?: number
-  rootMargin?: string
+	ref: React.RefObject<T>
+	threshold?: number
+	rootMargin?: string
 }) {
-  const [isIntersecting, setIsIntersecting] = useState(false)
+	const [isIntersecting, setIsIntersecting] = useState(false)
 
-  useEffect(() => {
-    const currentRef = ref.current
-    if (!currentRef || !(currentRef instanceof HTMLElement)) return
+	useEffect(() => {
+		const currentRef = ref.current
+		if (!currentRef || !(currentRef instanceof HTMLElement)) return
 
-    const observer = new IntersectionObserver(
-      ([entry]) => setIsIntersecting(entry.isIntersecting),
-      {
-        threshold,
-        rootMargin,
-      }
-    )
+		const observer = new IntersectionObserver(
+			([entry]) => setIsIntersecting(entry.isIntersecting),
+			{
+				threshold,
+				rootMargin,
+			},
+		)
 
-    observer.observe(currentRef)
+		observer.observe(currentRef)
 
-    return () => observer.disconnect()
-  }, [ref, threshold, rootMargin])
+		return () => observer.disconnect()
+	}, [ref, threshold, rootMargin])
 
-  return isIntersecting
+	return isIntersecting
 }

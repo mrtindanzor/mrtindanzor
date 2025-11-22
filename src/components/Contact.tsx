@@ -1,21 +1,21 @@
-"use client"
+"use client";
 
-import { sendMessage } from "@/app/actions/sendMessage"
-import { cn } from "@/lib/utils"
-import { ComponentProps, useCallback, useState } from "react"
-import { useForm } from "react-hook-form"
-import Message from "./Message"
-import { IconType } from "react-icons"
-import { EnvelopeIcon, PhoneIcon, UserIcon } from "@heroicons/react/24/solid"
-import { motion } from "framer-motion"
+import { sendMessage } from "@/app/actions/sendMessage";
+import { cn } from "@/lib/utils";
+import { EnvelopeIcon, PhoneIcon, UserIcon } from "@heroicons/react/24/solid";
+import { motion } from "framer-motion";
+import { type ComponentProps, useCallback, useState } from "react";
+import { useForm } from "react-hook-form";
+import type { IconType } from "react-icons";
+import Message from "./common/Message";
 
 type ContactData = {
-  name: string
-  email: string
-  phone: number
-  message: string
-  honeypot?: string
-}
+  name: string;
+  email: string;
+  phone: number;
+  message: string;
+  honeypot?: string;
+};
 
 const formVariants = {
   hidden: {
@@ -30,7 +30,7 @@ const formVariants = {
       staggerChildren: 0.2,
     },
   },
-}
+};
 
 const formItemVariant = {
   hidden: {
@@ -44,7 +44,7 @@ const formItemVariant = {
       ease: "easeInOut" as const,
     },
   },
-}
+};
 const submitVariant = {
   hidden: {
     opacity: 0,
@@ -55,52 +55,52 @@ const submitVariant = {
       ease: "easeOut" as const,
     },
   },
-}
+};
 
 export default function Contact() {
-  const [success, setSuccess] = useState(false)
+  const [success, setSuccess] = useState(false);
   const {
     register,
     handleSubmit,
     setError,
     reset,
     formState: { errors, isSubmitting },
-  } = useForm<ContactData>()
+  } = useForm<ContactData>();
 
   const handleMessage = useCallback(
     async (payload: ContactData) => {
-      setSuccess(false)
-      const { name, email, phone, message, honeypot } = payload
+      setSuccess(false);
+      const { name, email, phone, message, honeypot } = payload;
 
       if (honeypot)
         return setError("root", {
           message: "Message could not be sent at the moment, try again later.",
-        })
+        });
 
-      if (!name) return setError("name", { message: "Please add your name" })
+      if (!name) return setError("name", { message: "Please add your name" });
 
       if (!email && !phone) {
-        setError("email", { message: "Please add an email address" })
-        setError("phone", { message: "Please add a phone number" })
-        return
+        setError("email", { message: "Please add an email address" });
+        setError("phone", { message: "Please add a phone number" });
+        return;
       }
 
       if (phone && String(phone).length < 9)
-        return setError("phone", { message: "Enter a vaild phone number" })
+        return setError("phone", { message: "Enter a vaild phone number" });
 
       if (!message || message.length < 10)
-        return setError("message", { message: "Enter a valid message" })
+        return setError("message", { message: "Enter a valid message" });
 
-      const res = await sendMessage(payload)
+      const res = await sendMessage(payload);
       if (res.status === 201) {
-        setSuccess(true)
-        reset()
-        window.scrollTo({ top: 0, behavior: "smooth" })
+        setSuccess(true);
+        reset();
+        window.scrollTo({ top: 0, behavior: "smooth" });
       }
-      setError("root", { message: res.message })
+      setError("root", { message: res.message });
     },
     [setError, reset]
-  )
+  );
 
   return (
     <motion.section
@@ -176,7 +176,7 @@ export default function Contact() {
         </motion.button>
       </form>
     </motion.section>
-  )
+  );
 }
 
 function TextField({
@@ -206,7 +206,7 @@ function TextField({
       </div>
       {children}
     </motion.div>
-  )
+  );
 }
 
 function TextArea({
@@ -230,5 +230,5 @@ function TextArea({
       />
       {children}
     </motion.div>
-  )
+  );
 }

@@ -1,39 +1,41 @@
-import type { Metadata } from "next"
-import { Geist, Geist_Mono } from "next/font/google"
-import "./globals.css"
-import Navbar from "@/components/Navbar"
+import Footer from "@/components/Layout/Footer";
+import { cn } from "@/lib/utils";
+import BaseProvider from "@/Providers/BaseProvider";
+import type { Metadata } from "next";
+import { Stack_Sans_Headline } from "next/font/google";
+import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const sansHeadline = Stack_Sans_Headline({
   subsets: ["latin"],
-})
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-})
+});
 
 export const metadata: Metadata = {
   title: "Mr. Tindanzor Simon",
   description: "Mr. Tindanzor Simon - Portfolio",
-}
+};
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode
+  children: React.ReactNode;
 }>) {
   return (
     <html lang="en">
+      <head>
+        <meta name="apple-mobile-web-app-title" content="Mr. Tindanzor" />
+      </head>
       <body
         style={{
           scrollbarWidth: "thin",
         }}
-        className={`${geistSans.variable} ${geistMono.variable} @container bg-slate-950 antialiased`}
+        className={cn(
+          "bg-slate-950 text-gray-300 min-h-screen tracking-wide antialiased",
+          sansHeadline.className
+        )}
       >
-        <Navbar />
-        {children}
+        <BaseProvider>{children}</BaseProvider>
+        <Footer />
       </body>
     </html>
-  )
+  );
 }

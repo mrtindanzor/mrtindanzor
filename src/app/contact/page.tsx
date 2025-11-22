@@ -1,5 +1,5 @@
-import Contact from "@/components/Contact"
-import Contactlinks from "@/components/ContactLinks"
+import Contact from "@/components/Contact";
+import Contactlinks from "@/components/ContactLinks";
 
 export default function ContactPage() {
   return (
@@ -10,5 +10,5 @@ export default function ContactPage() {
       <Contactlinks />
       <Contact />
     </main>
-  )
+  );
 }
