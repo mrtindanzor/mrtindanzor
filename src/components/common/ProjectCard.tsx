@@ -23,7 +23,8 @@ export function ProjectCard({
         />
         <div className="grid grid-cols-[1fr_auto] mt-2 pr-4 items-center gap-4">
           <Heading
-            tag="h6"
+            tag="h4"
+            size="sm"
             className="group-hover:from-green-600 group-hover:to-green-600"
             weight="bold"
           >
@@ -33,14 +34,17 @@ export function ProjectCard({
           <ArrowLink
             href={link}
             target="_blank"
-            className="bg-white text-slate-800 size-10 *:size-10 md:hidden!"
+            className="bg-white cursor-pointer text-slate-800 size-10 *:size-10 sm:hidden!"
           />
         </div>
         <Typography tag="p" className="text-gray-400">
           {description}
         </Typography>
 
-        <ul className="flex flex-wrap gap-x-2 gap-y-4 px-4">
+        <ul
+          className="flex flex-wrap gap-x-2 gap-y-4 px-4"
+          aria-label="Framework, libraries and toolings used"
+        >
           {tags.map((tag) => (
             <li key={tag}>
               <Pill>{tag}</Pill>

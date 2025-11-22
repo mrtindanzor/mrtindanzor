@@ -1,9 +1,10 @@
-import type { VariantProps } from "class-variance-authority"
-import type { LinkProps } from "next/link"
-import type { ComponentProps } from "react"
+import type { styleArrowButtonVariants } from "@/components/common/ArrowLink"
 import type { headingVariants } from "@/components/common/Heading"
 import type { pillVariants } from "@/components/common/Pill"
 import type { typographyVariants } from "@/components/common/Typography"
+import type { VariantProps } from "class-variance-authority"
+import type { LinkProps } from "next/link"
+import type { ComponentProps } from "react"
 
 export type ContactData = {
 	name: string
@@ -45,3 +46,14 @@ export type PillProps = TypographyProps & {
 
 export type ArrowLinkProps = LinkProps & ComponentProps<"a">
 export type FollowLinkProps = ArrowLinkProps
+
+type StyledArrowVariantsType = NonNullable<
+	VariantProps<typeof styleArrowButtonVariants>["variant"]
+>
+type StyledArrowAnimationsType = NonNullable<
+	VariantProps<typeof styleArrowButtonVariants>["animation"]
+>
+export type StyledArrowProps = ArrowLinkProps & {
+	variant?: StyledArrowVariantsType
+	animation?: StyledArrowAnimationsType
+}

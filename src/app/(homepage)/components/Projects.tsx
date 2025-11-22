@@ -1,4 +1,4 @@
-import { ArrowLink } from "@/components/common/ArrowLink";
+import { StyledArrowButton } from "@/components/common/ArrowLink";
 import { Heading } from "@/components/common/Heading";
 import { ProjectCard } from "@/components/common/ProjectCard";
 import { Section } from "@/components/common/Section";
@@ -6,26 +6,23 @@ import { projects } from "@/lib/db";
 
 export function FeatureProjects() {
   return (
-    <div className="">
+    <div className="bg-linear-to-b from-slate-900 via-zinc-700 to-slate-950">
       <Section className="">
-        <Heading tag="h3" size="lg" className="bg-linear-to-br">
+        <Heading tag="h2" size="md" className="bg-linear-to-br">
           Featured projects
         </Heading>
 
         <div className="@container">
-          <ul className="grid grid-cols-1 @sm:grid-cols-[repeat(auto-fill,minmax(24rem,1fr))] gap-x-4 md:gap-x-6 gap-y-10">
-            {projects.map((project) => (
+          <ul className="grid grid-cols-1 sm:grid-cols-[repeat(auto-fill,minmax(24rem,1fr))] gap-x-4 md:gap-x-6 gap-y-10">
+            {projects.slice(0, 3).map((project) => (
               <ProjectCard key={project.title} {...project} />
             ))}
           </ul>
         </div>
 
-        <ArrowLink
-          href="/projects"
-          className="gap-4 border-2 w-fit py-2.5 mx-auto px-8 rounded-3xl *:first:size-5 bg-white text-gray-800"
-        >
+        <StyledArrowButton href="/projects" className="mx-auto" variant="black">
           View More
-        </ArrowLink>
+        </StyledArrowButton>
       </Section>
     </div>
   );

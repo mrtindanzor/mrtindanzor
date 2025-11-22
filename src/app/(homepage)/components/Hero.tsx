@@ -17,10 +17,10 @@ export function HeroSection() {
           My name is Simon Tindanzor,
           <Typography className="text-2xl">and I am a</Typography>
         </Typography>
-        <Heading className="mx-auto" size="md" weight="black">
+        <Heading className="mx-auto" size="huge" weight="black">
           Full-Stack Web Developer
           <br />
-          <Typography size="lg"> &</Typography>
+          <Typography size="lg"> & </Typography>
           Devops Engineer
         </Heading>
         <MImage
@@ -37,7 +37,7 @@ export function HeroSection() {
 
 function Scribbled() {
   return (
-    <ul className="absolute inset-0 top-0 size-full -z-1 group-hover:z-2 flex justify-center flex-wrap gap-4">
+    <ul className="absolute inset-0 top-0 size-full -z-1 group-hover:z-2 flex justify-around flex-wrap gap-4">
       {skillJs.map((skill) => (
         <SkillCard key={skill.title} {...skill} />
       ))}
