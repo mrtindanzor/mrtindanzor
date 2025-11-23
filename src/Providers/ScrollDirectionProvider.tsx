@@ -10,6 +10,7 @@ import {
 	useState,
 } from "react"
 import { Button } from "@/components/common/Button"
+import { Typography } from "@/components/common/Typography"
 import { cn } from "@/lib/utils"
 
 type ScrollDirection = {
@@ -35,10 +36,12 @@ export default function GoToTop() {
 					onClick={() => {
 						window.scrollTo({ top: 0, behavior: "smooth" })
 					}}
-					className="link pointer-events-auto  p-2 gap-2 rounded-md flex flex-col items-center"
+					className="link pointer-events-auto bg-slate-950/50 backdrop-blur-md hover:bg-slate-950/60  px-0 py-4 gap-2 rounded-3xl flex flex-col items-center"
 				>
 					<MoveUp className="size-8" />
-					<span className="text-sm  drop-shadow-2xl">Go To Top</span>
+					<Typography size="sm" className="text-white">
+						Go To Top
+					</Typography>
 				</Button>
 			</div>
 		</Activity>

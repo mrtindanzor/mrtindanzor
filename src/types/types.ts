@@ -1,10 +1,11 @@
+import type { VariantProps } from "class-variance-authority"
+import type { LinkProps } from "next/link"
+import type { ComponentProps } from "react"
+import type { IconType } from "react-icons"
 import type { styleArrowButtonVariants } from "@/components/common/ArrowLink"
 import type { headingVariants } from "@/components/common/Heading"
 import type { pillVariants } from "@/components/common/Pill"
 import type { typographyVariants } from "@/components/common/Typography"
-import type { VariantProps } from "class-variance-authority"
-import type { LinkProps } from "next/link"
-import type { ComponentProps } from "react"
 
 export type ContactData = {
 	name: string
@@ -56,4 +57,35 @@ type StyledArrowAnimationsType = NonNullable<
 export type StyledArrowProps = ArrowLinkProps & {
 	variant?: StyledArrowVariantsType
 	animation?: StyledArrowAnimationsType
+}
+
+export type ProfessionalJourneyCardProps = ComponentProps<"div"> & {
+	cardId: number
+	organization: string
+	role: string
+	period: {
+		start: number | string
+		end: number | string
+	}
+	achievements: string[]
+}
+
+export type ProfessionalJourneyCardHeaderProps = ComponentProps<"header"> &
+	Pick<ProfessionalJourneyCardProps, "organization" | "role" | "period">
+
+export type ProfessionalJourneyCardContentProps = ComponentProps<"ul"> &
+	Pick<ProfessionalJourneyCardProps, "achievements">
+
+export type SkillCardType = {
+	title: string
+	icon: IconType
+	color: string
+	description: string
+}
+
+export type SkillCardProps = ComponentProps<"div"> & SkillCardType
+
+export type SkillsContainerCardProps = ComponentProps<"section"> & {
+	category: string
+	items: SkillCardType[]
 }

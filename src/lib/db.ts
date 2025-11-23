@@ -1,3 +1,4 @@
+import { BiLogoVisualStudio } from "react-icons/bi"
 import { DiMongodb } from "react-icons/di"
 import {
 	SiCss3,
@@ -10,87 +11,184 @@ import {
 	SiJavascript,
 	SiNextdotjs,
 	SiNodedotjs,
+	SiNpm,
+	SiPnpm,
+	SiPostman,
 	SiReact,
+	SiRedis,
 	SiSocketdotio,
 	SiTailwindcss,
 	SiTypescript,
 } from "react-icons/si"
 
-export const skillJs = [
+export const skillsJs = [
 	{
-		title: "Type Script",
-		icon: SiTypescript,
-		color: "text-sky-600",
+		category: "Frontend",
+		items: [
+			{
+				title: "React JS",
+				icon: SiReact,
+				color: "text-sky-400",
+				description:
+					"A JavaScript library for building interactive and dynamic user interfaces.",
+			},
+			{
+				title: "Next JS",
+				icon: SiNextdotjs,
+				color: "text-white",
+				description:
+					"A React framework for server-side rendering and static site generation.",
+			},
+			{
+				title: "Tailwind CSS",
+				icon: SiTailwindcss,
+				color: "text-sky-600",
+				description:
+					"A utility-first CSS framework for rapid, responsive UI development.",
+			},
+			{
+				title: "CSS3",
+				icon: SiCss3,
+				color: "text-sky-700",
+				description:
+					"Standard styling language for creating visually appealing web pages.",
+			},
+			{
+				title: "HTML5",
+				icon: SiHtml5,
+				color: "text-orange-400",
+				description: "The core markup language for structuring web content.",
+			},
+			{
+				title: "JavaScript",
+				icon: SiJavascript,
+				color: "text-yellow-400",
+				description:
+					"The core language of the web for interactive and dynamic web functionality.",
+			},
+			{
+				title: "TypeScript",
+				icon: SiTypescript,
+				color: "text-sky-600",
+				description:
+					"A typed superset of JavaScript that improves code quality and scalability.",
+			},
+		],
 	},
 	{
-		title: "Docker",
-		icon: SiDocker,
-		color: "text-white",
+		category: "Backend",
+		items: [
+			{
+				title: "Node JS",
+				icon: SiNodedotjs,
+				color: "text-green-600",
+				description:
+					"JavaScript runtime for building scalable server-side applications.",
+			},
+			{
+				title: "Express JS",
+				icon: SiExpress,
+				color: "text-yellow-400",
+				description:
+					"A minimal and flexible Node.js web application framework.",
+			},
+			{
+				title: "GraphQL",
+				icon: SiGraphql,
+				color: "text-[#E10098]",
+				description:
+					"A query language for APIs that enables precise data fetching.",
+			},
+			{
+				title: "WebSocket",
+				icon: SiSocketdotio,
+				color: "text-yellow-400",
+				description:
+					"Enables real-time, bidirectional communication between client and server.",
+			},
+		],
 	},
 	{
-		title: "Next JS",
-		icon: SiNextdotjs,
-		color: "text-white",
+		category: "Databases",
+		items: [
+			{
+				title: "MongoDB",
+				icon: DiMongodb,
+				color: "text-green-600",
+				description:
+					"A NoSQL database for storing and querying JSON-like documents.",
+			},
+			{
+				title: "Redis",
+				icon: SiRedis,
+				color: "text-red-600",
+				description:
+					"In-memory key-value store for caching and fast data retrieval.",
+			},
+		],
 	},
 	{
-		title: "WebSocket",
-		icon: SiSocketdotio,
-		color: "text-yellow-400",
+		category: "DevOps & Deployment",
+		items: [
+			{
+				title: "Docker",
+				icon: SiDocker,
+				color: "text-white",
+				description:
+					"Containerization platform for deploying applications consistently across environments.",
+			},
+			{
+				title: "NPM",
+				icon: SiNpm,
+				color: "text-red-600",
+				description:
+					"Node package manager for managing dependencies and scripts.",
+			},
+			{
+				title: "PNPM",
+				icon: SiPnpm,
+				color: "text-blue-600",
+				description:
+					"Alternative package manager for efficient dependency management.",
+			},
+		],
 	},
 	{
-		title: "Epress JS",
-		icon: SiExpress,
-		color: "text-yellow-400",
+		category: "Version Control",
+		items: [
+			{
+				title: "Git",
+				icon: SiGit,
+				color: "text-red-400",
+				description:
+					"Distributed version control system to track changes in code.",
+			},
+			{
+				title: "GitHub",
+				icon: SiGithub,
+				color: "text-white",
+				description:
+					"Platform for hosting Git repositories and collaborating with developers.",
+			},
+		],
 	},
 	{
-		title: "Mongo Db",
-		icon: DiMongodb,
-		color: "text-green-600",
-	},
-	{
-		title: "QraphQL",
-		icon: SiGraphql,
-		color: "text-[#E10098]",
-	},
-	{
-		title: "Node JS",
-		icon: SiNodedotjs,
-		color: "text-green-600",
-	},
-	{
-		title: "CSS 3",
-		icon: SiCss3,
-		color: "text-sky-700",
-	},
-	{
-		title: "React JS",
-		icon: SiReact,
-		color: "text-sky-400",
-	},
-	{
-		title: "Tailwindcss",
-		icon: SiTailwindcss,
-		color: "text-sky-600",
-	},
-	{
-		title: "Github",
-		icon: SiGithub,
-		color: "text-white",
-	},
-	{
-		title: "Javascript",
-		icon: SiJavascript,
-		color: "text-yellow-400",
-	},
-	{
-		title: "HTML 5",
-		icon: SiHtml5,
-		color: "text-orange-400",
-	},
-	{
-		title: "Git",
-		icon: SiGit,
-		color: "text-red-400",
+		category: "Other Tools",
+		items: [
+			{
+				title: "Postman",
+				icon: SiPostman,
+				color: "text-orange-500",
+				description: "Tool for testing APIs and automating API workflows.",
+			},
+			{
+				title: "VS Code",
+				icon: BiLogoVisualStudio,
+				color: "text-blue-500",
+				description:
+					"A powerful and popular code editor for all programming needs.",
+			},
+		],
 	},
 ]
 
@@ -135,5 +233,47 @@ export const projects = [
 			"Framer Motion",
 		],
 		link: "https://successfieldcollege.com",
+	},
+]
+
+export const professionalJourneyTimeline = [
+	{
+		cardId: 1,
+		organization: "Successfield College",
+		role: "Full-Stack Web Developer",
+		period: {
+			start: 2024,
+			end: "Present",
+		},
+		achievements: [
+			"Developed responsive web applications with React, Next.js, and Tailwind CSS.",
+			"Built and maintained backend services using Express and MongoDB.",
+			"Implemented GraphQL APIs for efficient and flexible data retrieval.",
+			"Optimized app performance, improving load times and user experience.",
+			"Integrated authentication and authorization workflows for secure access.",
+			"Collaborated with cross-functional teams to deliver high-quality features.",
+			"Streamlined development processes through modular code and reusable components.",
+			"Performed regular testing and debugging to ensure stable and reliable applications.",
+		],
+	},
+	{
+		cardId: 2,
+		organization: "Myghmart",
+		role: "Full-Stack & DevOps Engineer",
+		period: {
+			start: 2025,
+			end: "Present",
+		},
+		achievements: [
+			"Designed and deployed scalable web applications using Docker containers.",
+			"Automated CI/CD pipelines to streamline deployments and reduce downtime.",
+			"Implemented Redis caching to significantly improve app performance.",
+			"Developed full-stack solutions using React, Next.js, Tailwind CSS, Express, GraphQL, and TypeScript.",
+			"Monitored and maintained server infrastructure for high availability and reliability.",
+			"Optimized database queries and structure for faster data retrieval.",
+			"Ensured security best practices across applications and deployment environments.",
+			"Collaborated with teams to design user-centric solutions and intuitive interfaces.",
+			"Troubleshot complex issues in production and development environments efficiently.",
+		],
 	},
 ]
