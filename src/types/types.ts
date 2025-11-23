@@ -7,14 +7,6 @@ import type { LinkProps } from "next/link"
 import type { ComponentProps } from "react"
 import type { IconType } from "react-icons"
 
-export type ContactData = {
-	name: string
-	email: string
-	phone: number
-	message: string
-	honeypot?: string
-}
-
 type HeadingSizeType = NonNullable<VariantProps<typeof headingVariants>["size"]>
 export type HeadingProps = {
 	tag?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6"
@@ -91,4 +83,24 @@ export type SkillCardProps = ComponentProps<"div"> & SkillCardType
 export type SkillsContainerCardProps = ComponentProps<"section"> & {
 	category: string
 	items: SkillCardType[]
+}
+
+export type TextAreaProps = { title: string } & ComponentProps<"textarea">
+export type TextFieldProps = {
+	title: string
+	icon: IconType
+} & ComponentProps<"input">
+
+export type SocailMediaCardProps = ComponentProps<"div"> & {
+	title: string
+	link: string
+	icon: IconType
+	color: string
+}
+
+export type ContactData = {
+	name: string
+	contact: string | number
+	message: string
+	honeypot?: string
 }

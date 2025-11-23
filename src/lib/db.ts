@@ -1,13 +1,16 @@
 import { BiLogoVisualStudio } from "react-icons/bi"
 import { DiMongodb } from "react-icons/di"
+import { FaTiktok } from "react-icons/fa"
 import {
 	SiCss3,
 	SiDocker,
 	SiExpress,
+	SiFacebook,
 	SiGit,
 	SiGithub,
 	SiGraphql,
 	SiHtml5,
+	SiInstagram,
 	SiJavascript,
 	SiNextdotjs,
 	SiNodedotjs,
@@ -19,6 +22,7 @@ import {
 	SiSocketdotio,
 	SiTailwindcss,
 	SiTypescript,
+	SiWhatsapp,
 } from "react-icons/si"
 
 export const skillsJs = [
@@ -190,7 +194,7 @@ export const skillsJs = [
 			},
 		],
 	},
-]
+] as const
 
 export const projects = [
 	{
@@ -234,7 +238,7 @@ export const projects = [
 		],
 		link: "https://successfieldcollege.com",
 	},
-]
+] as const
 
 export const professionalJourneyTimeline = [
 	{
@@ -276,7 +280,34 @@ export const professionalJourneyTimeline = [
 			"Troubleshot complex issues in production and development environments efficiently.",
 		],
 	},
-]
+] as const
+
+export const socialMediaLinks = [
+	{
+		title: "Whatsapp",
+		link: "https://wa.me/+233546087679",
+		color: "text-green-600",
+		icon: SiWhatsapp,
+	},
+	{
+		title: "Instagram",
+		link: "https://www.instagram.com/mrtindanzor",
+		color: "text-red-600",
+		icon: SiInstagram,
+	},
+	{
+		title: "Tiktok",
+		link: "http://www.tiktok.com/@mrtindanzor",
+		color: "text-black",
+		icon: FaTiktok,
+	},
+	{
+		title: "Facebook",
+		link: "https://web.facebook.com/tindanzorsimon",
+		color: "text-sky-600",
+		icon: SiFacebook,
+	},
+] as const
 
 export const resumeLink =
 	"https://drive.google.com/file/d/1xyDC-rJoePiiBxt-UnqPe8IWkhzYwzSn/view?usp=drive_link"

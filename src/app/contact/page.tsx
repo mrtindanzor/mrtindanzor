@@ -1,14 +1,20 @@
-import Contact from "@/components/Contact"
-import Contactlinks from "@/components/ContactLinks"
+import Contact from "@/app/contact/_Components/Contact";
+import Contactlinks from "@/app/contact/_Components/ContactLinks";
+import { Heading } from "@/components/common/Heading";
+import { Section } from "@/components/common/Section";
 
 export default function ContactPage() {
-	return (
-		<main className="grid lg:grid-cols-[1fr_2fr] lg:grid-rows-[auto_1fr] gap-y-4 lg:gap-x-4 lg:gap-y-10 py-25 lg*:not-first:row-start-2 max-w-5xl mx-auto">
-			<h2 className="text-whte text-4xl text-sky-600 px-3 sm:px-5 font-sans font-bold  col-span-full">
-				Get in touch with me!
-			</h2>
-			<Contactlinks />
-			<Contact />
-		</main>
-	)
+  return (
+    <main className="min-h-screen">
+      <Section className="lg:grid-cols-[1fr_2fr] w-full max-w-xl lg:max-w-6xl">
+        <div className="col-start-1">
+          <Heading tag="h2" size="lg" className="col-span-full px-0">
+            Get in touch with me!
+          </Heading>
+          <Contactlinks />
+        </div>
+        <Contact className="lg:col-start-2" />
+      </Section>
+    </main>
+  );
 }

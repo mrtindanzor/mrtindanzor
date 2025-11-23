@@ -1,18 +1,15 @@
 "use server"
 
-import axios from "axios"
 import { errorR, successR, tryCatch } from "@/lib/utils"
 import type { ContactData } from "@/types/types"
+import axios from "axios"
 
 export const sendMessage = async (payload: ContactData) => {
-	const { name, email, phone, message, honeypot } = payload
+	const { name, contact, message, honeypot } = payload
 	if (honeypot)
 		return errorR("Message could not be sent at the moment, try again later.")
 	if (!name) return errorR("Please add your name")
-	if (!email && !phone) return errorR("Please an email address or phone number")
-
-	if (phone && String(phone).length < 9)
-		return errorR("Enter a vaild phone number")
+	if (!contact) return errorR("Please an email address or phone number")
 
 	if (!message || message.length < 10) return errorR("Enter a valid message")
 
@@ -52,8 +49,7 @@ async function SendToTelegram(message: string) {
 function formatMessage({
 	message,
 	name,
-	phone,
-	email,
+	contact,
 }: Omit<ContactData, "honeypot">) {
 	return `
 
@@ -69,8 +65,7 @@ Hi Mr. Tindanzor,
  ${message}
 
  His/her contact details are as follows 
- ${phone ? String(phone).padStart(10, "0") : ""} 
- ${email ? `Email ${email}` : ""}
+ ${contact}
 
  Bye.
   `

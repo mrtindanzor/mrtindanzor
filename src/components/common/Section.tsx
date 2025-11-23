@@ -1,11 +1,16 @@
-import type { ComponentProps } from "react"
-import { cn } from "@/lib/utils"
+"use client";
+import { cn } from "@/lib/utils";
+import { type MotionProps, motion } from "framer-motion";
+import type { ComponentProps } from "react";
 
-export function Section({ className, ...props }: ComponentProps<"section">) {
-	return (
-		<section
-			{...props}
-			className={cn("grid h-fit gap-4 py-10 px-4 mx-auto max-w-6xl", className)}
-		/>
-	)
+export function Section({
+  className,
+  ...props
+}: MotionProps & ComponentProps<"section">) {
+  return (
+    <motion.section
+      {...props}
+      className={cn("grid h-fit gap-4 py-10 px-4 mx-auto max-w-6xl", className)}
+    />
+  );
 }

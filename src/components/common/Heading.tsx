@@ -44,9 +44,10 @@ export const headingVariants = cva("tracking-tight px-4 w-fit h-fit", {
     },
     size: {
       huge: "text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl",
-      lg: "text-4xl lg:text-5xl xl:text-6xl 3xl:text-7xl",
-      md: "text-3xl lg:text-4xl xl:text-5xl 3xl:text-6xl",
-      sm: "text-2xl lg:text-3xl xl:text-4xl 3xl:text-5xl",
+      lg: "text-3xl lg:text-4xl",
+      md: "text-2xl lg:text-3xl",
+      sm: "text-xl lg:text-2xl",
+      xs: "text-lg lg:text-xl",
       none: "",
     },
   },
