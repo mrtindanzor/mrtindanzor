@@ -277,3 +277,6 @@ export const professionalJourneyTimeline = [
 		],
 	},
 ]
+
+export const resumeLink =
+	"https://drive.google.com/file/d/1xyDC-rJoePiiBxt-UnqPe8IWkhzYwzSn/view?usp=drive_link"

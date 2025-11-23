@@ -127,6 +127,9 @@
 	.flex-place-center {
 		@apply flex justify-center items-center;
 	}
+	.link {
+		@apply before:absolute before:inset-0 before:z-1;
+	}
 }
 
 @layer components {

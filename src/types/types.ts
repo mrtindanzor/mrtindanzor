@@ -1,11 +1,11 @@
+import type { headingVariants } from "@/components/common/Heading"
+import type { StyledIconLinkVariants } from "@/components/common/IconLink"
+import type { pillVariants } from "@/components/common/Pill"
+import type { typographyVariants } from "@/components/common/Typography"
 import type { VariantProps } from "class-variance-authority"
 import type { LinkProps } from "next/link"
 import type { ComponentProps } from "react"
 import type { IconType } from "react-icons"
-import type { styleArrowButtonVariants } from "@/components/common/ArrowLink"
-import type { headingVariants } from "@/components/common/Heading"
-import type { pillVariants } from "@/components/common/Pill"
-import type { typographyVariants } from "@/components/common/Typography"
 
 export type ContactData = {
 	name: string
@@ -45,18 +45,21 @@ export type PillProps = TypographyProps & {
 	variant?: PillVariantTypes
 }
 
-export type ArrowLinkProps = LinkProps & ComponentProps<"a">
-export type FollowLinkProps = ArrowLinkProps
+export type IconLinkProps = LinkProps &
+	ComponentProps<"a"> & {
+		icon: IconType
+		iconClassName?: string
+	}
 
-type StyledArrowVariantsType = NonNullable<
-	VariantProps<typeof styleArrowButtonVariants>["variant"]
+type StyledIconLinkType = NonNullable<
+	VariantProps<typeof StyledIconLinkVariants>["variant"]
 >
-type StyledArrowAnimationsType = NonNullable<
-	VariantProps<typeof styleArrowButtonVariants>["animation"]
+type StyledIconLinkAnimationType = NonNullable<
+	VariantProps<typeof StyledIconLinkVariants>["animation"]
 >
-export type StyledArrowProps = ArrowLinkProps & {
-	variant?: StyledArrowVariantsType
-	animation?: StyledArrowAnimationsType
+export type StyledIconLinkProps = IconLinkProps & {
+	variant?: StyledIconLinkType
+	animation?: StyledIconLinkAnimationType
 }
 
 export type ProfessionalJourneyCardProps = ComponentProps<"div"> & {
