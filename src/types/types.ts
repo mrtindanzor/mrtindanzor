@@ -1,11 +1,12 @@
+import type { VariantProps } from "class-variance-authority"
+import type { MotionProps } from "framer-motion"
+import type { LinkProps } from "next/link"
+import type { ComponentProps } from "react"
+import type { IconType } from "react-icons"
 import type { headingVariants } from "@/components/common/Heading"
 import type { StyledIconLinkVariants } from "@/components/common/IconLink"
 import type { pillVariants } from "@/components/common/Pill"
 import type { typographyVariants } from "@/components/common/Typography"
-import type { VariantProps } from "class-variance-authority"
-import type { LinkProps } from "next/link"
-import type { ComponentProps } from "react"
-import type { IconType } from "react-icons"
 
 type HeadingSizeType = NonNullable<VariantProps<typeof headingVariants>["size"]>
 export type HeadingProps = {
@@ -80,10 +81,11 @@ export type SkillCardType = {
 
 export type SkillCardProps = ComponentProps<"div"> & SkillCardType
 
-export type SkillsContainerCardProps = ComponentProps<"section"> & {
-	category: string
-	items: SkillCardType[]
-}
+export type SkillsContainerCardProps = MotionProps &
+	ComponentProps<"section"> & {
+		category: string
+		items: SkillCardType[]
+	}
 
 export type TextAreaProps = { title: string } & ComponentProps<"textarea">
 export type TextFieldProps = {

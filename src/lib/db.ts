@@ -194,7 +194,7 @@ export const skillsJs = [
 			},
 		],
 	},
-] as const
+]
 
 export const projects = [
 	{
@@ -238,7 +238,7 @@ export const projects = [
 		],
 		link: "https://successfieldcollege.com",
 	},
-] as const
+]
 
 export const professionalJourneyTimeline = [
 	{
@@ -280,7 +280,7 @@ export const professionalJourneyTimeline = [
 			"Troubleshot complex issues in production and development environments efficiently.",
 		],
 	},
-] as const
+]
 
 export const socialMediaLinks = [
 	{
@@ -307,7 +307,7 @@ export const socialMediaLinks = [
 		color: "text-sky-600",
 		icon: SiFacebook,
 	},
-] as const
+]
 
 export const resumeLink =
 	"https://drive.google.com/file/d/1xyDC-rJoePiiBxt-UnqPe8IWkhzYwzSn/view?usp=drive_link"
