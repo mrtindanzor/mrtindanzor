@@ -26,15 +26,7 @@ export default function RootLayout({
         <meta name="apple-mobile-web-app-title" content="Mr. Tindanzor" />
       </head>
 
-      <body
-        style={{
-          scrollbarWidth: "thin",
-        }}
-        className={cn(
-          "overflow-y-auto bg-slate-950 overflow-x-hidden text-gray-300 tracking-wide antialiased",
-          jura.className
-        )}
-      >
+      <body className={cn(jura.className)}>
         <BaseProvider>{children}</BaseProvider>
         <Footer />
       </body>

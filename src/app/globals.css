@@ -120,7 +120,7 @@
 		scrollbar-width: thin;
 	}
 	body {
-		@apply bg-background text-foreground overflow-x-hidden;
+		@apply overflow-x-hidden h-full p-0 bg-slate-950 text-gray-300 tracking-wide;
 	}
 }
 
