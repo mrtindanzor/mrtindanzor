@@ -1,19 +1,19 @@
-"use client";
+"use client"
 
-import RouteAnimation from "@/components/common/RouteAnimation";
-import Navbar from "@/components/Layout/Navbar";
-import { ScrollDirectionProvider } from "./ScrollDirectionProvider";
+import RouteAnimation from "@/components/common/RouteAnimation"
+import Navbar from "@/components/Layout/Navbar"
+import { ScrollDirectionProvider } from "./ScrollDirectionProvider"
 
 export default function BaseProvider({
-  children,
+	children,
 }: {
-  children: React.ReactNode;
+	children: React.ReactNode
 }) {
-  return (
-    <ScrollDirectionProvider>
-      <Navbar />
+	return (
+		<ScrollDirectionProvider>
+			<Navbar />
 
-      <RouteAnimation>{children}</RouteAnimation>
-    </ScrollDirectionProvider>
-  );
+			<RouteAnimation>{children}</RouteAnimation>
+		</ScrollDirectionProvider>
+	)
 }

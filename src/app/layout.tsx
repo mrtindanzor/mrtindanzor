@@ -1,43 +1,43 @@
-import Footer from "@/components/Layout/Footer";
-import { cn } from "@/lib/utils";
-import BaseProvider from "@/Providers/BaseProvider";
-import type { Metadata } from "next";
-import { Jura } from "next/font/google";
-import "./globals.css";
+import type { Metadata } from "next"
+import { Jura } from "next/font/google"
+import Footer from "@/components/Layout/Footer"
+import { cn } from "@/lib/utils"
+import BaseProvider from "@/Providers/BaseProvider"
+import "./globals.css"
 
 const jura = Jura({
-  subsets: ["latin"],
-  weight: "400",
-});
+	subsets: ["latin"],
+	weight: "400",
+})
 
 export const metadata: Metadata = {
-  title: "Mr. Tindanzor Simon",
-  description: "Mr. Tindanzor Simon - Portfolio",
-};
+	title: "Mr. Tindanzor Simon",
+	description: "Mr. Tindanzor Simon - Portfolio",
+}
 
 export default function RootLayout({
-  children,
+	children,
 }: Readonly<{
-  children: React.ReactNode;
+	children: React.ReactNode
 }>) {
-  return (
-    <html lang="en">
-      <head>
-        <meta name="apple-mobile-web-app-title" content="Mr. Tindanzor" />
-      </head>
+	return (
+		<html lang="en">
+			<head>
+				<meta name="apple-mobile-web-app-title" content="Mr. Tindanzor" />
+			</head>
 
-      <body
-        style={{
-          scrollbarWidth: "thin",
-        }}
-        className={cn(
-          "bg-slate-950 text-gray-300 min-h-screen tracking-wide antialiased",
-          jura.className
-        )}
-      >
-        <BaseProvider>{children}</BaseProvider>
-        <Footer />
-      </body>
-    </html>
-  );
+			<body
+				style={{
+					scrollbarWidth: "thin",
+				}}
+				className={cn(
+					"bg-slate-950 text-gray-300 tracking-wide antialiased",
+					jura.className,
+				)}
+			>
+				<BaseProvider>{children}</BaseProvider>
+				<Footer />
+			</body>
+		</html>
+	)
 }
