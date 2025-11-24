@@ -12,6 +12,7 @@ import {
 	SiHtml5,
 	SiInstagram,
 	SiJavascript,
+	SiLinkedin,
 	SiNextdotjs,
 	SiNodedotjs,
 	SiNpm,
@@ -284,6 +285,18 @@ export const professionalJourneyTimeline = [
 
 export const socialMediaLinks = [
 	{
+		title: "Github",
+		link: "https://github.com/mrtindanzor",
+		color: "text-green-600",
+		icon: SiGithub,
+	},
+	{
+		title: "LinkedIn",
+		link: "www.linkedin.com/in/mrtindanzor",
+		color: "text-blue-600",
+		icon: SiLinkedin,
+	},
+	{
 		title: "Whatsapp",
 		link: "https://wa.me/+233546087679",
 		color: "text-green-600",
@@ -303,7 +316,7 @@ export const socialMediaLinks = [
 	},
 	{
 		title: "Facebook",
-		link: "https://web.facebook.com/tindanzorsimon",
+		link: "https://web.facebook.com/mrtindanzor",
 		color: "text-sky-600",
 		icon: SiFacebook,
 	},

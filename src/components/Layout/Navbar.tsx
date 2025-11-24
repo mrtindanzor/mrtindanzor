@@ -153,7 +153,7 @@ function MobileNavLinks({
         {links.map((link) => (
           <NavLink
             key={link.title}
-            className="py-6 bg-transparent"
+            className="py-4 bg-transparent"
             {...link}
             onClick={() => setActive(false)}
           />
@@ -163,7 +163,7 @@ function MobileNavLinks({
         <StyledDotLink
           href="/contact"
           onClick={() => setActive(false)}
-          className="flex w-full lg:hidden py-6"
+          className="flex w-full lg:hidden py-4 rounded-lg"
           iconClassName="bg-white"
           animation="enlargeY"
           variant="black"
