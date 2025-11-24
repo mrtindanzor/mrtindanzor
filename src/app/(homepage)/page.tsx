@@ -5,7 +5,7 @@ import { Mission } from "./components/Mission";
 import { FeatureProjects } from "./components/Projects";
 
 export const metadata: Metadata = {
-  title: "Mr. Tindanzor | Full-Stack and Devop Web developer",
+  title: "Mr. Tindanzor | Full-Stack and Devops Web developer",
 };
 
 export default function Homepage() {

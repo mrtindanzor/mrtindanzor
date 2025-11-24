@@ -36,8 +36,8 @@ export function ProjectCard({
             href={link}
             target="_blank"
             animation="none"
-            className="p-0 size-10 sm:hidden!"
-            iconClassName="stroke-3"
+            className="p-0 size-10 sm:hidden! oultine-none border-none"
+            iconClassName="stroke-3 border-none"
           />
         </div>
 

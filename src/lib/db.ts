@@ -292,7 +292,7 @@ export const socialMediaLinks = [
 	},
 	{
 		title: "LinkedIn",
-		link: "www.linkedin.com/in/mrtindanzor",
+		link: "https://linkedin.com/in/mrtindanzor",
 		color: "text-blue-600",
 		icon: SiLinkedin,
 	},
@@ -304,13 +304,13 @@ export const socialMediaLinks = [
 	},
 	{
 		title: "Instagram",
-		link: "https://www.instagram.com/mrtindanzor",
+		link: "https:/instagram.com/mrtindanzor",
 		color: "text-red-600",
 		icon: SiInstagram,
 	},
 	{
 		title: "Tiktok",
-		link: "http://www.tiktok.com/@mrtindanzor",
+		link: "https://tiktok.com/@mrtindanzor",
 		color: "text-black",
 		icon: FaTiktok,
 	},

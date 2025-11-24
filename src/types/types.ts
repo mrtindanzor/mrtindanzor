@@ -1,12 +1,12 @@
+import type { headingVariants } from "@/components/common/Heading"
+import type { StyledIconLinkVariants } from "@/components/common/IconLink"
+import type { pillVariants } from "@/components/common/Pill"
+import type { typographyVariants } from "@/components/common/Typography"
 import type { VariantProps } from "class-variance-authority"
 import type { MotionProps } from "framer-motion"
 import type { LinkProps } from "next/link"
 import type { ComponentProps } from "react"
 import type { IconType } from "react-icons"
-import type { headingVariants } from "@/components/common/Heading"
-import type { StyledIconLinkVariants } from "@/components/common/IconLink"
-import type { pillVariants } from "@/components/common/Pill"
-import type { typographyVariants } from "@/components/common/Typography"
 
 type HeadingSizeType = NonNullable<VariantProps<typeof headingVariants>["size"]>
 export type HeadingProps = {
@@ -106,3 +106,13 @@ export type ContactData = {
 	message: string
 	honeypot?: string
 }
+
+export type MarkdownProps = ComponentProps<"div"> & {
+	content: string
+}
+
+export type MImageProps = {
+	alt: string
+	url: string
+	imageClassName?: string
+} & ComponentProps<"div">
