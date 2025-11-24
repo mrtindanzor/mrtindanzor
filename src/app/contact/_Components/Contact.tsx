@@ -46,12 +46,16 @@ export default function Contact({
 			if (!name) return setError("name", { message: "Please add your name" })
 
 			if (!contact) {
-				setError("contact", { message: "Please add an email address" })
+				setError("contact", {
+					message: "Please an email address or phone number",
+				})
 				return
 			}
 
-			if (!message || message.length < 10)
-				return setError("message", { message: "Enter a valid message" })
+			if (!message || message.length < 2)
+				return setError("message", {
+					message: "Message must have a min-length of 2 chars",
+				})
 
 			const res = await sendMessage(payload)
 			if (res.status === 201) {

@@ -1,35 +1,43 @@
-import Footer from "@/components/Layout/Footer";
-import { cn } from "@/lib/utils";
-import BaseProvider from "@/Providers/BaseProvider";
-import type { Metadata } from "next";
-import { Jura } from "next/font/google";
-import "./globals.css";
+import type { Metadata } from "next"
+import { Chakra_Petch, Jura } from "next/font/google"
+import Footer from "@/components/Layout/Footer"
+import BaseProvider from "@/Providers/BaseProvider"
+import "./globals.css"
+
+const chakra = Chakra_Petch({
+	subsets: ["latin"],
+	weight: ["300", "400", "500", "600", "700"],
+	variable: "--font-chakra",
+	display: "swap",
+})
 
 const jura = Jura({
-  subsets: ["latin"],
-  weight: "400",
-});
+	subsets: ["latin"],
+	weight: ["300", "400", "500", "600", "700"],
+	variable: "--font-jura",
+	display: "swap",
+})
 
 export const metadata: Metadata = {
-  title: "Mr. Tindanzor Simon",
-  description: "Mr. Tindanzor Simon - Portfolio",
-};
+	title: "Mr. Tindanzor Simon",
+	description: "Mr. Tindanzor Simon - Portfolio",
+}
 
 export default function RootLayout({
-  children,
+	children,
 }: Readonly<{
-  children: React.ReactNode;
+	children: React.ReactNode
 }>) {
-  return (
-    <html lang="en">
-      <head>
-        <meta name="apple-mobile-web-app-title" content="Mr. Tindanzor" />
-      </head>
+	return (
+		<html lang="en">
+			<head>
+				<meta name="apple-mobile-web-app-title" content="Mr. Tindanzor" />
+			</head>
 
-      <body className={cn(jura.className)}>
-        <BaseProvider>{children}</BaseProvider>
-        <Footer />
-      </body>
-    </html>
-  );
+			<body className={`${jura.variable} ${chakra.variable}`}>
+				<BaseProvider>{children}</BaseProvider>
+				<Footer />
+			</body>
+		</html>
+	)
 }

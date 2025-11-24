@@ -1,42 +1,8 @@
 import { cva } from "class-variance-authority"
-import { Chakra_Petch } from "next/font/google"
 import { cn } from "@/lib/utils"
 import type { HeadingProps } from "@/types/types"
 
-const black = Chakra_Petch({
-	subsets: ["latin"],
-	weight: "700",
-})
-
-const bolder = Chakra_Petch({
-	subsets: ["latin"],
-	weight: "600",
-})
-
-const bold = Chakra_Petch({
-	subsets: ["latin"],
-	weight: "500",
-})
-
-const semibold = Chakra_Petch({
-	subsets: ["latin"],
-	weight: "400",
-})
-
-const meduim = Chakra_Petch({
-	subsets: ["latin"],
-	weight: "300",
-})
-
-const weightMap = {
-	black,
-	bolder,
-	bold,
-	semibold,
-	meduim,
-}
-
-export const headingVariants = cva("tracking-tight px-4 w-fit h-fit", {
+export const headingVariants = cva("tracking-tighter px-4 w-fit h-fit", {
 	variants: {
 		variant: {
 			default:
@@ -50,10 +16,18 @@ export const headingVariants = cva("tracking-tight px-4 w-fit h-fit", {
 			xs: "text-lg lg:text-xl",
 			none: "",
 		},
+		weight: {
+			black: "font-black",
+			bolder: "font-bolder",
+			bold: "font-bold",
+			semibold: "font-semibold",
+			meduim: "font-medium",
+		},
 	},
 	defaultVariants: {
 		variant: "default",
 		size: "md",
+		weight: "semibold",
 	},
 })
 
@@ -64,12 +38,12 @@ export function Heading({
 	className,
 	...props
 }: HeadingProps) {
-	const chakra = weightMap[weight]
-
 	return (
 		<Tag
 			{...props}
-			className={cn(chakra.className, headingVariants({ className, size }))}
+			className={`font-chakra ${cn(
+				headingVariants({ className, size, weight }),
+			)}`}
 		/>
 	)
 }

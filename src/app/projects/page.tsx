@@ -7,7 +7,7 @@ import { projects } from "@/lib/db"
 
 export const metadata: Metadata = {
 	title:
-		"Mr. Tindanzor | Where Design Meets Development: Projects I've Brought to Life",
+		"Where Design Meets Development: Projects I've Brought to Life - Mr. Tindanzor",
 	description: `These projects showcase my work in designing and building web
             applications that solve real-world problems. From educational
             platforms to e-commerce solutions, each project highlights the

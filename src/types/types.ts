@@ -9,18 +9,25 @@ import type { pillVariants } from "@/components/common/Pill"
 import type { typographyVariants } from "@/components/common/Typography"
 
 type HeadingSizeType = NonNullable<VariantProps<typeof headingVariants>["size"]>
+type HeadingWeightType = NonNullable<
+	VariantProps<typeof headingVariants>["weight"]
+>
 export type HeadingProps = {
 	tag?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6"
-	weight?: "black" | "bolder" | "bold" | "semibold" | "meduim"
+	weight?: HeadingWeightType
 	size?: HeadingSizeType
 } & React.HTMLAttributes<HTMLHeadingElement>
 
 type typographyVariantType = NonNullable<
 	VariantProps<typeof typographyVariants>["size"]
 >
+type typographyWeightType = NonNullable<
+	VariantProps<typeof typographyVariants>["weight"]
+>
 export type TypographyProps = {
 	tag?: "span" | "p"
 	size?: typographyVariantType
+	weight?: typographyWeightType
 } & React.HTMLAttributes<HTMLParagraphElement | HTMLSpanElement>
 
 export type ProjectCardProps = ComponentProps<"div"> & {

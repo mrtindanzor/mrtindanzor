@@ -1,7 +1,7 @@
 "use server"
 
 import axios from "axios"
-import { errorR, successR, tryCatch } from "@/lib/utils"
+import { capitalize, errorR, successR, tryCatch } from "@/lib/utils"
 import type { ContactData } from "@/types/types"
 
 export const sendMessage = async (payload: ContactData) => {
@@ -11,7 +11,8 @@ export const sendMessage = async (payload: ContactData) => {
 	if (!name) return errorR("Please add your name")
 	if (!contact) return errorR("Please an email address or phone number")
 
-	if (!message || message.length < 10) return errorR("Enter a valid message")
+	if (!message || message.length < 2)
+		return errorR("Message must have a min-length of 2 chars")
 
 	const getMessage = formatMessage(payload)
 
@@ -52,21 +53,9 @@ function formatMessage({
 	contact,
 }: Omit<ContactData, "honeypot">) {
 	return `
-
-Hi Mr. Tindanzor,
-
- You received a message from ${name
-		.trim()
-		.toLowerCase()
-		.split(" ")
-		.map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-		.join(" ")}.
+ 	New message from ${capitalize(name)}.
+ 	Contact - ${contact}
 
  ${message}
-
- His/her contact details are as follows 
- ${contact}
-
- Bye.
   `
 }

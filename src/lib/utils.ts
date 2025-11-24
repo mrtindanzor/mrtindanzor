@@ -105,3 +105,11 @@ export const hasKey = <T extends object>(
 ): key is keyof T => {
 	return key in object
 }
+
+export function capitalize(text = "") {
+	return text
+		.trim()
+		.split(" ")
+		.map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+		.join(" ")
+}

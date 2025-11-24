@@ -21,6 +21,7 @@ const variants = cva(
 				danger: "bg-rose-600 hover:bg-rose-500 text-white",
 				dangerOutline:
 					"bg-white hover:bg-rose-100 text-rose-600 outline-rose-300",
+				none: "outline-none!",
 			},
 			size: {
 				default: "text-base",

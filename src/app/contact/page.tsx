@@ -1,11 +1,11 @@
 import type { Metadata } from "next"
-import Contact from "@/app/contact/_Components/Contact"
-import Contactlinks from "@/app/contact/_Components/ContactLinks"
+import Contact from "@/app/contact/_components/Contact"
+import Contactlinks from "@/app/contact/_components/ContactLinks"
 import { Heading } from "@/components/common/Heading"
 import { Section } from "@/components/common/Section"
 
 export const metadata: Metadata = {
-	title: "Mr. Tindanzor | Contact me",
+	title: "Contact me - Mr. Tindanzor",
 	description: "Get in touch with me now.",
 }
 

@@ -10,7 +10,10 @@ export function Section({
 	return (
 		<motion.section
 			{...props}
-			className={cn("grid h-fit gap-4 py-10 px-4 mx-auto max-w-6xl", className)}
+			className={cn(
+				"grid h-fit gap-4 py-10 px-4 mx-auto max-w-[calc(100%-1rem)] md:max-w-6xl",
+				className,
+			)}
 		/>
 	)
 }

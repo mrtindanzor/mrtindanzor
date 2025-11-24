@@ -1,6 +1,6 @@
 "use client"
 
-import { MoveUp } from "lucide-react"
+import { ArrowUpToLine } from "lucide-react"
 import {
 	Activity,
 	createContext,
@@ -10,7 +10,6 @@ import {
 	useState,
 } from "react"
 import { Button } from "@/components/common/Button"
-import { Typography } from "@/components/common/Typography"
 import { cn } from "@/lib/utils"
 
 type ScrollDirection = {
@@ -33,15 +32,15 @@ export default function GoToTop() {
 				)}
 			>
 				<Button
+					title="Go to Top"
+					aria-label="Click to go to top"
 					onClick={() => {
 						window.scrollTo({ top: 0, behavior: "smooth" })
 					}}
-					className="link pointer-events-auto bg-slate-950/50 backdrop-blur-md hover:bg-slate-950/60  px-0 py-4 gap-2 rounded-3xl flex flex-col items-center"
+					variant="none"
+					className="link pointer-events-auto px-1"
 				>
-					<MoveUp className="size-8" />
-					<Typography size="sm" className="text-white">
-						Go To Top
-					</Typography>
+					<ArrowUpToLine className="size-8" />
 				</Button>
 			</div>
 		</Activity>

@@ -4,7 +4,7 @@ import { Journey } from "./_components/Journey"
 import { Skills } from "./_components/Skills"
 
 export const metadata: Metadata = {
-	title: "About | Mr. Tindanzor Simon",
+	title: "About - Mr. Tindanzor",
 	description:
 		"I'm a Full-Stack and DevOps developer passionate about building innovative, scalable, and user-focused applications.",
 }

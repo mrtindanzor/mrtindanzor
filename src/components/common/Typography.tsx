@@ -1,31 +1,6 @@
 import { cva } from "class-variance-authority"
-import { Jura } from "next/font/google"
 import { cn } from "@/lib/utils"
 import type { TypographyProps } from "@/types/types"
-
-const xs = Jura({
-	subsets: ["latin"],
-	weight: "300",
-})
-const sm = Jura({
-	subsets: ["latin"],
-	weight: "400",
-})
-const md = Jura({
-	subsets: ["latin"],
-	weight: "500",
-})
-const lg = Jura({
-	subsets: ["latin"],
-	weight: "600",
-})
-
-const juraWeights = {
-	xs,
-	sm,
-	md,
-	lg,
-}
 
 export const typographyVariants = cva("tracking-tight block text-gray-400", {
 	variants: {
@@ -34,6 +9,13 @@ export const typographyVariants = cva("tracking-tight block text-gray-400", {
 			sm: "text-sm px-3 py-1.5",
 			md: "text-base px-4 py-1.5",
 			lg: "text-lg py-2 px-4",
+		},
+		weight: {
+			black: "font-black",
+			bolder: "font-bolder",
+			bold: "font-bold",
+			semibold: "font-semibold",
+			meduim: "font-medium",
 		},
 	},
 	defaultVariants: {
@@ -50,10 +32,7 @@ export function Typography({
 	return (
 		<Tag
 			{...props}
-			className={cn(
-				juraWeights[size].className,
-				typographyVariants({ size, className }),
-			)}
+			className={`font-jura ${cn(typographyVariants({ size, className }))}`}
 		/>
 	)
 }

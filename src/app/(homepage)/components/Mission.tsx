@@ -6,7 +6,7 @@ export function Mission() {
 	return (
 		<div className="bg-linear-to-b  from-slate-950 to-slate-900">
 			<Section className="border-t border-y-sky-50/20">
-				<Heading tag="h2" size="md" weight="bolder">
+				<Heading tag="h2" size="md" weight="black">
 					Mission
 				</Heading>
 
