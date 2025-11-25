@@ -304,7 +304,7 @@ export const socialMediaLinks = [
 	},
 	{
 		title: "Instagram",
-		link: "https:/instagram.com/mrtindanzor",
+		link: "https://instagram.com/mrtindanzor",
 		color: "text-red-600",
 		icon: SiInstagram,
 	},
