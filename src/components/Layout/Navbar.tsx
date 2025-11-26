@@ -48,9 +48,11 @@ export default function Header() {
         animate="show"
         className={cn(
           "@container bg-slate-950/70 z-10 flex transition-transform duration-150 ease-in-out drop-shadow-md items-center justify-center backdrop-blur-sm px-2 py-0.5 h-19 sticky w-screen top-0",
-          !active && direction === "Down" && current > 60
+          direction === "Down" && current > 60
             ? "-translate-y-18"
-            : "translate-y-0"
+            : !active
+            ? "translate-y-0"
+            : "fixed!"
         )}
       >
         <div className="max-w-6xl w-full justify-between items-center flex">
