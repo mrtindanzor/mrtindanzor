@@ -1,5 +1,4 @@
 import Footer from "@/components/Layout/Footer";
-import "@/lib/firebaseConfig";
 import BaseProvider from "@/Providers/BaseProvider";
 import type { Metadata } from "next";
 import { Chakra_Petch, Jura } from "next/font/google";

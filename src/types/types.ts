@@ -125,3 +125,8 @@ export type MImageProps = {
 } & ComponentProps<"div">
 
 export type BackropProps = ComponentProps<"div">
+
+export type MobileNavbarProps = {
+	setActive: React.Dispatch<React.SetStateAction<boolean>>
+} & MotionProps &
+	ComponentProps<"ul">

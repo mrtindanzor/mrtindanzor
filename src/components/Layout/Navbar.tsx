@@ -4,6 +4,7 @@ import avatar from "@/assets/images/mrtindanzor/avatar8.png";
 import { motionVariants } from "@/lib/motion";
 import { cn } from "@/lib/utils";
 import { useDirectionContext } from "@/Providers/ScrollDirectionProvider";
+import type { MobileNavbarProps } from "@/types/types";
 import {
   AnimatePresence,
   type MotionProps,
@@ -14,7 +15,6 @@ import {
 import { Menu, X } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import type React from "react";
 import { type ComponentProps, useEffect, useRef, useState } from "react";
 import Backdrop from "../common/Backdrop";
 import { Button } from "../common/Button";
@@ -48,7 +48,7 @@ export default function Header() {
         animate="show"
         className={cn(
           "@container bg-slate-950/70 z-10 flex transition-transform duration-150 ease-in-out drop-shadow-md items-center justify-center backdrop-blur-sm px-2 py-0.5 h-19 sticky w-screen top-0",
-          direction === "Down" && current > 60
+          !active && direction === "Down" && current > 60
             ? "-translate-y-18"
             : "translate-y-0"
         )}
@@ -116,12 +116,7 @@ const links = [
   },
 ] as const;
 
-function MobileNavLinks({
-  className,
-  setActive,
-  ...props
-}: { setActive: React.Dispatch<React.SetStateAction<boolean>> } & MotionProps &
-  ComponentProps<"ul">) {
+function MobileNavLinks({ className, setActive, ...props }: MobileNavbarProps) {
   const navbarRef = useRef<HTMLUListElement>(null);
 
   useEffect(() => {
