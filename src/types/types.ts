@@ -1,7 +1,7 @@
 import type { VariantProps } from "class-variance-authority"
 import type { MotionProps } from "framer-motion"
 import type { LinkProps } from "next/link"
-import type { ComponentProps } from "react"
+import type { ComponentProps, ComponentPropsWithRef } from "react"
 import type { IconType } from "react-icons"
 import type { headingVariants } from "@/components/common/Heading"
 import type { StyledIconLinkVariants } from "@/components/common/IconLink"
@@ -25,14 +25,8 @@ type typographyWeightType = NonNullable<
 	VariantProps<typeof typographyVariants>["weight"]
 >
 
-type TypographyType<Tag extends React.ElementType = "span"> = Tag extends "p"
-	? ComponentProps<"p">
-	: Tag extends "span"
-		? ComponentProps<"span">
-		: never
-
 export type TypographyProps<Tag extends React.ElementType = "span"> =
-	TypographyType<Tag> & {
+	ComponentPropsWithRef<Tag> & {
 		tag?: Tag
 		size?: typographyVariantType
 		weight?: typographyWeightType

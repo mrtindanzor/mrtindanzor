@@ -84,7 +84,7 @@ export function LinkFollow({ ...props }: Omit<IconLinkProps, "icon">) {
 				{...props}
 				ref={linkRef}
 				iconClassName="border-slate-950 p-0 size-9 border-2"
-				className="sm:cursor-none absolute p-0 -translate-1/2 size-fit transition-transform duration-75 ease-in "
+				className="sm:cursor-none absolute p-0 -translate-1/2 size-fit transition-transform duration-75 ease-in  hidden!"
 			/>
 			<Portal />
 		</div>
