@@ -4,7 +4,7 @@ import { StyledArrowLink, StyledDotLink } from "@/components/common/IconLink"
 import { MImage } from "@/components/common/Image"
 import { Section } from "@/components/common/Section"
 import { Typography } from "@/components/common/Typography"
-import { resumeLink } from "@/lib/db"
+import { RESUME_LINK } from "@/lib/db"
 
 export function HeroSection() {
 	return (
@@ -37,7 +37,7 @@ export function HeroSection() {
 				<StyledArrowLink
 					target="_blank"
 					rel="noreferrer noopener"
-					href={resumeLink}
+					href={RESUME_LINK}
 				>
 					See My Resume
 				</StyledArrowLink>

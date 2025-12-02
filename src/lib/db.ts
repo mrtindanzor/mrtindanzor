@@ -1,3 +1,4 @@
+import { EnvelopeIcon } from "@heroicons/react/24/solid"
 import { BiLogoVisualStudio } from "react-icons/bi"
 import { DiMongodb } from "react-icons/di"
 import { FaTiktok } from "react-icons/fa"
@@ -25,8 +26,33 @@ import {
 	SiTypescript,
 	SiWhatsapp,
 } from "react-icons/si"
+import type {
+	ProfessionalJourneyType,
+	ProjectProps,
+	SkillProps,
+	SocailMediaProps,
+} from "@/types/types"
 
-export const skillsJs = [
+export const SKILLS: SkillProps[] = [
+	{
+		category: "Languages",
+		items: [
+			{
+				title: "JavaScript",
+				icon: SiJavascript,
+				color: "text-yellow-400",
+				description:
+					"The core language for building interactive and dynamic applications across the stack.",
+			},
+			{
+				title: "TypeScript",
+				icon: SiTypescript,
+				color: "text-sky-600",
+				description:
+					"A strongly typed superset of JavaScript used across both frontend and backend.",
+			},
+		],
+	},
 	{
 		category: "Frontend",
 		items: [
@@ -63,20 +89,6 @@ export const skillsJs = [
 				icon: SiHtml5,
 				color: "text-orange-400",
 				description: "The core markup language for structuring web content.",
-			},
-			{
-				title: "JavaScript",
-				icon: SiJavascript,
-				color: "text-yellow-400",
-				description:
-					"The core language of the web for interactive and dynamic web functionality.",
-			},
-			{
-				title: "TypeScript",
-				icon: SiTypescript,
-				color: "text-sky-600",
-				description:
-					"A typed superset of JavaScript that improves code quality and scalability.",
 			},
 		],
 	},
@@ -197,7 +209,7 @@ export const skillsJs = [
 	},
 ]
 
-export const projects = [
+export const PROJECTS: ProjectProps[] = [
 	{
 		imgSrc: "/assets/images/projects/myghmart.png",
 		title: "MyGhmart",
@@ -241,11 +253,12 @@ export const projects = [
 	},
 ]
 
-export const professionalJourneyTimeline = [
+export const PROFESSIONAL_TIMELIINE: ProfessionalJourneyType[] = [
 	{
 		cardId: 1,
 		organization: "Successfield College",
 		role: "Full-Stack Web Developer",
+		locationType: "Remote",
 		period: {
 			start: 2024,
 			end: "Present",
@@ -265,6 +278,7 @@ export const professionalJourneyTimeline = [
 		cardId: 2,
 		organization: "Myghmart",
 		role: "Full-Stack & DevOps Engineer",
+		locationType: "Remote",
 		period: {
 			start: 2025,
 			end: "Present",
@@ -283,18 +297,24 @@ export const professionalJourneyTimeline = [
 	},
 ]
 
-export const socialMediaLinks = [
+export const CONTACT_LINKS: SocailMediaProps[] = [
 	{
-		title: "Github",
-		link: "https://github.com/mrtindanzor",
-		color: "text-green-600",
-		icon: SiGithub,
+		title: "Email",
+		link: "mailto:mrtindanzor@gmail.com",
+		color: "text-red-600",
+		icon: EnvelopeIcon,
 	},
 	{
 		title: "LinkedIn",
 		link: "https://linkedin.com/in/mrtindanzor",
 		color: "text-blue-600",
 		icon: SiLinkedin,
+	},
+	{
+		title: "Github",
+		link: "https://github.com/mrtindanzor",
+		color: "text-green-600",
+		icon: SiGithub,
 	},
 	{
 		title: "Whatsapp",
@@ -322,5 +342,5 @@ export const socialMediaLinks = [
 	},
 ]
 
-export const resumeLink =
+export const RESUME_LINK =
 	"https://drive.google.com/file/d/1xyDC-rJoePiiBxt-UnqPe8IWkhzYwzSn/view?usp=drive_link"

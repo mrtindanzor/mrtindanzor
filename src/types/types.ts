@@ -1,12 +1,12 @@
-import type { headingVariants } from "@/components/common/Heading"
-import type { StyledIconLinkVariants } from "@/components/common/IconLink"
-import type { pillVariants } from "@/components/common/Pill"
-import type { typographyVariants } from "@/components/common/Typography"
 import type { VariantProps } from "class-variance-authority"
 import type { MotionProps } from "framer-motion"
 import type { LinkProps } from "next/link"
 import type { ComponentProps } from "react"
 import type { IconType } from "react-icons"
+import type { headingVariants } from "@/components/common/Heading"
+import type { StyledIconLinkVariants } from "@/components/common/IconLink"
+import type { pillVariants } from "@/components/common/Pill"
+import type { typographyVariants } from "@/components/common/Typography"
 
 type HeadingSizeType = NonNullable<VariantProps<typeof headingVariants>["size"]>
 type HeadingWeightType = NonNullable<
@@ -24,13 +24,21 @@ type typographyVariantType = NonNullable<
 type typographyWeightType = NonNullable<
 	VariantProps<typeof typographyVariants>["weight"]
 >
-export type TypographyProps = {
-	tag?: "span" | "p"
-	size?: typographyVariantType
-	weight?: typographyWeightType
-} & React.HTMLAttributes<HTMLParagraphElement | HTMLSpanElement>
 
-export type ProjectCardProps = ComponentProps<"div"> & {
+type TypographyType<Tag extends React.ElementType = "span"> = Tag extends "p"
+	? ComponentProps<"p">
+	: Tag extends "span"
+		? ComponentProps<"span">
+		: never
+
+export type TypographyProps<Tag extends React.ElementType = "span"> =
+	TypographyType<Tag> & {
+		tag?: Tag
+		size?: typographyVariantType
+		weight?: typographyWeightType
+	}
+
+export type ProjectProps = {
 	imgSrc: string
 	title: string
 	description: string
@@ -38,12 +46,15 @@ export type ProjectCardProps = ComponentProps<"div"> & {
 	link: string
 }
 
+export type ProjectCardProps = ComponentProps<"div"> & ProjectProps
+
 type PillVariantTypes = NonNullable<
 	VariantProps<typeof pillVariants>["variant"]
 >
-export type PillProps = TypographyProps & {
-	variant?: PillVariantTypes
-}
+export type PillProps<Tag extends "p" | "span" = "span"> =
+	TypographyProps<Tag> & {
+		variant?: PillVariantTypes
+	}
 
 export type IconLinkProps = LinkProps &
 	ComponentProps<"a"> & {
@@ -62,10 +73,11 @@ export type StyledIconLinkProps = IconLinkProps & {
 	animation?: StyledIconLinkAnimationType
 }
 
-export type ProfessionalJourneyCardProps = ComponentProps<"div"> & {
+export type ProfessionalJourneyType = {
 	cardId: number
 	organization: string
 	role: string
+	locationType: "Remote" | "Hybrid" | "On site"
 	period: {
 		start: number | string
 		end: number | string
@@ -73,26 +85,34 @@ export type ProfessionalJourneyCardProps = ComponentProps<"div"> & {
 	achievements: string[]
 }
 
+export type ProfessionalJourneyCardProps = ComponentProps<"div"> &
+	ProfessionalJourneyType
+
 export type ProfessionalJourneyCardHeaderProps = ComponentProps<"header"> &
-	Pick<ProfessionalJourneyCardProps, "organization" | "role" | "period">
+	Pick<
+		ProfessionalJourneyType,
+		"organization" | "role" | "period" | "locationType"
+	>
 
 export type ProfessionalJourneyCardContentProps = ComponentProps<"ul"> &
-	Pick<ProfessionalJourneyCardProps, "achievements">
+	Pick<ProfessionalJourneyType, "achievements">
 
-export type SkillCardType = {
+export type SkillItemsProps = {
 	title: string
 	icon: IconType
 	color: string
 	description: string
 }
+export type SkillProps = {
+	category: string
+	items: SkillItemsProps[]
+}
 
-export type SkillCardProps = ComponentProps<"div"> & SkillCardType
+export type SkillCardProps = ComponentProps<"div"> & SkillItemsProps
 
 export type SkillsContainerCardProps = MotionProps &
-	ComponentProps<"section"> & {
-		category: string
-		items: SkillCardType[]
-	}
+	ComponentProps<"section"> &
+	SkillProps
 
 export type TextAreaProps = { title: string } & ComponentProps<"textarea">
 export type TextFieldProps = {
@@ -100,12 +120,14 @@ export type TextFieldProps = {
 	icon: IconType
 } & ComponentProps<"input">
 
-export type SocailMediaCardProps = ComponentProps<"div"> & {
+export type SocailMediaProps = {
 	title: string
 	link: string
 	icon: IconType
 	color: string
 }
+
+export type SocailMediaCardProps = ComponentProps<"div"> & SocailMediaProps
 
 export type ContactData = {
 	name: string

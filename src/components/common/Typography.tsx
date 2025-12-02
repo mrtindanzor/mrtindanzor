@@ -23,12 +23,14 @@ export const typographyVariants = cva("tracking-tight block text-gray-400", {
 	},
 })
 
-export function Typography({
-	tag: Tag = "span",
+export function Typography<T extends React.ElementType>({
+	tag,
 	size = "md",
 	className,
 	...props
-}: TypographyProps) {
+}: TypographyProps<T>) {
+	const Tag = tag ?? "span"
+
 	return (
 		<Tag
 			{...props}

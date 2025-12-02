@@ -6,7 +6,7 @@ import { Heading } from "@/components/common/Heading"
 import { MImage } from "@/components/common/Image"
 import { Section } from "@/components/common/Section"
 import { Typography } from "@/components/common/Typography"
-import { skillsJs } from "@/lib/db"
+import { SKILLS } from "@/lib/db"
 import { cn } from "@/lib/utils"
 
 export function HeroSection() {
@@ -40,11 +40,9 @@ export function HeroSection() {
 function Scribbled() {
 	return (
 		<ul className="absolute inset-0 top-0 size-full -z-1 group-hover:z-2 flex justify-between flex-wrap gap-4">
-			{skillsJs
-				.flatMap((skill) => skill.items)
-				.map((skill) => (
-					<SkillCard key={skill.title} {...skill} />
-				))}
+			{SKILLS.flatMap((skill) => skill.items).map((skill) => (
+				<SkillCard key={skill.title} {...skill} />
+			))}
 		</ul>
 	)
 }

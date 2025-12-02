@@ -1,34 +1,43 @@
 "use client"
-import type React from "react"
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 
-export default function useIntersection<T>({
-	ref,
+export default function useIntersection<T = HTMLDivElement>({
 	threshold = 0.5,
 	rootMargin = "0px",
+	once,
 }: {
-	ref: React.RefObject<T>
 	threshold?: number
 	rootMargin?: string
-}) {
+	once?: boolean
+} = {}) {
 	const [isIntersecting, setIsIntersecting] = useState(false)
+	const ref = useRef<T>(null)
 
 	useEffect(() => {
-		const currentRef = ref.current
-		if (!currentRef || !(currentRef instanceof HTMLElement)) return
+		let observer: IntersectionObserver
 
-		const observer = new IntersectionObserver(
-			([entry]) => setIsIntersecting(entry.isIntersecting),
-			{
-				threshold,
-				rootMargin,
-			},
-		)
+		requestAnimationFrame(() => {
+			const currentRef = ref.current
 
-		observer.observe(currentRef)
+			if (!(currentRef instanceof HTMLElement)) return
+			observer = new IntersectionObserver(
+				([entry]) => {
+					setIsIntersecting(entry.isIntersecting)
+					if (entry.isIntersecting && once) observer.unobserve(entry.target)
+				},
+				{
+					threshold,
+					rootMargin,
+				},
+			)
 
-		return () => observer.disconnect()
-	}, [ref, threshold, rootMargin])
+			observer.observe(currentRef)
+		})
 
-	return isIntersecting
+		return () => {
+			if (observer) observer.disconnect()
+		}
+	}, [threshold, rootMargin, once])
+
+	return { isIntersecting, ref }
 }

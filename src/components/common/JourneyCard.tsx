@@ -14,6 +14,7 @@ export function JourneyCard({
 	period,
 	achievements,
 	className,
+	locationType,
 	cardId: _,
 	...props
 }: ProfessionalJourneyCardProps) {
@@ -29,6 +30,7 @@ export function JourneyCard({
 				organization={organization}
 				role={role}
 				period={period}
+				locationType={locationType}
 			/>
 
 			<JourneyCardContent achievements={achievements} />
@@ -41,6 +43,7 @@ function JourneyCardHeader({
 	role,
 	period,
 	className,
+	locationType,
 	...props
 }: ProfessionalJourneyCardHeaderProps) {
 	return (
@@ -48,21 +51,25 @@ function JourneyCardHeader({
 			<header
 				{...props}
 				className={cn(
-					"grid grid-cols-[1fr_auto] grid-rows-2 border-b border-b-gray-600/40",
+					"grid grid-cols-[1fr_auto] grid-rows-[1fr_auto_auto] border-b border-b-gray-600/40 ",
 					className,
 				)}
 			>
 				<Heading
 					tag="h3"
-					className="text-center @xs:text-left mx-auto @xs:mx-0 col-span-full @xs:col-span-1 @xs:col-start-1 @xs:row-start-1"
+					className="text-center @sm:text-left mx-auto @sm:mx-0 col-span-full @xs:col-span-1 @sm:col-start-1 @sm:row-start-1"
 					size="sm"
 				>
 					{organization}
 				</Heading>
-				<Typography className="text-center @xs:text-left mx-auto @xs:mx-0 col-span-full @xs:col-span-1 @xs:col-start-1 @xs:row-start-2">
-					{role}
+				<Typography className="text-center @sm:text-left mx-auto @sm:mx-0 col-span-full @sm:col-span-1 @sm:col-start-1 @sm:row-start-2">
+					<b>ROLE:</b> {role}
 				</Typography>
-				<Pill className="mx-auto mb-2 @xs:mb-0 @xs:my-auto col-span-full @xs:col-span-1 @xs:col-start-2 @xs:row-start-1 @xs:row-span-2 text-center h-fit ">
+				<Typography className="text-center @sm:text-left mx-auto @sm:mx-0 col-span-full @sm:col-span-1 @sm:col-start-1 @sm:row-start-3">
+					<b>LOCATION: </b>
+					{locationType}
+				</Typography>
+				<Pill className="mx-auto mb-2 @sm:mb-0 @sm:my-auto col-span-full @sm:col-span-1 @sm:col-start-2 @sm:row-start-1 @sm:row-span-full text-center h-fit ">
 					{period.start} to {period.end}
 				</Pill>
 			</header>

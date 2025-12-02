@@ -14,14 +14,13 @@ export function ProjectCard({
 	link,
 }: ProjectCardProps) {
 	return (
-		<div className="group">
-			<div className="@container relative rounded-xl pb-4 gap-2 grid grid-rows-[auto_auto_1fr_auto] border border-sky-50/10 size-full group-hover:z-2">
-				<MImage
-					url={imgSrc}
-					alt={title}
-					className="h-80 group-hover:scale-101 rounded-t-xl transition-transform duration-150 ease-linear *:object-cover *:object-top-left group-hover:outline-2 group-hover:outline-sky-300"
-				/>
-
+		<div className="group grid md:grid-cols-2 border relative border-sky-50/10 rounded-xl">
+			<MImage
+				url={imgSrc}
+				alt={title}
+				className="min-h-80 md:col-start-2 group-hover:scale-101 rounded-t-xl md:rounded-r-xl md:rounded-tl-none transition-transform duration-150 ease-linear *:object-cover *:object-top-left group-hover:outline-2 group-hover:outline-sky-300"
+			/>
+			<div className="@container md:row-start-1 md:col-start-1 pb-4 gap-2 grid grid-rows-[auto_auto_1fr_auto] size-full group-hover:z-2">
 				<div className="grid grid-cols-[1fr_auto] mt-2 pr-4 items-center gap-4">
 					<Heading
 						tag="h4"

@@ -3,7 +3,7 @@ import { motion } from "framer-motion"
 import type { ComponentProps } from "react"
 import { Heading } from "@/components/common/Heading"
 import { SocialMediaCard } from "@/components/common/SocialMediaLink"
-import { socialMediaLinks } from "@/lib/db"
+import { CONTACT_LINKS } from "@/lib/db"
 import { motionVariants } from "@/lib/motion"
 import { cn } from "@/lib/utils"
 
@@ -35,7 +35,7 @@ function SocialMediaLinks() {
 			whileInView="show"
 			viewport={{ once: true }}
 		>
-			{socialMediaLinks.map((link) => (
+			{CONTACT_LINKS.map((link) => (
 				<SocialMediaCard key={link.link} {...link} />
 			))}
 		</motion.ul>

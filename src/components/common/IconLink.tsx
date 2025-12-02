@@ -40,10 +40,7 @@ export function IconLink({
 	return (
 		<Link
 			{...props}
-			className={cn(
-				"flex-place-center rounded-full overflow-hidden",
-				className,
-			)}
+			className={cn("flex-place-center rounded-full", className)}
 		>
 			<Icon className={iconClassName} />
 			{children}
