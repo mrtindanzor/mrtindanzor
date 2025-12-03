@@ -7,7 +7,7 @@
 		"build": "next build --turbopack",
 		"start": "next start",
 		"lint": "pnpm biome check --write && tsc --noEmit",
-		"deploy": "wrangler pages deploy .next"
+		"deploy": "wrangler pages deploy .next --project-name=mrtindanzor"
 	},
 	"dependencies": {
 		"@biomejs/biome": "^2.3.6",
