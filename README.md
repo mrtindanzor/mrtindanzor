@@ -1,6 +1,6 @@
 # Hi, I'm Simon 👋
 
-Welcome to my portfolio repository — a collection of what I’m building, learning, and improving as a developer.
+Welcome to my portfolio repository, a collection of what I’m building, learning, and improving as a developer.
 
 ## About Me
 
