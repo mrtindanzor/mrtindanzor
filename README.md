@@ -16,29 +16,29 @@ I work mainly with:
 
 I’m currently working on and maintaining:
 
--**myghmart** — my main priority right now
+- **myghmart** — my main priority right now
 
--**Successfield** — an app I developed to solve real workflow problems
+- **Successfield** — an app I developed to solve real workflow problems
 
 ### What I Focus On
 
--Backend and system structure
+- Backend and system structure
 
--Efficiency and maintainability
+- Efficiency and maintainability
 
--Real-world problem solving
+- Real-world problem solving
 
--Building practical tools that get the job done
+- Building practical tools that get the job done
 
 ### Featured Projects
 
--myghmart
+- myghmart
 
--Successfield
+- Successfield
 
--Backend APIs
+- Backend APIs
 
--Automation & utilities
+- Automation & utilities
  (Add repo links when ready)
 
 **Let’s Connect**
