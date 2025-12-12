@@ -1,36 +1,48 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Hi, I'm Simon 👋
 
-## Getting Started
+Welcome to my portfolio repository — a collection of what I’m building, learning, and improving as a developer.
 
-First, run the development server:
+## About Me
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+I’m a backend-leaning developer focused on clean logic, practical problem-solving, and building systems that are stable and efficient. I prefer straightforward, functional designs over anything fancy.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+I work mainly with:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+**Frontend:** React, Next.js, TailwindCSS (simple/functional UI)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+**Backend:** Node.js, Express, MongoDB
 
-## Learn More
+**Tools:** Linux, Docker, Git, cloud platforms
 
-To learn more about Next.js, take a look at the following resources:
+I’m currently working on and maintaining:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+-**myghmart** — my main priority right now
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+-**Successfield** — an app I developed to solve real workflow problems
 
-## Deploy on Vercel
+### What I Focus On
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+-Backend and system structure
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+-Efficiency and maintainability
+
+-Real-world problem solving
+
+-Building practical tools that get the job done
+
+### Featured Projects
+
+-myghmart
+
+-Successfield
+
+-Backend APIs
+
+-Automation & utilities
+ (Add repo links when ready)
+
+**Let’s Connect**
+
+Email: mrtindanzor@gmail.com
+GitHub: https://github.com/mrtindanzor
+LinkedIn: https://linkedin.com/in/mrtindanzor
