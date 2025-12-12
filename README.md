@@ -44,5 +44,7 @@ I’m currently working on and maintaining:
 **Let’s Connect**
 
 Email: mrtindanzor@gmail.com
+
 GitHub: https://github.com/mrtindanzor
+
 LinkedIn: https://linkedin.com/in/mrtindanzor
