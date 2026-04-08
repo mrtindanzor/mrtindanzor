@@ -1,7 +1,6 @@
 "use client"
 
-import RouteAnimation from "@/components/common/RouteAnimation"
-import Navbar from "@/components/Layout/Navbar"
+import Navbar from "@/shared/layouts/Navbar"
 import { ScrollDirectionProvider } from "./ScrollDirectionProvider"
 
 export default function BaseProvider({
@@ -13,7 +12,7 @@ export default function BaseProvider({
 		<ScrollDirectionProvider>
 			<Navbar />
 
-			<RouteAnimation>{children}</RouteAnimation>
+			{children}
 		</ScrollDirectionProvider>
 	)
 }

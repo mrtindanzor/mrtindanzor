@@ -1,0 +1,54 @@
+import { DEVELOPER } from "@/shared/db"
+import { routes } from "@/shared/routes"
+import { Heading } from "@/shared/ui/Heading"
+import { MImage } from "@/shared/ui/Image"
+import {
+	StyledArrowLink,
+	StyledDotLink,
+} from "@/shared/ui/primitive/Button/IconLink"
+import { Section } from "@/shared/ui/Section"
+import { Typography } from "@/shared/ui/Typography"
+
+export function HeroSection() {
+	return (
+		<Section className="@container">
+			<MImage
+				url={DEVELOPER.avatar}
+				alt={DEVELOPER.name}
+				className="size-50 md:size-70 mx-auto bg-linear-to-bl from-zinc-700 rounded-full"
+				imageClassName="object-cover"
+			/>
+
+			<Heading className="mx-auto text-center" size="lg">
+				Meet the Developer
+			</Heading>
+
+			<Typography tag="p">
+				I&apos;m a Full-Stack and DevOps developer passionate about building
+				innovative, scalable, and user-focused applications. I have hands-on
+				experience with projects like Myghmart and Successfield College, where I
+				combine modern technologies to solve real-world problems. My technical
+				expertise spans React, Next.js, Tailwind CSS, MongoDB, Redis, Docker,
+				Express, GraphQL, and TypeScript, enabling me to craft efficient and
+				maintainable solutions from front-end interfaces to back-end
+				infrastructure. I thrive on learning, optimizing workflows, and creating
+				projects that deliver tangible impact while embracing best practices in
+				development and DevOps.
+			</Typography>
+
+			<div className="flex gap-4 items-center flex-col @md:flex-row w-fit mx-auto *:outline-none *:border-none">
+				<StyledArrowLink
+					target="_blank"
+					rel="noreferrer noopener"
+					href={DEVELOPER.resume}
+				>
+					See My Resume
+				</StyledArrowLink>
+
+				<StyledDotLink href={routes.contact} variant="outline">
+					Contact Me
+				</StyledDotLink>
+			</div>
+		</Section>
+	)
+}

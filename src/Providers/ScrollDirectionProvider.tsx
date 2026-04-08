@@ -9,8 +9,8 @@ import {
 	useRef,
 	useState,
 } from "react"
-import { Button } from "@/components/common/Button"
 import { cn } from "@/lib/utils"
+import { Button } from "@/shared/ui/primitive/Button/Button"
 
 type ScrollDirection = {
 	direction: "Top" | "Down"

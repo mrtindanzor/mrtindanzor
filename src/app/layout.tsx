@@ -1,8 +1,7 @@
 import type { Metadata } from "next"
 import { Chakra_Petch, Jura } from "next/font/google"
-import Footer from "@/components/Layout/Footer"
-import BaseProvider from "@/Providers/BaseProvider"
 import "./globals.css"
+import { AppLayout } from "@/Layout"
 
 const chakra = Chakra_Petch({
 	subsets: ["latin"],
@@ -39,8 +38,7 @@ export default function RootLayout({
 			</head>
 
 			<body className={`${jura.variable} ${chakra.variable}`}>
-				<BaseProvider>{children}</BaseProvider>
-				<Footer />
+				<AppLayout>{children}</AppLayout>
 			</body>
 		</html>
 	)
