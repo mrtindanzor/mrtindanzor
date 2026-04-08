@@ -1,7 +1,7 @@
 import { PROFESSIONAL_TIMELIINE } from "@/shared/db"
-import { Heading } from "@/shared/ui/Heading"
 import { JourneyCard } from "@/shared/ui/JourneyCard"
-import { Section } from "@/shared/ui/Section"
+import { Heading } from "@/shared/ui/primitive/Heading"
+import { Section } from "@/shared/ui/primitive/Section"
 
 export function Journey() {
 	return (

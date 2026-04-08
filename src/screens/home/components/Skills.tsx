@@ -1,11 +1,11 @@
-import { cn } from "@/lib/utils"
 import { FEATURED_SKILLS } from "@/shared/db"
 import { routes } from "@/shared/routes"
-import { Heading } from "@/shared/ui/Heading"
-import { StyledDotLink } from "@/shared/ui/primitive/Button/IconLink"
-import { Section } from "@/shared/ui/Section"
-import { SkillsContainerCard } from "@/shared/ui/SkillsContainerCard"
-import { Typography } from "@/shared/ui/Typography"
+import { StyledDotLink } from "@/shared/ui/primitive/Button"
+import { Heading } from "@/shared/ui/primitive/Heading"
+import { Section } from "@/shared/ui/primitive/Section"
+import { Typography } from "@/shared/ui/primitive/Typography"
+import { SkillsContainerCard } from "@/shared/ui/skills/SkillsContainerCard"
+import { cn } from "@/shared/utils/cn"
 
 export function SkillsPreview() {
 	return (

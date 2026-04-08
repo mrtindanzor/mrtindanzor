@@ -1,8 +1,8 @@
 import { PROJECTS } from "@/shared/db"
-import { Heading } from "@/shared/ui/Heading"
 import { ProjectCard } from "@/shared/ui/ProjectCard"
-import { Section } from "@/shared/ui/Section"
-import { Typography } from "@/shared/ui/Typography"
+import { Heading } from "@/shared/ui/primitive/Heading"
+import { Section } from "@/shared/ui/primitive/Section"
+import { Typography } from "@/shared/ui/primitive/Typography"
 
 export function ProjectsPage() {
 	return (

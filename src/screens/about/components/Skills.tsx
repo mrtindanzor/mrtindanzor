@@ -1,8 +1,8 @@
-import { cn } from "@/lib/utils"
 import { SKILLS } from "@/shared/db"
-import { Heading } from "@/shared/ui/Heading"
-import { Section } from "@/shared/ui/Section"
-import { SkillsContainerCard } from "@/shared/ui/SkillsContainerCard"
+import { Heading } from "@/shared/ui/primitive/Heading"
+import { Section } from "@/shared/ui/primitive/Section"
+import { SkillsContainerCard } from "@/shared/ui/skills/SkillsContainerCard"
+import { cn } from "@/shared/utils/cn"
 
 export function Skills() {
 	return (

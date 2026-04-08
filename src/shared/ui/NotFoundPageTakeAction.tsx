@@ -2,8 +2,8 @@
 
 import { ArrowLeft, Home } from "lucide-react"
 import { useRouter } from "next/navigation"
-import { Button } from "./primitive/Button/Button"
-import { IconLink } from "./primitive/Button/IconLink"
+import { Button } from "./primitive/Button/components/Button"
+import { IconLink } from "./primitive/Button/components/IconLink"
 
 export function TakeAction() {
 	const router = useRouter()

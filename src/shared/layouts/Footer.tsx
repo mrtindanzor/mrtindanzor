@@ -1,6 +1,6 @@
 "use client"
 import { useMemo } from "react"
-import { Typography } from "@/shared/ui/Typography"
+import { Typography } from "@/shared/ui/primitive/Typography"
 
 export default function Footer() {
 	const year = useMemo(() => {

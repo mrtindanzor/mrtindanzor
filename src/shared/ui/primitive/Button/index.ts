@@ -1,3 +1,5 @@
-export * from "./Button"
 export type * from "./button.types"
-export * from "./IconLink"
+export * from "./components/Button"
+export * from "./components/IconLink"
+export * from "./components/LinkFellow"
+export * from "./components/Pill"

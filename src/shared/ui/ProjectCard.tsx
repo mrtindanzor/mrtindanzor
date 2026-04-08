@@ -1,12 +1,12 @@
 import { ArrowUp } from "lucide-react"
-import Link from "next/link"
 import type { ComponentProps } from "react"
 import { SiGithub } from "react-icons/si"
 import type { ProjectProps } from "../db"
-import { Heading } from "./Heading"
-import { MImage } from "./Image"
-import { Pill } from "./Pill"
-import { Typography } from "./Typography"
+import { StyledLink } from "./primitive/Button"
+import { Pill } from "./primitive/Button/components/Pill"
+import { Heading } from "./primitive/Heading"
+import { MImage } from "./primitive/Image"
+import { Typography } from "./primitive/Typography"
 
 export type ProjectCardProps = ComponentProps<"div"> & ProjectProps
 
@@ -67,16 +67,16 @@ function Links({
 	return (
 		<div className="px-6  flex justify-end items-center gap-3" {...props}>
 			{repo && (
-				<Link href={repo} target="_blank" className="link-ring">
+				<StyledLink href={repo} target="_blank" className="link-ring">
 					<SiGithub /> Repo
-				</Link>
+				</StyledLink>
 			)}
 
 			{link && (
-				<Link href={link} target="_blank" className="group link-ring">
+				<StyledLink href={link} target="_blank" className="group link-ring">
 					Preview
 					<ArrowUp className="rotate-45 size-4 group-hover:animate-bounce" />
-				</Link>
+				</StyledLink>
 			)}
 		</div>
 	)

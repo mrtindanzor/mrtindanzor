@@ -1,7 +1,7 @@
-import { Heading } from "@/shared/ui/Heading"
 import { TakeAction } from "@/shared/ui/NotFoundPageTakeAction"
-import { Section } from "@/shared/ui/Section"
-import { Typography } from "@/shared/ui/Typography"
+import { Heading } from "@/shared/ui/primitive/Heading"
+import { Section } from "@/shared/ui/primitive/Section"
+import { Typography } from "@/shared/ui/primitive/Typography"
 
 export const metadata = {
 	title: "Oops, page not found - Mr. Tindanzor",

@@ -1,6 +1,7 @@
 "use client"
 
-import Navbar from "@/shared/layouts/Navbar"
+import { Header } from "@/shared/layouts"
+import { AppRoutingProvider } from "./AppRouting"
 import { ScrollDirectionProvider } from "./ScrollDirectionProvider"
 
 export default function BaseProvider({
@@ -9,10 +10,12 @@ export default function BaseProvider({
 	children: React.ReactNode
 }) {
 	return (
-		<ScrollDirectionProvider>
-			<Navbar />
+		<AppRoutingProvider>
+			<ScrollDirectionProvider>
+				<Header />
 
-			{children}
-		</ScrollDirectionProvider>
+				{children}
+			</ScrollDirectionProvider>
+		</AppRoutingProvider>
 	)
 }

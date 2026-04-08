@@ -1,9 +1,9 @@
 import { PROFESSIONAL_TIMELIINE } from "@/shared/db"
 import { routes } from "@/shared/routes"
-import { Heading } from "@/shared/ui/Heading"
 import { JourneyCard } from "@/shared/ui/JourneyCard"
-import { StyledDotLink } from "@/shared/ui/primitive/Button/IconLink"
-import { Section } from "@/shared/ui/Section"
+import { StyledDotLink } from "@/shared/ui/primitive/Button"
+import { Heading } from "@/shared/ui/primitive/Heading"
+import { Section } from "@/shared/ui/primitive/Section"
 export function JourneyPreview() {
 	return (
 		<div className="bg-linear-to-b from-slate-900 to-slate-900 via-slate-950">

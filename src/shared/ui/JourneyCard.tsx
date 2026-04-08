@@ -1,9 +1,9 @@
 import type { ComponentProps } from "react"
-import { cn } from "@/lib/utils"
+import { cn } from "@/shared/utils/cn"
 import type { ProfessionalJourneyType } from "../db"
-import { Heading } from "./Heading"
-import { Pill } from "./Pill"
-import { Typography } from "./Typography"
+import { Pill } from "./primitive/Button/components/Pill"
+import { Heading } from "./primitive/Heading"
+import { Typography } from "./primitive/Typography"
 
 type WithEl<T extends React.ElementType, P> = ComponentProps<T> & P
 

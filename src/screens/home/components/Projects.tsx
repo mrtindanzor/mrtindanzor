@@ -1,9 +1,9 @@
 import { FEATURED_PROJECTS } from "@/shared/db"
 import { routes } from "@/shared/routes"
-import { Heading } from "@/shared/ui/Heading"
 import { ProjectCard } from "@/shared/ui/ProjectCard"
-import { StyledDotLink } from "@/shared/ui/primitive/Button/IconLink"
-import { Section } from "@/shared/ui/Section"
+import { StyledDotLink } from "@/shared/ui/primitive/Button"
+import { Heading } from "@/shared/ui/primitive/Heading"
+import { Section } from "@/shared/ui/primitive/Section"
 
 export function FeatureProjects() {
 	return (

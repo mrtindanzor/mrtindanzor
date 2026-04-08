@@ -1,11 +1,11 @@
 "use client"
 import { motion } from "framer-motion"
 import type { ComponentProps } from "react"
-import { motionVariants } from "@/lib/motion"
-import { cn } from "@/lib/utils"
 import { CONTACT_LINKS } from "@/shared/db"
-import { Heading } from "@/shared/ui/Heading"
-import { SocialMediaCard } from "@/shared/ui/SocialMediaLink"
+import { motionVariants } from "@/shared/ui/Framer"
+import { Heading } from "@/shared/ui/primitive/Heading"
+import { cn } from "@/shared/utils/cn"
+import { SocialMediaCard } from "./SocialMediaLink"
 
 const linkVariants = motionVariants({
 	hidden: { x: 40 },

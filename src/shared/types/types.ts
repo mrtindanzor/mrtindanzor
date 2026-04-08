@@ -1,10 +1,7 @@
-import type { MotionProps } from "framer-motion"
 import type { ComponentProps, ComponentPropsWithRef } from "react"
-import type { IconType } from "react-icons"
-import type { headingVariants } from "@/shared/ui/Heading"
-import type { pillVariants } from "@/shared/ui/Pill"
-import type { typographyVariants } from "@/shared/ui/Typography"
-import type { ExtractVariantsTypes } from "./utils/library"
+import type { headingVariants } from "@/shared/ui/primitive/Heading"
+import type { typographyVariants } from "@/shared/ui/primitive/Typography"
+import type { ExtractVariantsTypes } from "./utils/ExtractVariants"
 
 type HeadingVariants = ExtractVariantsTypes<typeof headingVariants>
 export type HeadingProps = {
@@ -19,28 +16,6 @@ export type TypographyProps<Tag extends React.ElementType = "span"> =
 			tag?: Tag
 		}
 
-type PillVariants = ExtractVariantsTypes<typeof pillVariants>
-
-export type PillProps<Tag extends "p" | "span" = "span"> =
-	TypographyProps<Tag> & PillVariants
-
-export type TextAreaProps = { title: string } & ComponentProps<"textarea">
-export type TextFieldProps = {
-	title: string
-	icon: IconType
-} & ComponentProps<"input">
-
-export type ContactData = {
-	name: string
-	contact: string | number
-	message: string
-	honeypot?: string
-}
-
-export type MarkdownProps = ComponentProps<"div"> & {
-	content: string
-}
-
 export type MImageProps = {
 	alt: string
 	url: string
@@ -48,8 +23,3 @@ export type MImageProps = {
 } & ComponentProps<"div">
 
 export type BackropProps = ComponentProps<"div">
-
-export type MobileNavbarProps = {
-	setActive: React.Dispatch<React.SetStateAction<boolean>>
-} & MotionProps &
-	ComponentProps<"ul">

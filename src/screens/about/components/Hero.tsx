@@ -1,13 +1,10 @@
 import { DEVELOPER } from "@/shared/db"
 import { routes } from "@/shared/routes"
-import { Heading } from "@/shared/ui/Heading"
-import { MImage } from "@/shared/ui/Image"
-import {
-	StyledArrowLink,
-	StyledDotLink,
-} from "@/shared/ui/primitive/Button/IconLink"
-import { Section } from "@/shared/ui/Section"
-import { Typography } from "@/shared/ui/Typography"
+import { StyledArrowLink, StyledDotLink } from "@/shared/ui/primitive/Button"
+import { Heading } from "@/shared/ui/primitive/Heading"
+import { MImage } from "@/shared/ui/primitive/Image"
+import { Section } from "@/shared/ui/primitive/Section"
+import { Typography } from "@/shared/ui/primitive/Typography"
 
 export function HeroSection() {
 	return (

@@ -1,9 +1,9 @@
-import { cn } from "@/lib/utils"
 import { DEVELOPER, SKILLS } from "@/shared/db"
-import { Heading } from "@/shared/ui/Heading"
-import { MImage } from "@/shared/ui/Image"
-import { Section } from "@/shared/ui/Section"
-import { Typography } from "@/shared/ui/Typography"
+import { Heading } from "@/shared/ui/primitive/Heading"
+import { MImage } from "@/shared/ui/primitive/Image"
+import { Section } from "@/shared/ui/primitive/Section"
+import { Typography } from "@/shared/ui/primitive/Typography"
+import { cn } from "@/shared/utils/cn"
 
 export function HeroSection() {
 	return (
