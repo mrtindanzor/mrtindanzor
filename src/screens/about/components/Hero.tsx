@@ -1,4 +1,4 @@
-import { DEVELOPER } from "@/shared/db"
+import { DEVELOPER, FEATURED_PROJECTS } from "@/shared/db"
 import { routes } from "@/shared/routes"
 import { StyledArrowLink, StyledDotLink } from "@/shared/ui/primitive/Button"
 import { Heading } from "@/shared/ui/primitive/Heading"
@@ -23,7 +23,8 @@ export function HeroSection() {
 			<Typography tag="p">
 				I&apos;m a Full-Stack and DevOps developer passionate about building
 				innovative, scalable, and user-focused applications. I have hands-on
-				experience with projects like Myghmart and Successfield College, where I
+				experience with projects like{" "}
+				{FEATURED_PROJECTS.map((project) => project.title).join(", ")}, where I
 				combine modern technologies to solve real-world problems. My technical
 				expertise spans React, Next.js, Tailwind CSS, MongoDB, Redis, Docker,
 				Express, GraphQL, and TypeScript, enabling me to craft efficient and

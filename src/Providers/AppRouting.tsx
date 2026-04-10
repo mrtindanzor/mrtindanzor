@@ -1,6 +1,6 @@
 "use client"
 
-import { usePathname, useSearchParams } from "next/navigation"
+import { useRouter } from "@tanstack/react-router"
 import {
 	createContext,
 	type PropsWithChildren,
@@ -9,7 +9,6 @@ import {
 	useMemo,
 	useState,
 } from "react"
-import type { SetState } from "@/shared/types/utils/setState"
 
 type AppRoutingContext = {
 	searchParams: URLSearchParams
@@ -17,15 +16,13 @@ type AppRoutingContext = {
 	url: string
 }
 
-type AppRouteListenerProps = {
-	setSearchParams: SetState<URLSearchParams>
-}
-
 export const AppRoutingContext = createContext<AppRoutingContext | null>(null)
 
 export function AppRoutingProvider({ children }: PropsWithChildren) {
-	const [searchParams, setSearchParams] = useState(new URLSearchParams(""))
-	const pathname = usePathname()
+	const route = useRouter()
+	const { search, pathname: path } = route.state.location
+	const [searchParams, setSearchParams] = useState(new URLSearchParams(search))
+	const [pathname, setPathname] = useState(path)
 
 	const url = useMemo(() => {
 		const query = searchParams.toString().trim()
@@ -44,7 +41,10 @@ export function AppRoutingProvider({ children }: PropsWithChildren) {
 	return (
 		<AppRoutingContext value={value}>
 			<Suspense fallback={null}>
-				<AppRouteListener setSearchParams={setSearchParams} />
+				<RouteChangeListener
+					setSearchParams={setSearchParams}
+					setPathname={setPathname}
+				/>
 			</Suspense>
 
 			{children}
@@ -52,12 +52,23 @@ export function AppRoutingProvider({ children }: PropsWithChildren) {
 	)
 }
 
-function AppRouteListener({ setSearchParams }: AppRouteListenerProps) {
-	const sp = useSearchParams()
+type RouteChangeListenerProps = {
+	setPathname: (pathname: string) => void
+	setSearchParams: (searchParams: URLSearchParams) => void
+}
+function RouteChangeListener({
+	setSearchParams,
+	setPathname,
+}: RouteChangeListenerProps) {
+	const route = useRouter()
 
 	useLayoutEffect(() => {
-		setSearchParams(new URLSearchParams(sp.toString()))
-	}, [sp, setSearchParams])
+		route.subscribe("onLoad", () => {
+			const { pathname, search } = route.latestLocation
+			setPathname(pathname)
+			setSearchParams(new URLSearchParams(search))
+		})
+	}, [route, setPathname, setSearchParams])
 
 	return null
 }

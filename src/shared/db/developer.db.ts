@@ -1,6 +1,8 @@
 export const DEVELOPER = Object.freeze({
-	avatar: "/images/avatar.png",
+	avatar: "/images/mrtindanzor/avatar-main.png",
 	name: "Mr. Tindanzor Simon",
+	lastName: "Tindanzor",
+	firstName: "Simon",
 	resume: "/resume/mrtindanzor.pdf",
 	email: "mrtindanzor@gmail.com",
 	phone: "+233546087679",

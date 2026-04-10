@@ -1,0 +1,100 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+	--muted: #21201c;
+	--neutral: var(--color-white);
+}
+
+@theme inline {
+	--radius-sm: calc(var(--radius) - 4px);
+	--radius-md: calc(var(--radius) - 2px);
+	--radius-lg: var(--radius);
+	--radius-xl: calc(var(--radius) + 4px);
+
+	--color-primary: var(--color-sky-600);
+	--color-accent: var(--color-slate-950);
+	--color-neutral: var(--neutral);
+	--color-muted: var(--muted);
+	--color-success: var(--color-green-600);
+	--color-danger: var(--color-rose-600);
+	--font-chakra: var(--font-chakra);
+	--font-jura: var(--font-jura);
+}
+
+@layer base {
+	* {
+		@apply border-neutral;
+		scrollbar-width: thin;
+	}
+	body {
+		@apply overflow-x-hidden h-full p-0 bg-muted text-neutral tracking-wide;
+	}
+
+	button {
+		cursor: pointer;
+	}
+
+	input,
+	textarea {
+		@apply border-2 py-2 bg-muted border-accent rounded-md focus:border-neutral/10 focus:outline-3 focus:outline-slate-300/10;
+	}
+
+	* ::-webkit-scrollbar {
+		@apply w-1 h-1;
+	}
+
+	* ::-webkit-scrollbar-track {
+		@apply bg-muted;
+	}
+
+	* ::-webkit-scrollbar-thumb {
+		@apply bg-neutral rounded-md cursor-grab;
+	}
+
+	.link {
+		@apply before:content-[''] before:absolute before:inset-0 before:z-1 before:cursor-pointer;
+	}
+}
+
+@layer utilities {
+	.flex-place-center {
+		@apply flex justify-center items-center;
+	}
+}
+
+@layer components {
+	.animate-in-out {
+		@apply animate-pulse ease-out;
+		animation-duration: 2s;
+		animation-iteration-count: infinite;
+	}
+
+	.glass {
+		@apply bg-neutral/10 backdrop-blur-md;
+	}
+
+	.link-ring {
+		@apply flex items-center gap-1.5 bg-muted rounded-xl px-3 py-0.5 text-neutral outline;
+	}
+
+	.flex-place-center {
+		@apply flex justify-center items-center;
+	}
+}
+
+.animate-scroll {
+	animation: Scroll 30s linear infinite;
+}
+
+@keyframes Scroll {
+	to {
+		transform: translateX(-50%);
+	}
+}
+
+button {
+	@apply cursor-pointer;
+}

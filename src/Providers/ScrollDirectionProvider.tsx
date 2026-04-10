@@ -1,15 +1,9 @@
 "use client"
 
 import { ArrowUpToLine } from "lucide-react"
-import {
-	Activity,
-	createContext,
-	useContext,
-	useEffect,
-	useRef,
-	useState,
-} from "react"
+import { createContext, useContext, useEffect, useRef, useState } from "react"
 import { Button } from "@/shared/ui/primitive/Button"
+import { Visibility } from "@/shared/ui/primitive/Visibility"
 import { cn } from "@/shared/utils/cn"
 
 type ScrollDirection = {
@@ -23,9 +17,7 @@ export default function GoToTop() {
 	const { direction, current: currentScroll } = useDirectionContext()
 
 	return (
-		<Activity
-			mode={direction === "Top" && currentScroll > 300 ? "visible" : "hidden"}
-		>
+		<Visibility show={direction === "Top" && currentScroll > 300}>
 			<div
 				className={cn(
 					"fixed pointer-events-none z-10 bottom-20 w-screen max-w-7xl left-1/2 -translate-x-1/2 flex justify-end pr-5",
@@ -43,7 +35,7 @@ export default function GoToTop() {
 					<ArrowUpToLine className="size-8" />
 				</Button>
 			</div>
-		</Activity>
+		</Visibility>
 	)
 }
 

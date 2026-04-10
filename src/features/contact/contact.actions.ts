@@ -1,27 +1,15 @@
-"use server"
-
-import { standardResponse } from "@/shared/utils/response"
+import { createServerFn } from "@tanstack/react-start"
 import { toCapitalized } from "@/shared/utils/textFormat"
-import { syncTryCatch } from "@/shared/utils/tryCatch"
 import type { ContactDataType } from "./contact.contract.types"
 import { contactService } from "./contact.services"
 import { contactValidator } from "./contact.validators"
 
-export const sendMessage = async (payload: ContactDataType) => {
-	const parsed = syncTryCatch(() => contactValidator.parse(payload))
-	if (!parsed.success) return standardResponse("bad-request", parsed.error)
-
-	const { error, message: ErrorMessage } = await contactService.sendMessage(
-		formatMessage(payload),
-	)
-
-	if (error) return { error: true, message: ErrorMessage }
-
-	return {
-		status: 201,
-		message: "Thanks! Your message was received. I'll be in touch soon.",
-	}
-}
+export const sendMessage = createServerFn({ method: "POST" })
+	.inputValidator(contactValidator)
+	.handler(async ({ data }) => {
+		const message = formatMessage(data)
+		return await contactService.sendMessage(message)
+	})
 
 function formatMessage({
 	message,
@@ -29,9 +17,9 @@ function formatMessage({
 	contact,
 }: Omit<ContactDataType, "honeypot">) {
 	return `
-    **New message from ${toCapitalized(name)}**
-    **Contact - ${contact}**
-    
-    ${message}
-  `
+		**New message from ${toCapitalized(name)}**
+		**Contact - ${contact}**
+		
+		${message}
+	`
 }

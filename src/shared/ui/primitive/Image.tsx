@@ -1,4 +1,3 @@
-import Image from "next/image"
 import type { MImageProps } from "@/shared/types/types"
 import { cn } from "@/shared/utils/cn"
 
@@ -15,12 +14,14 @@ export function MImage({
 			{...props}
 			className={cn("relative size-full overflow-hidden", className)}
 		>
-			<Image
+			<img
 				src={url}
 				alt={alt}
-				fill
 				sizes="100%"
-				className={cn("object-contain", imageClassName)}
+				className={cn(
+					"object-contain size-full absolute inset-0",
+					imageClassName,
+				)}
 			/>
 			{children}
 		</div>

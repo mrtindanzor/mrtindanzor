@@ -1,5 +1,5 @@
+import { Link } from "@tanstack/react-router"
 import { ArrowUp, Dot } from "lucide-react"
-import Link from "next/link"
 import { cn } from "@/shared/utils/cn"
 import type {
 	IconLinkProps,
@@ -12,6 +12,12 @@ export function StyledLink({
 	children,
 	className,
 	variant,
+	rad,
+	pad,
+	x,
+	y,
+	w,
+	hover,
 	animation,
 	...props
 }: StyledLinkProps) {
@@ -21,6 +27,12 @@ export function StyledLink({
 			className={cn(
 				buttonVariants({
 					variant,
+					rad,
+					pad,
+					x,
+					y,
+					w,
+					hover,
 					animation,
 					className,
 				}),

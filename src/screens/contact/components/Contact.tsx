@@ -1,5 +1,3 @@
-"use client"
-
 import { Dot } from "lucide-react"
 import type { ComponentProps } from "react"
 import { useContact } from "@/features/contact"

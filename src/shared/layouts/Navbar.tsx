@@ -1,10 +1,10 @@
 "use client"
 
-import { type MotionProps, motion } from "framer-motion"
+import { AnimatePresence, type MotionProps, motion } from "framer-motion"
 import type { ComponentProps } from "react"
 import { motionVariants } from "@/shared/ui/Framer"
 import Backdrop from "@/shared/ui/primitive/Backdrop"
-import { StyledDotLink } from "@/shared/ui/primitive/Button"
+import { StyledDotLink, StyledLink } from "@/shared/ui/primitive/Button"
 import { cn } from "@/shared/utils/cn"
 import { useAutoHide } from "../hooks/useAutoHide"
 import { useAppPathname } from "../hooks/useNavigation"
@@ -20,57 +20,64 @@ const navVariants = motionVariants({
 
 type MobileNavbarProps = {
 	setActive: SetState<boolean>
+	active: boolean
 } & MotionProps &
 	ComponentProps<"ul">
 
 export function MobileNavbar({
 	className,
 	setActive,
+	active,
 	...props
 }: MobileNavbarProps) {
 	const { captureRef } = useAutoHide({
 		close: () => setActive(false),
-		isOpen: true,
+		isOpen: active,
+		event: "click",
 	})
 
 	return (
-		<Backdrop className="lg:hidden top-18">
-			<motion.ul
-				ref={captureRef()}
-				className={cn(
-					className,
-					"fixed w-9/10 top-1 border border-slate-800 text-center rounded-xl overflow-hidden inset-x-0 bg-slate-950/90 backdrop-blur-3xl mx-auto ",
-				)}
-				{...props}
-				variants={navVariants}
-				initial="hidden"
-				animate="show"
-				exit="exit"
-			>
-				<div className="px-4 py-5 grid gap-1">
-					{NAV_LINKS.map((link) => (
-						<NavLink
-							key={link.title}
-							className="py-4 bg-transparent"
-							{...link}
-							onClick={() => setActive(false)}
-						/>
-					))}
-					<div className="border-1 border-white/5 w-full "></div>
-
-					<StyledDotLink
-						href={routes.contact}
-						onClick={() => setActive(false)}
-						className="flex w-full lg:hidden py-4 rounded-lg"
-						iconClassName="bg-white"
-						animation="enlargeY"
-						variant="muted"
+		<AnimatePresence>
+			{active && (
+				<Backdrop className="lg:hidden top-18">
+					<motion.ul
+						ref={captureRef()}
+						className={cn(
+							className,
+							"fixed w-9/10 top-1 border border-slate-800 text-center rounded-xl overflow-hidden inset-x-0 bg-slate-950/90 backdrop-blur-3xl mx-auto ",
+						)}
+						{...props}
+						variants={navVariants}
+						initial="hidden"
+						animate="show"
+						exit="exit"
 					>
-						Contact
-					</StyledDotLink>
-				</div>
-			</motion.ul>
-		</Backdrop>
+						<div className="px-4 py-5 grid gap-1">
+							{NAV_LINKS.map((link) => (
+								<NavLink
+									key={link.title}
+									className="py-4 bg-transparent"
+									{...link}
+									onClick={() => setActive(false)}
+								/>
+							))}
+							<div className="border-1 border-white/5 w-full "></div>
+
+							<StyledDotLink
+								href={routes.contact}
+								onClick={() => setActive(false)}
+								className="flex-place-center gap-x-2  w-full lg:hidden py-4 rounded-lg"
+								iconClassName="bg-white"
+								animation="enlargeY"
+								variant="muted"
+							>
+								Contact
+							</StyledDotLink>
+						</div>
+					</motion.ul>
+				</Backdrop>
+			)}
+		</AnimatePresence>
 	)
 }
 
@@ -79,7 +86,7 @@ export function DesktopNavbar({
 	...props
 }: MotionProps & ComponentProps<"ul">) {
 	return (
-		<motion.ul className={cn("hidden lg:flex gap-0.5", className)} {...props}>
+		<motion.ul className={cn("hidden lg:flex gap-1", className)} {...props}>
 			{NAV_LINKS.map((link) => (
 				<NavLink key={link.title} {...link} />
 			))}
@@ -97,9 +104,13 @@ function NavLink({
 
 	return (
 		<li {...props}>
-			<StyledDotLink href={path} variant={pathname === path ? "white" : "none"}>
+			<StyledLink
+				href={path}
+				variant={pathname === path ? "primary-light" : "none"}
+				hover="default"
+			>
 				{title}
-			</StyledDotLink>
+			</StyledLink>
 		</li>
 	)
 }

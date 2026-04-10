@@ -12,10 +12,11 @@
 
 # testing
 /coverage
+ 
+# tanstack
+/.output
+/.tanstack
 
-# next.js
-/.next/
-/out/
 
 # production
 /build

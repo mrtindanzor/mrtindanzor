@@ -1,5 +1,5 @@
 import type React from "react"
-import BaseProvider from "./providers/BaseProvider"
+import { ProvidersWithExtraUI } from "./providers/BaseProvider"
 import Footer from "./shared/layouts/Footer"
 
 type LayoutProps = {
@@ -8,9 +8,9 @@ type LayoutProps = {
 
 export function AppLayout({ children }: LayoutProps) {
 	return (
-		<BaseProvider>
+		<ProvidersWithExtraUI>
 			{children}
 			<Footer />
-		</BaseProvider>
+		</ProvidersWithExtraUI>
 	)
 }

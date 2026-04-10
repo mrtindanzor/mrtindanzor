@@ -1,15 +1,12 @@
-"use client"
-
-import { AnimatePresence, motion, useScroll, useTransform } from "framer-motion"
+import { motion, useScroll, useTransform } from "framer-motion"
 import { Menu, X } from "lucide-react"
 import { useState } from "react"
 import { useDirectionContext } from "@/providers/ScrollDirectionProvider"
 import { DEVELOPER } from "../db"
 import { routes } from "../routes"
 import { motionVariants } from "../ui/Framer"
-import { Button, StyledDotLink } from "../ui/primitive/Button"
+import { Button, StyledDotLink, StyledLink } from "../ui/primitive/Button"
 import { MImage } from "../ui/primitive/Image"
-import { Typography } from "../ui/primitive/Typography"
 import { cn } from "../utils/cn"
 import { DesktopNavbar, MobileNavbar } from "./Navbar"
 
@@ -41,29 +38,32 @@ export function Header() {
 				)}
 			>
 				<div className="max-w-6xl w-full justify-between items-center flex">
-					<Typography
-						size="lg"
-						className="flex items-center gap-2 text-transparent uppercase bg-gradient-to-br bg-clip-text from-sky-600 via-white to-sky-600"
-					>
+					<div className="flex items-center gap-2">
 						<MImage
 							url={DEVELOPER.avatar}
-							alt="Mr. Tindanzor"
-							className="size-10 rounded-full *:size-full bg-white/10 backdrop-blur-md"
+							alt={DEVELOPER.name}
+							className="size-10 rounded-full *:size-full bg-neutral/10 backdrop-blur-md"
 						/>
-						Tindanzor
-					</Typography>
+						<StyledLink
+							variant="muted"
+							href={routes.home}
+							className="font-bold text-lg uppercase sm:text-2xl text-transparent bg-gradient-to-br bg-clip-text from-primary via-white to-primary"
+						>
+							{DEVELOPER.lastName}
+						</StyledLink>
+					</div>
 					<DesktopNavbar />
 					<StyledDotLink
 						href={routes.contact}
 						animation="enlargeX"
+						variant="light"
 						iconClassName="text-black bg-black"
-						className="hidden! lg:flex! outline-none border-none"
+						className="hidden! lg:flex! items-center gap-x-2 outline-none border-none"
 					>
 						Contact
 					</StyledDotLink>
 					<Button
-						variant="ghost"
-						className="text-sky-100 lg:hidden *:stroke-2 p-0 cursor-pointer hover:bg-transparent hover:text-sky-600 outline-none"
+						className="lg:hidden *:stroke-2 p-0"
 						onClick={() => setActive(!active)}
 					>
 						{!active && <Menu />}
@@ -73,7 +73,7 @@ export function Header() {
 
 				<div
 					className={cn(
-						"bg-gradient-to-r from-sky-600 to-cyan-700 rounded-b-3xl transition-width duration-75 ease-linear -translate-y-full h-0.5 via-white absolute top-full inset-x-0",
+						"bg-gradient-to-r from-primary to-neutral rounded-b-3xl transition-width duration-75 ease-linear -translate-y-full h-0.5 via-primary/30 absolute top-full inset-x-0",
 						"mx-auto",
 					)}
 					style={{
@@ -81,9 +81,7 @@ export function Header() {
 					}}
 				/>
 			</motion.header>
-			<AnimatePresence>
-				{active && <MobileNavbar setActive={setActive} />}
-			</AnimatePresence>
+			<MobileNavbar active={active} setActive={setActive} />
 		</>
 	)
 }

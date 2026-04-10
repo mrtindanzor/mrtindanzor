@@ -17,6 +17,7 @@ export function ProjectCard({
 	description,
 	link,
 	repo,
+	featured: _f,
 }: ProjectCardProps) {
 	return (
 		<div className="group grid md:grid-cols-2 border relative border-sky-50/10 rounded-xl">

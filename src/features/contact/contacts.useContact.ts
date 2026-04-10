@@ -1,5 +1,3 @@
-"use client"
-
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useCallback } from "react"
 import { useForm } from "react-hook-form"
@@ -15,10 +13,10 @@ export function useContact() {
 
 	const handleMessage = useCallback(
 		async (payload: ContactDataType) => {
-			const res = await sendMessage(payload)
+			const res = await sendMessage({ data: payload })
 			if (res.error) throw res.message
 
-			reset()
+			reset({ message: "", name: "", contact: "" })
 			setError("root", { message: res.message })
 		},
 		[setError, reset],

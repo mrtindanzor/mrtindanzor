@@ -14,6 +14,7 @@ export function SkillsContainerCard({
 	category,
 	items,
 	className,
+	featured: _f,
 	...props
 }: SkillsContainerCardProps) {
 	return (

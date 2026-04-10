@@ -1,4 +1,3 @@
-"use client"
 import { motion } from "framer-motion"
 import type { ComponentProps } from "react"
 import { CONTACT_LINKS } from "@/shared/db"
