@@ -1,5 +1,3 @@
-"use client"
-
 import { motion } from "framer-motion"
 import type { FramerAnimateScrollProps } from "../framer.types"
 import { useFramerScroll } from "../hooks/useFramerScroll"

@@ -1,5 +1,3 @@
-"use client"
-
 import { useScroll, useSpring, useTransform } from "framer-motion"
 import { useRef } from "react"
 import type { FramerScrollWrapperProps } from "../framer.types"

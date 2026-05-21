@@ -1,5 +1,3 @@
-"use client"
-
 import { useMemo } from "react"
 import type { UseAnimatePositionProps } from "../framer.types"
 import { motionVariants } from "../utils/motion"

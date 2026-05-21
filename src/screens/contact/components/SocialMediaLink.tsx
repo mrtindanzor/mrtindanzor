@@ -2,7 +2,6 @@ import { ArrowRight } from "lucide-react"
 import type { ComponentProps } from "react"
 import type { SocailMediaProps } from "@/shared/db"
 import { StyledLink } from "@/shared/ui/primitive/Button"
-import { Typography } from "@/shared/ui/primitive/Typography"
 import { cn } from "@/shared/utils/cn"
 
 type SocailMediaCardProps = ComponentProps<"div"> & SocailMediaProps
@@ -19,24 +18,24 @@ export function SocialMediaCard({
 		<div
 			{...props}
 			className={cn(
-				"first:rounded-t-xl group last:rounded-b-xl relative grid px-4 py-2 gap-x-2 gap-y-2 w-full border border-gray-700/30 items-center grid-cols-[auto_1fr_auto] hover:bg-gray-800/20",
+				"group flex items-center gap-4 p-4 border-x border-b border-border-subtle first:border-t first:rounded-t-2xl last:rounded-b-2xl hover:bg-background-secondary transition-all",
 				className,
 			)}
 		>
-			<Typography>
+			<div className={cn("p-2 rounded-xl bg-background-primary border border-border-subtle text-neutral", color)}>
 				<Icon className="size-6" />
-			</Typography>
+			</div>
 
 			<StyledLink
 				href={link}
 				target="_blank"
 				rel="noopener noreferrer"
-				className="link mr-auto"
+				className="font-semibold text-neutral hover:text-primary transition-colors flex-1"
 			>
-				<Typography>{title}</Typography>
+				{title}
 			</StyledLink>
 
-			<ArrowRight className="text-gray-800/80 group-hover:text-white group-hover:animate-pulse group-hover:-rotate-180 transition-transform duration-300" />
+			<ArrowRight className="size-5 text-muted group-hover:text-primary group-hover:translate-x-1 transition-all duration-300" />
 		</div>
 	)
 }

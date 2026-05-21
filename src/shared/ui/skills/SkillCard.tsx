@@ -1,8 +1,6 @@
 import type { ComponentProps } from "react"
-import { cn } from "@/shared/utils/cn"
+import { cn } from "@/shared/utils/cn" 
 import type { SkillItemsProps } from "../../db/skills.db.types"
-import { Heading } from "../primitive/Heading"
-import { Typography } from "../primitive/Typography"
 
 export type SkillCardProps = ComponentProps<"div"> & SkillItemsProps
 
@@ -18,29 +16,21 @@ export function SkillCard({
 		<div
 			{...props}
 			className={cn(
-				"border border-gray-600/40 @container rounded-3xl not-first:rounded-t-none not-last:rounded-b-none p-2",
+				"card-surface p-4 flex flex-col gap-3 transition-all hover:border-primary/30",
 				className,
 			)}
 		>
-			<header
-				className={cn("grid grid-cols-[auto_1fr] gap-2 py-2 px-4 items-center")}
-			>
-				<Typography
-					className={cn("border rounded-xl border-gray-600/40 py-2", color)}
-				>
-					<Icon className="size-4 md:size-6" />
-				</Typography>
-				<Heading
-					tag="h4"
-					size="none"
-					className={cn("my-auto mx-auto @xs:mx-0 ")}
-				>
+			<div className="flex items-center gap-3">
+				<div className={cn("p-2 rounded-xl bg-background-primary border border-border-subtle flex items-center justify-center", color)}>
+					<Icon className="size-5 md:size-6" />
+				</div>
+				<h4 className="font-bold text-neutral">
 					{title}
-				</Heading>
-			</header>
-			<Typography tag="p" size="sm" className="text-center @xs:text-left">
+				</h4>
+			</div>
+			<p className="text-sm text-muted leading-relaxed">
 				{description}
-			</Typography>
+			</p>
 		</div>
 	)
 }

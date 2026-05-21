@@ -19,15 +19,17 @@ const getSize = (size: "sm" | "md" | "lg") => {
 	}
 }
 
+type UseMediaQueryProps = {
+	size?: "sm" | "md" | "lg"
+	comparison?: "<" | ">"
+	customSize?: number
+}
+
 export function useMediaQuery({
 	size = "sm",
 	comparison = "<",
 	customSize,
-}: {
-	size?: "sm" | "md" | "lg"
-	comparison?: "<" | ">"
-	customSize?: number
-}) {
+}: UseMediaQueryProps = {}) {
 	const [matchesDeviceWidth, setMatchesDeviceWidth] = useState<boolean>(false)
 
 	useEffect(() => {

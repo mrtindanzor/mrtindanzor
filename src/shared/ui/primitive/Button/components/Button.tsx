@@ -9,7 +9,7 @@ export const buttonVariants = cva(
 		variants: {
 			variant: {
 				default: "bg-primary text-neutral",
-				light: "bg-neutral text-muted",
+				light: "bg-neutral text-primary",
 				outline: "bg-transparent text-neutral outline-neutral",
 				"outline-muted": "bg-transparent text-muted outline-muted",
 				muted: "bg-muted text-neutral outline-1",

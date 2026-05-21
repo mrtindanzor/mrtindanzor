@@ -1,5 +1,3 @@
-"use client"
-
 import { ArrowUpToLine } from "lucide-react"
 import { createContext, useContext, useEffect, useRef, useState } from "react"
 import { Button } from "@/shared/ui/primitive/Button"

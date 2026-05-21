@@ -1,26 +1,23 @@
 import { DEVELOPER, FEATURED_PROJECTS } from "@/shared/db"
 import { routes } from "@/shared/routes"
 import { StyledArrowLink, StyledDotLink } from "@/shared/ui/primitive/Button"
-import { Heading } from "@/shared/ui/primitive/Heading"
 import { MImage } from "@/shared/ui/primitive/Image"
-import { Section } from "@/shared/ui/primitive/Section"
-import { Typography } from "@/shared/ui/primitive/Typography"
 
 export function HeroSection() {
 	return (
-		<Section className="@container">
+		<section className="section text-center">
 			<MImage
 				url={DEVELOPER.avatar}
 				alt={DEVELOPER.name}
-				className="size-50 md:size-70 mx-auto bg-linear-to-bl from-zinc-700 rounded-full"
-				imageClassName="object-cover"
+				className="size-50 md:size-70 mx-auto bg-background-secondary border border-border-subtle rounded-full p-1 shadow-2xl"
+				imageClassName="object-cover rounded-full"
 			/>
 
-			<Heading className="mx-auto text-center" size="lg">
+			<h1 className="text-4xl md:text-6xl mt-12 mb-6 text-gradient">
 				Meet the Developer
-			</Heading>
+			</h1>
 
-			<Typography tag="p">
+			<p className="max-w-4xl mx-auto text-lg md:text-xl leading-relaxed mb-12">
 				I&apos;m a Full-Stack and DevOps developer passionate about building
 				innovative, scalable, and user-focused applications. I have hands-on
 				experience with projects like{" "}
@@ -32,21 +29,22 @@ export function HeroSection() {
 				infrastructure. I thrive on learning, optimizing workflows, and creating
 				projects that deliver tangible impact while embracing best practices in
 				development and DevOps.
-			</Typography>
+			</p>
 
-			<div className="flex gap-4 items-center flex-col @md:flex-row w-fit mx-auto *:outline-none *:border-none">
+			<div className="flex gap-4 items-center flex-col sm:flex-row w-fit mx-auto">
 				<StyledArrowLink
 					target="_blank"
 					rel="noreferrer noopener"
 					href={DEVELOPER.resume}
+					size="lg"
 				>
 					See My Resume
 				</StyledArrowLink>
 
-				<StyledDotLink href={routes.contact} variant="outline">
+				<StyledDotLink href={routes.contact} variant="outline" size="lg">
 					Contact Me
 				</StyledDotLink>
 			</div>
-		</Section>
+		</section>
 	)
 }

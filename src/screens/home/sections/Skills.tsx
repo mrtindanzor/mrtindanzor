@@ -1,24 +1,21 @@
 import { FEATURED_SKILLS } from "@/shared/db"
 import { routes } from "@/shared/routes"
 import { StyledDotLink } from "@/shared/ui/primitive/Button"
-import { Heading } from "@/shared/ui/primitive/Heading"
-import { Section } from "@/shared/ui/primitive/Section"
-import { Typography } from "@/shared/ui/primitive/Typography"
 import { SkillsContainerCard } from "@/shared/ui/skills/SkillsContainerCard"
 import { cn } from "@/shared/utils/cn"
 
 export function SkillsPreview() {
 	return (
-		<div className="bg-linear-to-b from-slate-950 via-slate-900 to-slate-950">
-			<Section>
-				<Heading tag="h2">Engineering Toolkit</Heading>
+		<div>
+			<section className="section">
+				<h2 className="text-3xl md:text-4xl mb-4 text-gradient">Engineering Toolkit</h2>
 
-				<Typography tag="p">
+				<p className="max-w-2xl mb-12 text-lg">
 					My engineering toolkit covers frontend technologies, backend
 					architecture, database design, DevOps workflows, and the tools that
 					support modern engineering, enabling me to deliver full-stack
 					solutions with efficiency and consistency.
-				</Typography>
+				</p>
 
 				<ul className="grid sm:grid-cols-2 gap-4">
 					{FEATURED_SKILLS.map((skill, index) => (
@@ -42,7 +39,7 @@ export function SkillsPreview() {
 				>
 					Explore Engineering Toolkit
 				</StyledDotLink>
-			</Section>
+			</section>
 		</div>
 	)
 }

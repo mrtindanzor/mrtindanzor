@@ -1,6 +1,4 @@
-"use client"
 import { useMemo } from "react"
-import { Typography } from "@/shared/ui/primitive/Typography"
 
 export default function Footer() {
 	const year = useMemo(() => {
@@ -8,10 +6,10 @@ export default function Footer() {
 	}, [])
 
 	return (
-		<footer className="py-10 flex justify-between items-center border-t border-t-sky-50/10">
-			<Typography className="mx-auto w-fit">
+		<footer className="py-12 flex flex-col items-center border-t border-border-subtle bg-background-primary">
+			<p className="text-sm font-medium tracking-wide">
 				&copy; {year} Mr. Tindanzor. All Rights Reserved.
-			</Typography>
+			</p>
 		</footer>
 	)
 }

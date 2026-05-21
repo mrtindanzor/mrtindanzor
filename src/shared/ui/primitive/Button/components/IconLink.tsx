@@ -19,10 +19,12 @@ export function StyledLink({
 	w,
 	hover,
 	animation,
+	href,
 	...props
 }: StyledLinkProps) {
 	return (
 		<Link
+			to={href}
 			{...props}
 			className={cn(
 				buttonVariants({

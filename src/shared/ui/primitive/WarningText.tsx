@@ -1,6 +1,5 @@
 import { Info } from "lucide-react"
 import { cn } from "@/shared/utils/cn"
-import { Typography } from "./Typography"
 
 export default function WarningText({
 	message,
@@ -10,14 +9,16 @@ export default function WarningText({
 	success?: boolean
 }) {
 	return (
-		<p
+		<div
 			className={cn(
-				success ? "bg-green-600/20" : "bg-red-600/20",
-				"grid grid-cols-[auto_1fr] px-2 py-0.5 *:text-white items-center gap-2 rounded h-fit",
+				"flex items-center gap-3 p-3 rounded-xl border transition-all",
+				success 
+					? "bg-emerald-500/10 border-emerald-500/20 text-emerald-500" 
+					: "bg-danger/10 border-danger/20 text-danger"
 			)}
 		>
-			<Info className="size-4" />
-			<Typography size="sm">{message}</Typography>
-		</p>
+			<Info className="size-5 shrink-0" />
+			<span className="text-sm font-medium leading-tight">{message}</span>
+		</div>
 	)
 }

@@ -8,6 +8,7 @@ import { AppLayout } from "@/Layout"
 import { generateMetaData } from "@/libs/tanstack"
 import { DataProviders } from "@/providers/BaseProvider"
 import { DEVELOPER } from "@/shared/db"
+import { opengraphs } from "@/shared/routes"
 import { NotFoundPage } from "@/shared/ui/NotFoundPage"
 import appCss from "./globals.css?url"
 
@@ -23,6 +24,7 @@ export const Route = createRootRoute({
 				title: DEVELOPER.name,
 				description: `${DEVELOPER.name} - Full-Stack Web Developer`,
 				path: "",
+				images: opengraphs.select("home"),
 			}),
 		],
 		links: [
@@ -36,20 +38,19 @@ export const Route = createRootRoute({
 
 function RootLayout() {
 	return (
-		<DataProviders>
-			<html lang="en">
-				<head>
-					<HeadContent />
-				</head>
+		<html lang="en">
+			<head>
+				<HeadContent />
+			</head>
 
-				<body>
+			<body className="text-neutral bg-background-secondary font-poppins">
+				<DataProviders>
 					<AppLayout>
 						<Outlet />
 					</AppLayout>
-
-					<Scripts />
-				</body>
-			</html>
-		</DataProviders>
+				</DataProviders>
+				<Scripts />
+			</body>
+		</html>
 	)
 }

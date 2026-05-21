@@ -16,9 +16,9 @@ export function ProvidersWithExtraUI({
 	children: React.ReactNode
 }) {
 	return (
-		<>
+		<div className="pt-18">
 			<Header />
 			{children}
-		</>
+		</div>
 	)
 }

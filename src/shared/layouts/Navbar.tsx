@@ -1,5 +1,3 @@
-"use client"
-
 import { AnimatePresence, type MotionProps, motion } from "framer-motion"
 import type { ComponentProps } from "react"
 import { motionVariants } from "@/shared/ui/Framer"

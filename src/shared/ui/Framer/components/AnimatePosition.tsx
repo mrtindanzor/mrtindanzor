@@ -1,4 +1,3 @@
-"use client"
 import { motion } from "framer-motion"
 import type { FramerAnimatePositionProps } from "../framer.types"
 import { useAnimatePosition } from "../hooks/usePosition"

@@ -1,5 +1,5 @@
-const serverUri = process.env.VITE_SERVER_URI
-const appUrl = process.env.VITE_APP_URL
+const serverUri = import.meta.env.VITE_SERVER_URI
+const appUrl = import.meta.env.VITE_APP_URL
 
 if (!serverUri) throw Error("Server URI not defined")
 if (!appUrl) throw Error("App URL not defined")

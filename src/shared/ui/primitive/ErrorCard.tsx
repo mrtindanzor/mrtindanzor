@@ -1,5 +1,3 @@
-"use client"
-
 import { cva } from "class-variance-authority"
 import { AlertCircle, CheckCircle2 } from "lucide-react"
 import type { ComponentProps } from "react"

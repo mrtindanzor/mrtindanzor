@@ -1,9 +1,9 @@
-import { Footer } from "./components/Footer"
-import { HeroSection } from "./components/Hero"
-import { JourneyPreview } from "./components/Journey"
-import { Mission } from "./components/Mission"
-import { FeatureProjects } from "./components/Projects"
-import { SkillsPreview } from "./components/Skills"
+import { Footer } from "./sections/Footer"
+import { HeroSection } from "./sections/Hero"
+import { JourneyPreview } from "./sections/Journey"
+import { Mission } from "./sections/Mission"
+import { FeatureProjects } from "./sections/Projects"
+import { SkillsPreview } from "./sections/Skills"
 
 export function HomePage() {
 	return (

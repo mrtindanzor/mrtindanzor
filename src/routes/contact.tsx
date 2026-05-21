@@ -7,7 +7,7 @@ export const Route = createFileRoute("/contact")({
 	component: ContactPage,
 	head: () => ({
 		meta: generateMetaData({
-			title: "Contact - Mr. Tindanzor",
+			title: "Contact",
 			description:
 				"Get in touch with me for collaboration, inquiries, or just to say hi.",
 			path: "contact",

@@ -1,22 +1,19 @@
 import { TakeAction } from "./NotFoundPageTakeAction"
-import { Heading } from "./primitive/Heading"
-import { Section } from "./primitive/Section"
-import { Typography } from "./primitive/Typography"
 
 export function NotFoundPage() {
 	return (
-		<main className="h-[calc(100vh-4.5rem)] flex-place-center">
-			<Section className="gap-0">
-				<Heading size="lg">Eerr mm...</Heading>
-				<Typography tag="p" size="lg">
+		<main className="h-app-height flex-place-center bg-background-primary text-center">
+			<section className="flex flex-col items-center gap-4 max-w-md px-6">
+				<h1 className="text-4xl md:text-6xl text-gradient">Eerr mm...</h1>
+				<p className="text-xl md:text-2xl font-bold">
 					Congratulations, you broke the internet!
-				</Typography>
-				<Typography tag="p">
+				</p>
+				<p className="text-muted leading-relaxed">
 					The page you&apos;re looking for can&apos;t be found or may have been
 					moved. Let&apos;s take you back safely.
-				</Typography>
+				</p>
 				<TakeAction />
-			</Section>
+			</section>
 		</main>
 	)
 }

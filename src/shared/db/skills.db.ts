@@ -21,6 +21,7 @@ import {
 	SiTypescript,
 } from "react-icons/si"
 import type { SkillProps } from "./skills.db.types"
+import { TanstackLogo } from "@/assets/svgs/tanstack"
 
 export const SKILLS: SkillProps[] = [
 	{
@@ -60,6 +61,13 @@ export const SKILLS: SkillProps[] = [
 				color: "text-white",
 				description:
 					"A React framework for server-side rendering and static site generation.",
+			},
+			{
+				title: "Tanstack Start",
+				icon: TanstackLogo,
+				color: "text-white",
+				description:
+					"Full-stack Framework powered by TanStack Router for React.",
 			},
 			{
 				title: "Tailwind CSS",

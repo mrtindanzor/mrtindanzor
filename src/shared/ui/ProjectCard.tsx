@@ -1,12 +1,12 @@
+import { AnimatePresence } from "framer-motion"
 import { ArrowUp } from "lucide-react"
-import type { ComponentProps } from "react"
+import { type ComponentProps, useState } from "react"
 import { SiGithub } from "react-icons/si"
 import type { ProjectProps } from "../db"
-import { StyledLink } from "./primitive/Button"
+import { FramerAnimatePosition } from "./Framer"
+import { Button, StyledLink } from "./primitive/Button"
 import { Pill } from "./primitive/Button/components/Pill"
-import { Heading } from "./primitive/Heading"
 import { MImage } from "./primitive/Image"
-import { Typography } from "./primitive/Typography"
 
 export type ProjectCardProps = ComponentProps<"div"> & ProjectProps
 
@@ -20,40 +20,25 @@ export function ProjectCard({
 	featured: _f,
 }: ProjectCardProps) {
 	return (
-		<div className="group grid md:grid-cols-2 border relative border-sky-50/10 rounded-xl">
+		<div className="group card-surface grid transition-all hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5">
 			<MImage
 				url={imgSrc}
 				alt={title}
-				className="min-h-80 md:col-start-2 group-hover:scale-101 rounded-t-xl md:rounded-r-xl md:rounded-tl-none transition-transform duration-150 ease-linear *:object-cover *:object-top-left group-hover:outline-2 group-hover:outline-sky-300"
+				className="min-h-64 object-cover transition-transform duration-500 group-hover:scale-[1.02]"
 			/>
-			<div className="@container md:row-start-1 md:col-start-1 pb-4 gap-2 grid grid-rows-[auto_auto_1fr_auto] size-full group-hover:z-2">
-				<div className="grid mt-2 pr-4 items-center gap-4">
-					<Heading
-						tag="h4"
-						size="sm"
-						className="group-hover:from-green-600 group-hover:to-green-600"
-						weight="bold"
-					>
+
+			<div className="flex flex-col p-6 md:p-8 gap-6">
+				<div className="flex flex-col gap-2">
+					<h3 className="text-2xl font-bold group-hover:text-primary transition-colors">
 						{title}
-					</Heading>
+					</h3>
+					<p className="text-muted leading-relaxed line-clamp-4">
+						{description}
+					</p>
 				</div>
 
-				<Typography tag="p" className="text-gray-400">
-					{description}
-				</Typography>
-
-				<ul
-					className="flex flex-wrap gap-x-2 gap-y-4 px-4"
-					aria-label="Framework, libraries and toolings used"
-				>
-					{tags.map((tag) => (
-						<li key={tag}>
-							<Pill>{tag}</Pill>
-						</li>
-					))}
-				</ul>
-
-				<Links link={link} repo={repo} />
+				<Tags tags={tags} />
+				<Links className="mt-auto pt-6" link={link} repo={repo} />
 			</div>
 		</div>
 	)
@@ -79,6 +64,44 @@ function Links({
 					<ArrowUp className="rotate-45 size-4 group-hover:animate-bounce" />
 				</StyledLink>
 			)}
+		</div>
+	)
+}
+
+function Tags({ tags }: Pick<ProjectCardProps, "tags">) {
+	const [show, setShow] = useState(false)
+
+	return (
+		<div className="relative flex justify-end">
+			<Button onClick={() => setShow((s) => !s)} variant="outline">
+				View Toolings
+			</Button>
+
+			{show ? "simon" : "method"}
+
+			<AnimatePresence>
+				{show && (
+					<FramerAnimatePosition
+						variants={{
+							show: { opacity: 1, y: 0 },
+							hidden: { opacity: 0, y: -10 },
+						}}
+						animate="show"
+						exit="hidden"
+					>
+						<ul
+							className="flex absolute z-2000 top-full right-0 bg-background-secondary rounded-xl p-3 flex-wrap gap-2"
+							aria-label="Framework, libraries and toolings used"
+						>
+							{tags.map((tag) => (
+								<li key={tag}>
+									<Pill>{tag}</Pill>
+								</li>
+							))}
+						</ul>
+					</FramerAnimatePosition>
+				)}
+			</AnimatePresence>
 		</div>
 	)
 }

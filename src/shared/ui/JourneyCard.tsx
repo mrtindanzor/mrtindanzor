@@ -2,8 +2,6 @@ import type { ComponentProps } from "react"
 import { cn } from "@/shared/utils/cn"
 import type { ProfessionalJourneyType } from "../db"
 import { Pill } from "./primitive/Button/components/Pill"
-import { Heading } from "./primitive/Heading"
-import { Typography } from "./primitive/Typography"
 
 type WithEl<T extends React.ElementType, P> = ComponentProps<T> & P
 
@@ -39,7 +37,7 @@ export function JourneyCard({
 		<div
 			{...props}
 			className={cn(
-				"border border-gray-600/40 px-4 py-4 rounded-2xl",
+				"bg-background-secondary/60 border border-border-subtle rounded-2xl @container backgrop-blur-sm p-6 flex flex-col gap-6",
 				className,
 			)}
 		>
@@ -64,33 +62,29 @@ function JourneyCardHeader({
 	...props
 }: ProfessionalJourneyCardHeaderProps) {
 	return (
-		<div className="@container">
-			<header
-				{...props}
-				className={cn(
-					"grid grid-cols-[1fr_auto] grid-rows-[1fr_auto_auto] border-b border-b-gray-600/40 ",
-					className,
-				)}
-			>
-				<Heading
-					tag="h3"
-					className="text-center @sm:text-left mx-auto @sm:mx-0 col-span-full @xs:col-span-1 @sm:col-start-1 @sm:row-start-1"
-					size="sm"
-				>
-					{organization}
-				</Heading>
-				<Typography className="text-center @sm:text-left mx-auto @sm:mx-0 col-span-full @sm:col-span-1 @sm:col-start-1 @sm:row-start-2">
-					<b>ROLE:</b> {role}
-				</Typography>
-				<Typography className="text-center @sm:text-left mx-auto @sm:mx-0 col-span-full @sm:col-span-1 @sm:col-start-1 @sm:row-start-3">
-					<b>LOCATION: </b>
-					{locationType}
-				</Typography>
-				<Pill className="mx-auto mb-2 @sm:mb-0 @sm:my-auto col-span-full @sm:col-span-1 @sm:col-start-2 @sm:row-start-1 @sm:row-span-full text-center h-fit ">
-					{period.start} to {period.end}
-				</Pill>
-			</header>
-		</div>
+		<header
+			{...props}
+			className={cn(
+				"flex flex-col @sm:flex-row justify-between items-start gap-4 border-b border-border-subtle pb-6",
+				className,
+			)}
+		>
+			<div className="flex flex-col gap-2">
+				<h3 className="text-xl font-bold text-neutral">{organization}</h3>
+				<div className="flex flex-col gap-1">
+					<span className="text-sm text-muted">
+						<b className="text-neutral font-semibold">ROLE:</b> {role}
+					</span>
+					<span className="text-sm text-muted">
+						<b className="text-neutral font-semibold">LOCATION:</b>{" "}
+						{locationType}
+					</span>
+				</div>
+			</div>
+			<Pill className="bg-background-primary border-border-subtle text-xs whitespace-nowrap">
+				{period.start} — {period.end}
+			</Pill>
+		</header>
 	)
 }
 
@@ -100,13 +94,11 @@ function JourneyCardContent({
 	...props
 }: ProfessionalJourneyCardContentProps) {
 	return (
-		<ul {...props} className={cn("", className)}>
+		<ul {...props} className={cn("flex flex-col gap-3", className)}>
 			{achievements.map((content) => (
-				<li
-					key={content}
-					className="grid grid-cols-[auto_1fr] gap-1 pl-4 items-center"
-				>
-					- <Typography> {content}</Typography>
+				<li key={content} className="flex gap-3 text-sm text-muted">
+					<span className="text-primary font-bold">•</span>
+					<p className="flex-1 leading-relaxed">{content}</p>
 				</li>
 			))}
 		</ul>

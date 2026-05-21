@@ -1,11 +1,8 @@
-"use client"
-
+import type { ComponentProps } from "react"
 import { useCallback, useEffect, useRef, useState } from "react"
 import { createPortal } from "react-dom"
 import { useMediaQuery } from "@/shared/hooks/useMediaQuery"
-import type { TypographyProps } from "@/shared/types/types"
 import { cn } from "@/shared/utils/cn"
-import { Typography } from "../../Typography"
 import type { IconLinkProps } from ".."
 import { StyledArrowLink } from "./IconLink"
 
@@ -35,18 +32,17 @@ export function LinkFollow({ ...props }: Omit<IconLinkProps, "icon">) {
 	)
 }
 
-function PopUp({ className, ref, ...props }: TypographyProps) {
+function PopUp({ className, ...props }: ComponentProps<"span">) {
 	return (
-		<Typography
+		<span
 			{...props}
-			ref={ref}
 			className={cn(
-				"absolute flex! whitespace-nowrap top-[calc(100%+0.25rem)] bg-slate-950/80 rounded-3xl text-white drop-shadow-md",
+				"absolute flex whitespace-nowrap text-xs px-3 py-1 top-[calc(100%+0.5rem)] bg-background-primary border border-border-subtle rounded-full text-neutral shadow-lg z-50",
 				className,
 			)}
 		>
 			Click to visit link
-		</Typography>
+		</span>
 	)
 }
 

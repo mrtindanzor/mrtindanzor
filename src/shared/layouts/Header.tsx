@@ -1,13 +1,10 @@
-import { motion, useScroll, useTransform } from "framer-motion"
 import { Menu, X } from "lucide-react"
 import { useState } from "react"
-import { useDirectionContext } from "@/providers/ScrollDirectionProvider"
 import { DEVELOPER } from "../db"
 import { routes } from "../routes"
 import { motionVariants } from "../ui/Framer"
-import { Button, StyledDotLink, StyledLink } from "../ui/primitive/Button"
+import { Button, StyledLink } from "../ui/primitive/Button"
 import { MImage } from "../ui/primitive/Image"
-import { cn } from "../utils/cn"
 import { DesktopNavbar, MobileNavbar } from "./Navbar"
 
 const headerVariants = motionVariants({
@@ -16,52 +13,39 @@ const headerVariants = motionVariants({
 })
 
 export function Header() {
-	const [active, setActive] = useState(false)
-	const { direction, current } = useDirectionContext()
-	const { scrollYProgress } = useScroll()
-	const y = useTransform(scrollYProgress, [0, 1], ["0%", "100%"])
-	const scrollAmount = y.get()
+	const [active, setActive] = useState(false)  
 
 	return (
 		<>
-			<motion.header
-				variants={headerVariants}
-				initial="hidden"
-				animate="show"
-				className={cn(
-					"@container bg-slate-950/70 z-10 flex transition-transform duration-150 ease-in-out drop-shadow-md items-center justify-center backdrop-blur-sm px-2 py-0.5 h-19 sticky w-screen top-0",
-					direction === "Down" && current > 60
-						? "-translate-y-18"
-						: !active
-							? "translate-y-0"
-							: "fixed!",
-				)}
+			<header
+				className="fixed inset-x-0 top-0 h-18 bg-background-primary z-50 flex items-center border-b border-border-subtle shadow-sm transition-all duration-300"
 			>
-				<div className="max-w-6xl w-full justify-between items-center flex">
-					<div className="flex items-center gap-2">
+				<div className="max-w-6xl mx-auto px-6 w-full flex justify-between items-center">
+					<div className="flex items-center gap-3">
 						<MImage
 							url={DEVELOPER.avatar}
 							alt={DEVELOPER.name}
-							className="size-10 rounded-full *:size-full bg-neutral/10 backdrop-blur-md"
+							className="size-10 rounded-full border border-border-subtle bg-background-secondary p-0.5"
 						/>
 						<StyledLink
-							variant="muted"
+							variant="none"
 							href={routes.home}
-							className="font-bold text-lg uppercase sm:text-2xl text-transparent bg-gradient-to-br bg-clip-text from-primary via-white to-primary"
+							className="font-bold text-xl uppercase tracking-tighter text-gradient"
 						>
 							{DEVELOPER.lastName}
 						</StyledLink>
 					</div>
 					<DesktopNavbar />
-					<StyledDotLink
+					
+					<StyledLink
 						href={routes.contact}
 						animation="enlargeX"
-						variant="light"
-						iconClassName="text-black bg-black"
-						className="hidden! lg:flex! items-center gap-x-2 outline-none border-none"
+						variant="primary-light" 
+						className="hidden! lg:flex! items-center gap-x-2 rounded-full px-6 py-2"
 					>
 						Contact
-					</StyledDotLink>
+					</StyledLink>
+
 					<Button
 						className="lg:hidden *:stroke-2 p-0"
 						onClick={() => setActive(!active)}
@@ -71,16 +55,7 @@ export function Header() {
 					</Button>
 				</div>
 
-				<div
-					className={cn(
-						"bg-gradient-to-r from-primary to-neutral rounded-b-3xl transition-width duration-75 ease-linear -translate-y-full h-0.5 via-primary/30 absolute top-full inset-x-0",
-						"mx-auto",
-					)}
-					style={{
-						width: scrollAmount,
-					}}
-				/>
-			</motion.header>
+			</header>
 			<MobileNavbar active={active} setActive={setActive} />
 		</>
 	)

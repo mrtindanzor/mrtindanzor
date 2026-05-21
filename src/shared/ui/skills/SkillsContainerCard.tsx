@@ -2,8 +2,6 @@ import type { MotionProps } from "framer-motion"
 import type { ComponentProps } from "react"
 import { cn } from "@/shared/utils/cn"
 import type { SkillProps } from "../../db"
-import { Heading } from "../primitive/Heading"
-import { Section } from "../primitive/Section"
 import { SkillCard } from "./SkillCard"
 
 export type SkillsContainerCardProps = MotionProps &
@@ -18,16 +16,18 @@ export function SkillsContainerCard({
 	...props
 }: SkillsContainerCardProps) {
 	return (
-		<Section {...props} className={cn("w-full p-0", className)}>
-			<Heading tag="h3" size="sm" className="mr-auto">
+		<section {...props} className={cn("w-full flex flex-col gap-4", className)}>
+			<h3 className="text-lg font-bold text-neutral px-2">
 				{category}
-			</Heading>
+			</h3>
 
-			<ul>
+			<ul className="grid @xs:grid-cols-2 gap-3">
 				{items.map((item) => (
-					<SkillCard key={item.title} {...item} />
+					<li key={item.title}>
+						<SkillCard {...item} />
+					</li>
 				))}
 			</ul>
-		</Section>
+		</section>
 	)
 }
