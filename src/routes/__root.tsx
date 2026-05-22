@@ -49,8 +49,8 @@ function RootLayout() {
 						<Outlet />
 					</AppLayout>
 				</DataProviders>
+				<Scripts />
 			</body>
-			<Scripts />
 		</html>
 	)
 }

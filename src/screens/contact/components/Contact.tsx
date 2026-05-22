@@ -1,6 +1,8 @@
-import { Dot } from "lucide-react"
+import { PaperAirplaneIcon } from "@heroicons/react/24/solid"
 import type { ComponentProps } from "react"
 import { useContact } from "@/features/contact"
+import { useTyping } from "@/shared/hooks/useTyping"
+import { AccentText } from "@/shared/ui/primitive/AccentText"
 import { Button } from "@/shared/ui/primitive/Button"
 import { ErrorCard } from "@/shared/ui/primitive/ErrorCard"
 import { Input } from "@/shared/ui/primitive/Input"
@@ -12,84 +14,86 @@ export function ContactSection({
 	className,
 	...props
 }: ComponentProps<"form">) {
+	const { ref: refHead, output: contentHead } = useTyping({
+		text: "Send a direct",
+		whileInView: true,
+		speedInSeconds: 0.4,
+	})
+	const { ref: refTail, output: contentTail } = useTyping({
+		text: " message",
+		whileInView: true,
+		speedInSeconds: 0.65,
+	})
 	const {
-		formState: { errors, isSubmitting },
-		handleMessage,
-		handleSubmit,
+		formState: { error, submitting, success, message },
+		onSubmit,
 		register,
 	} = useContact()
 
 	return (
 		<form
-			className={cn("w-full py-0", className)}
+			className={cn("w-full h-fit py-0", className)}
 			{...props}
-			onSubmit={handleSubmit(handleMessage)}
+			onSubmit={onSubmit}
 		>
 			<section className="w-full py-0 px-0 flex flex-col gap-8">
-				<h3 className="text-2xl font-bold text-neutral">
-					Send a direct message
+				<h3
+					ref={(ref) => {
+						refHead(ref)
+						refTail(ref)
+					}}
+					className="text-2xl h-10 font-bold text-neutral"
+					title="Send a direct message"
+				>
+					<AccentText as="span">{contentHead}</AccentText> {contentTail}
 				</h3>
 
-				{errors.root?.message && (
-					<ErrorCard error>{errors.root.message}</ErrorCard>
+				{message && (
+					<ErrorCard error={error} success={success}>
+						{message}
+					</ErrorCard>
 				)}
 
 				<div className="flex flex-col gap-6">
-					<div className="flex flex-col gap-2">
-						<Label.Wrapper>
-							<Label.Title className="text-muted text-sm font-semibold uppercase tracking-wider">
-								Name
-							</Label.Title>
-							<Input {...register("name")} placeholder="Enter your name" />
-						</Label.Wrapper>
+					<Label.Wrapper>
+						<Label.Title className="text-neutral-secondary text-sm tracking-tight">
+							Name
+						</Label.Title>
+						<Input {...register("name")} placeholder="Enter your name" />
+					</Label.Wrapper>
 
-						{errors.name?.message && (
-							<ErrorCard error>{errors.name.message}</ErrorCard>
-						)}
-					</div>
+					<Label.Wrapper>
+						<Label.Title className="text-neutral-secondary text-sm tracking-tight">
+							Email / Phone number
+						</Label.Title>
+						<Input
+							{...register("contact")}
+							placeholder="Enter your email address / phone number"
+						/>
+					</Label.Wrapper>
 
-					<div className="flex flex-col gap-2">
-						<Label.Wrapper>
-							<Label.Title className="text-muted text-sm font-semibold uppercase tracking-wider">
-								Email / Phone number
-							</Label.Title>
-							<Input
-								{...register("contact")}
-								placeholder="Enter your email address / phone number"
-							/>
-						</Label.Wrapper>
+					<Label.Wrapper>
+						<Label.Title className="text-neutral-secondary text-sm tracking-tight">
+							Message
+						</Label.Title>
+						<Input {...register("message")} placeholder="Your message" />
+					</Label.Wrapper>
 
-						{errors.contact?.message && (
-							<ErrorCard error>errors.contact.message</ErrorCard>
-						)}
-					</div>
-
-					<div className="flex flex-col gap-2">
-						<Label.Wrapper>
-							<Label.Title className="text-muted text-sm font-semibold uppercase tracking-wider">
-								Message
-							</Label.Title>
-							<Input {...register("message")} placeholder="Your message" />
-						</Label.Wrapper>
-
-						{errors.message?.message && (
-							<ErrorCard error>{errors.message.message}</ErrorCard>
-						)}
-					</div>
+					<Input hidden {...register("honeypot")} autoComplete="off" />
 				</div>
-
-				<Input hidden {...register("honeypot")} autoComplete="off" />
-
-				<Button 
-					type="submit" 
-					disabled={isSubmitting}
-					variant="primary-light"
-					size="lg"
-					className="w-fit"
+				<Button
+					type="submit"
+					disabled={submitting}
+					y="center"
+					x="center"
+					w="full"
+					pad="lg"
+					variant="accent"
+					className="flex group gap-x-1.5 font-semibold"
 				>
-					<LoadingSwap isLoading={isSubmitting}>
-						<Dot className="bg-white size-2 group-hover:bg-sky-600 group-hover:animate-pulse rounded-full" />
+					<LoadingSwap isLoading={submitting}>
 						Send Message
+						<PaperAirplaneIcon className="size-4" />
 					</LoadingSwap>
 				</Button>
 			</section>

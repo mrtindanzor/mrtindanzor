@@ -1,4 +1,5 @@
 import { createServerFn } from "@tanstack/react-start"
+import { libsConfig } from "@/config/libsConfig"
 import { toCapitalized } from "@/shared/utils/textFormat"
 import type { ContactDataType } from "./contact.contract.types"
 import { contactService } from "./contact.services"
@@ -8,7 +9,7 @@ export const sendMessage = createServerFn({ method: "POST" })
 	.inputValidator(contactValidator)
 	.handler(async ({ data }) => {
 		const message = formatMessage(data)
-		return await contactService.sendMessage(message)
+		return await contactService.sendMessage(message, libsConfig.telegram)
 	})
 
 function formatMessage({

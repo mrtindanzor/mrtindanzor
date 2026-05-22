@@ -6,7 +6,7 @@ export default function Footer() {
 	}, [])
 
 	return (
-		<footer className="py-12 flex flex-col items-center border-t border-border-subtle bg-background-primary">
+		<footer className="py-12 flex flex-col items-center border-t border-muted-secondary/40 bg-background-primary">
 			<p className="text-sm font-medium tracking-wide">
 				&copy; {year} Mr. Tindanzor. All Rights Reserved.
 			</p>

@@ -27,7 +27,7 @@ export function useTyping({
 	text,
 	speedInSeconds = 0.15,
 	enabled: defaultEnabled,
-	whileInView = true,
+	whileInView,
 }: UseTypingProps) {
 	const [current, setCurrent] = useState<string | null>(null)
 	const { ref, isIntersecting } = useIntersection({ once: true })

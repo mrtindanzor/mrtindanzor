@@ -1,8 +1,7 @@
-const serverUri = import.meta.env.VITE_SERVER_URI
-const appUrl = import.meta.env.VITE_APP_URL
+import { getEnv } from "./utils/getEnv"
 
-if (!serverUri) throw Error("Server URI not defined")
-if (!appUrl) throw Error("App URL not defined")
+const serverUri = getEnv({ name: "VITE_SERVER_URI" })
+const appUrl = getEnv({ name: "VITE_APP_URL" })
 
 export const publicUrls = {
 	serverUri,

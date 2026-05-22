@@ -1,5 +1,5 @@
 import { EnvelopeIcon } from "@heroicons/react/24/solid"
-import { SiFacebook, SiGithub, SiLinkedin, SiWhatsapp } from "react-icons/si"
+import { SiGithub, SiLinkedin, SiWhatsapp } from "react-icons/si"
 import type { SocailMediaProps } from "./contact.db.types"
 import { DEVELOPER } from "./developer.db"
 
@@ -7,7 +7,7 @@ export const CONTACT_LINKS: SocailMediaProps[] = [
 	{
 		title: "Github",
 		link: DEVELOPER.socials.github,
-		color: "text-green-600",
+		color: "text-neutral",
 		icon: SiGithub,
 	},
 	{
@@ -27,11 +27,5 @@ export const CONTACT_LINKS: SocailMediaProps[] = [
 		link: DEVELOPER.socials.whatsapp,
 		color: "text-green-600",
 		icon: SiWhatsapp,
-	},
-	{
-		title: "Facebook",
-		link: DEVELOPER.socials.facebook,
-		color: "text-sky-600",
-		icon: SiFacebook,
 	},
 ]

@@ -1,13 +1,15 @@
-const telegramBotToken = process.env.TELEGRAM_BOT_TOKEN
-const telegramBotChatId = process.env.TELEGRAM_BOT_CHAT_ID
+import type { ITelegram } from "@/libs/telegram"
+import { getEnv } from "./utils/getEnv"
 
-if (!telegramBotChatId) throw Error("Telegram Bot chat id not defined")
+const telegramBotToken = getEnv({ name: "TELEGRAM_BOT_TOKEN", isStatic: false })
+const telegramBotChatId = getEnv({
+	name: "TELEGRAM_BOT_CHAT_ID",
+	isStatic: false,
+})
 
-if (!telegramBotToken) throw Error("Telegram Bot token not defined")
-
-const telegram = {
+const telegram: ITelegram = {
 	chatId: telegramBotChatId,
-	token: telegramBotToken,
+	botToken: telegramBotToken,
 }
 
 export const libsConfig = {

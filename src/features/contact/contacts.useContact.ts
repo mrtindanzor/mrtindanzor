@@ -1,35 +1,25 @@
-import { zodResolver } from "@hookform/resolvers/zod"
-import { useCallback } from "react"
-import { useForm } from "react-hook-form"
+import { useServerFn } from "@tanstack/react-start"
+import { useForm } from "@/shared/hooks/useForm"
 import { sendMessage } from "./contact.actions"
 import type { ContactDataType } from "./contact.contract.types"
 import { contactValidator } from "./contact.validators"
-import { useServerFn } from "@tanstack/react-start"
 
 export function useContact() {
 	const sendContactMessage = useServerFn(sendMessage)
-	const { register, handleSubmit, setError, reset, formState } =
-		useForm<ContactDataType>({
-			resolver: zodResolver(contactValidator),
-		})
+	const { register, handleSubmit, reset, formState, setResponse } =
+		useForm<ContactDataType>({ data: { name: "", contact: "", message: "" } })
 
-	const handleMessage = useCallback(
-		async (payload: ContactDataType) => {
-			const res = await sendContactMessage({ data: payload })
-			if (res.error) throw res.message
+	const onSubmit = handleSubmit(async function sendMessage(payload) {
+		const parsed = contactValidator.parse(payload)
+		const res = await sendContactMessage({ data: parsed })
 
-			reset({ message: "", name: "", contact: "" })
-			setError("root", { message: res.message })
-		},
-		[setError, reset],
-	)
+		setResponse(res)
+		if (res.success) reset({ message: "", name: "", contact: "" })
+	})
 
 	return {
-		onsubmit: handleSubmit(handleMessage),
-		handleMessage,
+		onSubmit,
 		register,
-		handleSubmit,
 		formState,
-		sendContactMessage,
 	}
 }

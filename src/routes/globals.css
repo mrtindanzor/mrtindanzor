@@ -62,7 +62,7 @@
 
 	input,
 	textarea {
-		@apply border py-2 bg-muted-secondary border-neutral-secondary rounded-md focus:border-neutral focus:outline-none;
+		@apply border py-2 bg-muted-secondary/50 border-neutral-secondary/40 rounded-md focus:border-neutral/60 focus:outline-none;
 	}
 
 	* ::-webkit-scrollbar {

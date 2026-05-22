@@ -1,4 +1,5 @@
 import type { FetchStatus } from "@/libs/fetchData"
+import type { ITelegram } from "@/libs/telegram"
 
 export type ContactDataType = {
 	name: string
@@ -8,5 +9,5 @@ export type ContactDataType = {
 }
 
 export interface IContactService {
-	sendMessage(message: string): Promise<FetchStatus>
+	sendMessage(message: string, telegram: ITelegram): Promise<FetchStatus>
 }

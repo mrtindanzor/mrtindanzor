@@ -1,9 +1,15 @@
-import { libsConfig } from "@/config/libsConfig"
+export type ITelegram = {
+	botToken: string
+	chatId: string
+}
 
-export async function createTelegramMessagePayload(message: string) {
+export async function createTelegramMessagePayload(
+	message: string,
+	telegram: ITelegram,
+) {
 	return {
-		chatId: libsConfig.telegram.chatId,
+		chatId: telegram.chatId,
 		text: message,
-		url: `https://api.telegram.org/bot${libsConfig.telegram.token}/sendmessage`,
+		url: `https://api.telegram.org/bot${telegram.botToken}/sendmessage`,
 	}
 }
