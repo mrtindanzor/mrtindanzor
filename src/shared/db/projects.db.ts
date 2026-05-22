@@ -9,7 +9,7 @@ const projectsMeta = Object.freeze({
 	},
 	successfield: {
 		image: "/images/projects/successfield.png",
-		name: "Successfield College",
+		name: "Successfield College & Medical Services",
 		repo: "",
 		link: "https://successfieldcollege.com",
 	},

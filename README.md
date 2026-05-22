@@ -176,13 +176,13 @@ I’m currently exploring and improving knowledge in areas such as:
 
 ---
 
-# GitHub Statistics
+# GitHub Statistics 
 
-![GitHub Stats](https://github-readme-stats.vercel.app/api?username=YOUR_USERNAME&show_icons=true)
+<div align="center">
 
-![GitHub Streak](https://streak-stats.demolab.com?user=YOUR_USERNAME)
-
-![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=YOUR_USERNAME&layout=compact)
+![GitHub Streak](https://streak-stats.demolab.com?user=mrtindanzor&theme=github_dark) 
+  
+</div> 
 
 ---
 

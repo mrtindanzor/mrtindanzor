@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react"
+import { useLayoutEffect, useRef, useState } from "react"
 import useIntersection from "./useIntersection"
 
 type UseTypingProps = {
@@ -39,7 +39,7 @@ export function useTyping({
 		ReturnType<typeof setTimeout>
 	> | null>(null)
 
-	useEffect(() => {
+	useLayoutEffect(() => {
 		if (!enabled) return
 
 		text.split("").forEach((_, index) => {

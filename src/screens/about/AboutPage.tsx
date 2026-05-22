@@ -1,6 +1,6 @@
-import { HeroSection } from "./components/Hero"
-import { Journey } from "./components/Journey"
-import { Skills } from "./components/Skills"
+import { HeroSection } from "./sections/Hero"
+import { Journey } from "./sections/Journey"
+import { Skills } from "./sections/Skills"
 
 export function AboutPage() {
 	return (

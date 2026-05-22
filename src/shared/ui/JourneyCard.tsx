@@ -72,7 +72,10 @@ function JourneyCardHeader({
 	return (
 		<header
 			{...props}
-			className={cn("flex flex-col sm:flex-row items-start gap-4 ", className)}
+			className={cn(
+				"flex flex-col sm:grid sm:grid-cols-[auto_1fr_auto] items-start gap-4 ",
+				className,
+			)}
 		>
 			<div className="mx-auto sm:mx-[unset]">
 				{logo && (
@@ -80,18 +83,20 @@ function JourneyCardHeader({
 				)}
 				{!logo && <Briefcase className="size-10 m-auto" />}
 			</div>
-			<div className="flex flex-col gap-2 mx-auto sm:mx-6">
+			<div className="flex flex-col gap-2 mx-auto sm:mx-[unset]">
 				<h3 className="font-bold text-neutral">
 					<AccentText>{role}</AccentText>
 				</h3>
 				<div className="flex gap-x-2 mx-auto sm:mx-[unset]">
-					<h4 className="text-sm text-neutral-secondary">{organization}</h4>
+					<h4 className="text-sm text-neutral-secondary text-center">
+						{organization}
+					</h4>
 					<Dot className="size-4 my-auto" />
 
 					<span className="text-sm text-neutral-secondary">{locationType}</span>
 				</div>
 			</div>
-			<Pill className="bg-muted mx-auto sm:ml-auto border border-muted-secondary text-xs whitespace-nowrap">
+			<Pill className="bg-muted mx-auto sm:mx-[unset] sm:my-auto border border-muted-secondary text-xs whitespace-nowrap">
 				{period.start} — {period.end}
 			</Pill>
 		</header>
