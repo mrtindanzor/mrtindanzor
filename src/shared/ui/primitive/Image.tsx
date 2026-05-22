@@ -18,6 +18,7 @@ export function MImage({
 				src={url}
 				alt={alt}
 				sizes="100%"
+				loading="lazy"
 				className={cn(
 					"object-contain size-full absolute inset-0",
 					imageClassName,

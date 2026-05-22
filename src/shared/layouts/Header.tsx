@@ -23,7 +23,7 @@ export function Header() {
 				<div className="max-w-7xl mx-auto px-6 w-full flex justify-between items-center">
 					<div className="flex items-center gap-3">
 						<MImage
-							url={DEVELOPER.avatar}
+							url={DEVELOPER.avatar2}
 							alt={DEVELOPER.name}
 							className="size-10 rounded-full border-muted-secondary border p-0.5"
 						/>

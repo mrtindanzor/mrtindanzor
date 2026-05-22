@@ -2,7 +2,7 @@ import { socials } from "@/config/socials"
 
 export const DEVELOPER = Object.freeze({
 	avatar: "/images/mrtindanzor/avatar-main.png",
-	avatar2: "/images/mrtindanzor/avatar.png",
+	avatar2: "/images/mrtindanzor/avatar-secondary.png",
 	name: "Mr. Tindanzor Simon",
 	lastName: "Tindanzor",
 	firstName: "Simon",
