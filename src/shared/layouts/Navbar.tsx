@@ -1,78 +1,80 @@
 import { AnimatePresence, type MotionProps, motion } from "framer-motion"
 import type { ComponentProps } from "react"
-import { motionVariants } from "@/shared/ui/Framer"
+import {
+	FramerAnimatePosition,
+	type FramerAnimatePositionProps,
+	motionVariants,
+} from "@/shared/ui/Framer"
 import Backdrop from "@/shared/ui/primitive/Backdrop"
 import { StyledDotLink, StyledLink } from "@/shared/ui/primitive/Button"
 import { cn } from "@/shared/utils/cn"
-import { useAutoHide } from "../hooks/useAutoHide"
 import { useAppPathname } from "../hooks/useNavigation"
 import { routes } from "../routes"
-import type { SetState } from "../types/utils/setState"
 import { NAV_LINKS } from "./constants"
 
 const navVariants = motionVariants({
-	hidden: { height: 0 },
-	show: { height: "fit-content" },
-	exit: { opacity: 0, height: 0, transition: { ease: "easeIn" } },
+	hidden: { x: "100%" },
+	show: {
+		height: "fit-content",
+		transition: { stiffness: 40, ease: "easeIn" },
+	},
 })
 
 type MobileNavbarProps = {
-	setActive: SetState<boolean>
+	close: () => void
+	captureRef: (index?: number) => <T>(ref: T | null) => void
 	active: boolean
-} & MotionProps &
-	ComponentProps<"ul">
+} & Omit<FramerAnimatePositionProps, "children">
 
 export function MobileNavbar({
 	className,
-	setActive,
+	close,
+	captureRef,
 	active,
 	...props
 }: MobileNavbarProps) {
-	const { captureRef } = useAutoHide({
-		close: () => setActive(false),
-		isOpen: active,
-		event: "click",
-	})
-
 	return (
 		<AnimatePresence>
 			{active && (
 				<Backdrop className="lg:hidden top-18">
-					<motion.ul
-						ref={captureRef()}
+					<FramerAnimatePosition
 						className={cn(
 							className,
-							"fixed w-9/10 top-1 border border-slate-800 text-center rounded-xl overflow-hidden inset-x-0 bg-slate-950/90 backdrop-blur-3xl mx-auto ",
+							"fixed w-screen h-screen inset-0 flex justify-end text-center rounded-xl overflow-hidden backdrop-blur-md mx-auto ",
 						)}
 						{...props}
 						variants={navVariants}
-						initial="hidden"
 						animate="show"
-						exit="exit"
 					>
-						<div className="px-4 py-5 grid gap-1">
-							{NAV_LINKS.map((link) => (
-								<NavLink
-									key={link.title}
-									className="py-4 bg-transparent"
-									{...link}
-									onClick={() => setActive(false)}
-								/>
-							))}
-							<div className="border-1 border-white/5 w-full "></div>
-
-							<StyledDotLink
-								href={routes.contact}
-								onClick={() => setActive(false)}
-								className="flex-place-center gap-x-2  w-full lg:hidden py-4 rounded-lg"
-								iconClassName="bg-white"
-								animation="enlargeY"
-								variant="muted"
-							>
-								Contact
-							</StyledDotLink>
+						<div
+							ref={captureRef(1)}
+							className="h-app-height px-4 py-5 w-full bg-muted max-w-sm border-l border-muted-secondary"
+						>
+							<ul className="grid gap-y-6 h-fit">
+								{NAV_LINKS.map((link) => (
+									<NavLink
+										key={link.title}
+										{...link}
+										className="py-2 bg-transparent"
+										onClick={close}
+									/>
+								))}
+								<li>
+									<div className="border-1 border-white/5 w-full "></div>
+								</li>
+								<li>
+									<StyledDotLink
+										href={routes.contact}
+										onClick={close}
+										className="flex-place-center gap-x-2  w-full lg:hidden py-2 rounded-lg"
+										variant="accent"
+									>
+										Contact
+									</StyledDotLink>
+								</li>
+							</ul>
 						</div>
-					</motion.ul>
+					</FramerAnimatePosition>
 				</Backdrop>
 			)}
 		</AnimatePresence>
@@ -107,7 +109,8 @@ function NavLink({
 				href={path}
 				variant={active ? "success-light" : "none"}
 				hover="accent"
-				className={active ? "outline-none bg-transparent" : ""}
+				x="center"
+				className={cn(active ? "outline-none bg-transparent" : "", className)}
 			>
 				{title}
 			</StyledLink>

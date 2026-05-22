@@ -2,6 +2,7 @@ import { Menu, X } from "lucide-react"
 import { useState } from "react"
 import { useDirectionContext } from "@/providers/ScrollDirectionProvider"
 import { DEVELOPER } from "../db"
+import { useAutoHide } from "../hooks/useAutoHide"
 import { routes } from "../routes"
 import { Button, StyledLink } from "../ui/primitive/Button"
 import { MImage } from "../ui/primitive/Image"
@@ -10,6 +11,11 @@ import { DesktopNavbar, MobileNavbar } from "./Navbar"
 
 export function Header() {
 	const [active, setActive] = useState(false)
+	const { captureRef } = useAutoHide({
+		close: () => setActive(false),
+		isOpen: active,
+		event: "click",
+	})
 	const { current } = useDirectionContext()
 
 	return (
@@ -17,7 +23,8 @@ export function Header() {
 			<header
 				className={cn(
 					"fixed bg-muted inset-x-0 top-0 h-18 z-50 flex items-center",
-					current > 2 && "border-b border-b-muted-secondary shadow-sm",
+					(current > 2 || active) &&
+						"border-b border-b-muted-secondary shadow-sm",
 				)}
 			>
 				<div className="max-w-7xl mx-auto px-6 w-full flex justify-between items-center">
@@ -48,14 +55,19 @@ export function Header() {
 
 					<Button
 						className="lg:hidden *:stroke-2 p-0"
-						onClick={() => setActive(!active)}
+						ref={captureRef(0)}
+						onClick={() => setActive((a) => !a)}
 					>
 						{!active && <Menu />}
 						{active && <X />}
 					</Button>
 				</div>
 			</header>
-			<MobileNavbar active={active} setActive={setActive} />
+			<MobileNavbar
+				active={active}
+				captureRef={captureRef}
+				close={() => setActive(false)}
+			/>
 		</>
 	)
 }

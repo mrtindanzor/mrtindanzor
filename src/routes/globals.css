@@ -82,6 +82,10 @@
 	.flex-place-center {
 		@apply flex justify-center items-center;
 	}
+
+	.link {
+		@apply before:content-[''] before:absolute before:inset-0 before:z-1 before:cursor-pointer;
+	}
 }
 
 @layer components {

@@ -4,7 +4,7 @@ import { cn } from "@/shared/utils/cn"
 import type { ButtonVariants } from "../button.types"
 
 export const buttonVariants = cva(
-	"transition duration-300 ease-in-out outline link relative rounded focus-visible:outline-2",
+	"transition duration-300 flex ease-in-out outline link relative rounded focus-visible:outline-2",
 	{
 		variants: {
 			variant: {
