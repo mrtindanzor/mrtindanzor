@@ -13,7 +13,7 @@ export function JourneyPreview() {
 					Professional <AccentText>Mile</AccentText>stones
 				</h2>
 
-				<div className="max-w-4xl mx-auto w-screen">
+				<div className="max-w-4xl mx-auto md:w-screen">
 					<TimelineContainer wrapperClassName="gap-y-4 grid">
 						{FEATURED_PROFESSIONAL_TIMELINE.map((item) => (
 							<TimelineCard key={item.cardId}>

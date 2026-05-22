@@ -10,7 +10,7 @@ export function Journey() {
 					Professional <AccentText>Mile</AccentText>stones
 				</h2>
 
-				<div className="max-w-4xl mx-auto w-screen">
+				<div className="max-w-4xl mx-auto md:w-screen">
 					<TimelineContainer wrapperClassName="gap-y-4 grid">
 						{PROFESSIONAL_TIMELIINE.map((timeline) => (
 							<TimelineCard key={timeline.cardId}>
