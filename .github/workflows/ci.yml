@@ -1,0 +1,26 @@
+name: CI
+
+on:
+  pull_request:
+    branches: 
+      - master
+
+jobs:
+  lint-and-build:
+    environment: test
+    name: Lint and build
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: Run lint
+        run: |
+          corepack enable
+          pnpm install --ignore-scripts=true
+          pnpm lint
+          pnpm build

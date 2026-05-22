@@ -1,0 +1,20 @@
+import { PROFESSIONAL_TIMELIINE } from "@/shared/db"
+import { JourneyCard } from "@/shared/ui/JourneyCard"
+import { AccentText } from "@/shared/ui/primitive/AccentText"
+export function Journey() {
+	return (
+		<div className="bg-background-primary">
+			<section id="professioanaljourney" className="section">
+				<h2 className="text-3xl md:text-5xl font-bold mb-12">
+					Professional <AccentText>Mile</AccentText>stones
+				</h2>
+
+				<ul className="grid gap-4">
+					{PROFESSIONAL_TIMELIINE.map((timeline) => (
+						<JourneyCard key={timeline.cardId} {...timeline} />
+					))}
+				</ul>
+			</section>
+		</div>
+	)
+}
