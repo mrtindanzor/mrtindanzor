@@ -3,6 +3,11 @@
 import type { AxiosResponse } from "axios"
 import type { ZodType } from "zod"
 import { fe } from "@/shared/utils/fe"
+import {
+	type FetchStatus,
+	type FetchStatusWithData,
+	responseUtil,
+} from "@/shared/utils/response"
 import { syncTryCatch, tryCatch } from "@/shared/utils/tryCatch"
 import { axiosInstance } from "./axios"
 import type {
@@ -10,13 +15,12 @@ import type {
 	FetchDataProps,
 	FetchDataType,
 	FetchingStatus,
-	FetchStatus,
 	ServerResponse,
 	SuccessCode,
 } from "./fetchData.types"
 
 function fetchData(
-	accessToken: string | null | undefined | (() => string | null),
+	getAccessToken: () => string | null | undefined,
 ): FetchDataType {
 	return <T>(payload: FetchDataProps) => {
 		const localPayload = payload
@@ -32,25 +36,23 @@ function fetchData(
 			if (status !== "idle") return
 
 			if (validator) {
-				const parsed = syncTryCatch(
-					() => validator.parse(localPayload.payload) as T,
-				)
-				if (!parsed.success) {
-					error = fe(parsed.error)
+				const res = syncTryCatch(() => validator.parse(localPayload.payload))
+				if (!res.success) {
+					error = fe(res.error)
 					status = "error"
 					statusCode = 400
 					return
 				}
 
-				if (parsed.data) localPayload.payload = parsed.data
+				if (data) localPayload.payload = data
 			}
 
 			const { uri, method = "post", payload } = localPayload
 			status = "loading"
 
-			let access = accessToken
-			if (typeof access === "function") access = access()
-			const axios = axiosInstance({ accessToken: access })
+			const accessToken = getAccessToken()
+
+			const axios = axiosInstance({ accessToken })
 
 			let promise: Promise<AxiosResponse<ServerResponse<T>, unknown>>
 
@@ -64,26 +66,24 @@ function fetchData(
 					promise = axios[method]<ServerResponse<T>>(uri, payload)
 			}
 
-			const res = await tryCatch(promise)
+			const result = await tryCatch(promise)
 
 			status = "error"
 			statusCode = 400
 
-			if (!res.success) {
-				error = fe(res.error)
+			if (!result.success) {
+				error = fe(result.error)
 				return
 			}
 
-			const resData = res.data.data
-
-			if (![200, 201].includes(resData.status)) {
-				error = fe(resData.message)
+			if (![200, 201].includes(result.data.data.status)) {
+				error = fe(result.data.data.message)
 				return
 			}
 
-			const { message: resMessage, status: _s, ...rest } = resData
+			const { message: resMessage, status: _s, ...rest } = result.data.data
 
-			statusCode = resData.status
+			statusCode = result.data.data.status
 			status = "success"
 			message = resMessage
 
@@ -112,10 +112,15 @@ function fetchData(
 
 				return data
 			},
+			get dataWithStatus(): FetchStatusWithData<T> {
+				if (data) return responseUtil(message!, "success", data!)
+
+				return responseUtil(error!, "error")
+			},
 			get fetchStatus(): FetchStatus {
-				if (status === "success")
-					return { error: false, success: true, message: message! }
-				return { error: true, success: false, message: error! }
+				if (status === "success") return responseUtil(message!, "success")
+
+				return responseUtil(error!, "error")
 			},
 			statusCode,
 		}
@@ -123,7 +128,7 @@ function fetchData(
 }
 
 export function createFetchDataClient(
-	accessToken: string | null | undefined | (() => string | null),
+	getAccessToken: () => string | null | undefined,
 ): FetchDataType {
-	return fetchData(accessToken)
+	return fetchData(getAccessToken)
 }

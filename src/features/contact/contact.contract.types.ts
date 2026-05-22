@@ -1,5 +1,4 @@
-import type { FetchStatus } from "@/libs/fetchData"
-import type { ITelegram } from "@/libs/telegram"
+import type { FetchStatus } from "@/shared/utils/response"
 
 export type ContactDataType = {
 	name: string
@@ -8,6 +7,6 @@ export type ContactDataType = {
 	honeypot?: string | undefined | null
 }
 
-export interface IContactService {
-	sendMessage(message: string, telegram: ITelegram): Promise<FetchStatus>
+export abstract class IContactService {
+	abstract create(props: ContactDataType): Promise<FetchStatus>
 }
