@@ -1,33 +1,28 @@
-import axios from "axios"
-import type { FetchStatus } from "@/libs/fetchData"
-import { createTelegramMessagePayload, type ITelegram } from "@/libs/telegram"
-import { tryCatch } from "@/shared/utils/tryCatch"
-import type { IContactService } from "./contact.contract.types"
+import { createService, type FetchDataType } from "@/libs/fetchData"
+import { apiRoutes } from "@/shared/routes/apiRoutes"
+import type { FetchStatus } from "@/shared/utils/response"
+import { type ContactDataType, IContactService } from "./contact.contract.types"
 
-class ContactService implements IContactService {
-	async sendMessage(
-		message: string,
-		telegram: ITelegram,
-	): Promise<FetchStatus> {
-		const { url, chatId, text } = await createTelegramMessagePayload(
-			message,
-			telegram,
-		)
+class ContactService extends IContactService {
+	constructor(private apiClient: FetchDataType) {
+		super()
+	}
+	async create(props: ContactDataType): Promise<FetchStatus> {
+		const client = this.apiClient({
+			uri: apiRoutes.contact.create.path,
+			method: apiRoutes.contact.create.method,
+			payload: props,
+		})
+		await client.fetch()
 
-		const res = await tryCatch(axios.post(url, { chat_id: chatId, text }))
-		if (!res.success)
-			return {
-				success: false,
-				error: true,
-				message: "Failed to send message, try again in a few minutes.",
-			}
-
-		return {
-			success: true,
-			error: false,
-			message: "Message recieved successfully, I will get back to you soon.",
-		}
+		return client.fetchStatus
 	}
 }
 
-export const contactService: IContactService = new ContactService()
+export function createContactService(apiClient: FetchDataType) {
+	return new ContactService(apiClient)
+}
+
+export const contactService = createService(({ apiClient }) =>
+	createContactService(apiClient),
+)

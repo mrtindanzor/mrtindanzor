@@ -6,16 +6,8 @@ type HeadersProps = {
 }
 
 export function axiosInstance({ accessToken }: HeadersProps): AxiosInstance {
-	if (!accessToken)
-		return axios.create({
-			baseURL: publicUrls.serverUri,
-			proxy: false,
-			withCredentials: true,
-		})
-
 	return axios.create({
 		baseURL: publicUrls.serverUri,
-
 		headers: {
 			Authorization: `Bearer ${accessToken}`,
 		},

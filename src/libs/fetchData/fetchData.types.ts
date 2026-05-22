@@ -1,18 +1,5 @@
 import type { ZodType } from "zod"
-
-export type FetchErrorType = {
-	message: string
-	success: false
-	error: true
-}
-
-export type FetchSuccessType = {
-	message: string
-	success: true
-	error: false
-}
-
-export type FetchStatus = FetchErrorType | FetchSuccessType
+import type { FetchStatus, FetchStatusWithData } from "@/shared/utils/response"
 
 export type FetchingStatus = "idle" | "loading" | "success" | "error"
 
@@ -28,6 +15,7 @@ export type FetchQueryProps = {
 }
 
 export type ServerResponse<T> = T & {
+	rateExceeded?: boolean
 	message: string
 	status: ErrorCode | SuccessCode
 }
@@ -50,6 +38,7 @@ export type FetchDataType = <T>(payload: FetchDataProps) => {
 	readonly message: string
 	readonly error: string
 	readonly data: T
+	readonly dataWithStatus: FetchStatusWithData<T>
 	readonly fetchStatus: FetchStatus
 	statusCode: null
 }

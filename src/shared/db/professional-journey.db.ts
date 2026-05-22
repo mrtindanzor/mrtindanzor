@@ -4,9 +4,10 @@ export const PROFESSIONAL_TIMELIINE: ProfessionalJourneyType[] = [
 	{
 		cardId: 1,
 		featured: true,
-		organization: "Successfield College",
+		organization: "Successfield College & Medical Services",
 		role: "Full-Stack Web Developer",
 		locationType: "Remote",
+		logo: "/images/projects/branding/successfield-college-and-medical-services.png",
 		period: {
 			start: 2024,
 			end: "Present",
@@ -25,7 +26,8 @@ export const PROFESSIONAL_TIMELIINE: ProfessionalJourneyType[] = [
 	{
 		cardId: 2,
 		featured: true,
-		organization: "Myghmart",
+		organization: "MyGhMart",
+		logo: "/images/projects/branding/myghmart.png",
 		role: "Full-Stack & DevOps Engineer",
 		locationType: "Remote",
 		period: {
@@ -47,6 +49,7 @@ export const PROFESSIONAL_TIMELIINE: ProfessionalJourneyType[] = [
 	{
 		cardId: 3,
 		organization: "ALX Africa",
+		logo: "/images/projects/branding/alx.png",
 		role: "Professional Foundations Learner",
 		locationType: "Remote",
 		period: {
@@ -64,6 +67,7 @@ export const PROFESSIONAL_TIMELIINE: ProfessionalJourneyType[] = [
 		cardId: 4,
 		featured: true,
 		organization: "ALX Africa",
+		logo: "/images/projects/branding/alx.png",
 		role: "Frontend Pro Development Learner",
 		locationType: "Remote",
 		period: {

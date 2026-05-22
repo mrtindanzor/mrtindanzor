@@ -9,6 +9,7 @@ import {
 	SiGraphql,
 	SiHtml5,
 	SiJavascript,
+	SiNestjs,
 	SiNextdotjs,
 	SiNodedotjs,
 	SiNpm,
@@ -101,6 +102,13 @@ export const SKILLS: SkillProps[] = [
 				color: "text-green-600",
 				description:
 					"JavaScript runtime for building scalable server-side applications.",
+			},
+			{
+				title: "Nest JS",
+				icon: SiNestjs,
+				color: "text-red-600",
+				description:
+					"TypeScript-first framework for building scalable server-side applications.",
 			},
 			{
 				title: "Express JS",

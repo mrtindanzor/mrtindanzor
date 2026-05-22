@@ -8,6 +8,7 @@ import { ErrorCard } from "@/shared/ui/primitive/ErrorCard"
 import { Input } from "@/shared/ui/primitive/Input"
 import { Label } from "@/shared/ui/primitive/Label"
 import { LoadingSwap } from "@/shared/ui/primitive/LoadingSwap"
+import { Textarea } from "@/shared/ui/primitive/Textarea"
 import { cn } from "@/shared/utils/cn"
 
 export function ContactSection({
@@ -76,7 +77,11 @@ export function ContactSection({
 						<Label.Title className="text-neutral-secondary text-sm tracking-tight">
 							Message
 						</Label.Title>
-						<Input {...register("message")} placeholder="Your message" />
+						<Textarea
+							{...register("message")}
+							className="h-25 resize-none"
+							placeholder="Your message"
+						/>
 					</Label.Wrapper>
 
 					<Input hidden {...register("honeypot")} autoComplete="off" />
