@@ -4,45 +4,41 @@ import { cn } from "@/shared/utils/cn"
 import type { ButtonVariants } from "../button.types"
 
 export const buttonVariants = cva(
-	"transition duration-300 ease-in-out outline link relative rounded focus-within:outline-2",
+	"transition duration-300 ease-in-out outline link relative rounded focus-visible:outline-2",
 	{
 		variants: {
 			variant: {
-				default: "bg-primary text-neutral",
-				light: "bg-neutral text-primary",
+				light: "bg-neutral text-accent",
 				outline: "bg-transparent text-neutral outline-neutral",
 				"outline-muted": "bg-transparent text-muted outline-muted",
 				muted: "bg-muted text-neutral outline-1",
-				accent: " bg-accent border-accent text-gray-800",
-				success: "bg-success text-white",
+				accent: " bg-accent border-accent text-muted",
+				success: "bg-success text-muted",
 				successOutline: "text-success outline-success",
-				danger: "bg-danger text-white",
+				danger: "bg-danger text-neutral",
 				dangerOutline: "text-danger outline-danger",
 				"danger-light": "text-danger bg-danger/10",
 				"success-light": "text-success bg-success/10",
 				"accent-light": "text-accent bg-accent/10",
-				"primary-light": "text-primary bg-primary/10",
-				"ghost-light": "text-light bg-light/10",
+				"ghost-light": "text-neutral bg-neutral/10",
 				"dark-light": "text-dark bg-dark/10",
 				none: "outline-none!",
 			},
 			hover: {
-				default: "hover:bg-primary hover:text-neutral",
 				light: "hover:bg-neutral hover:text-muted",
 				outline:
 					"hover:bg-transparent hover:text-neutral hover:outline-neutral",
 				"outline-muted":
 					"hover:bg-transparent hover:text-muted hover:outline-muted",
 				muted: "hover:bg-muted hover:text-neutral hover:outline-1",
-				accent: " hover:bg-accent hover:border-accent hover:text-gray-800",
-				success: " hover:bg-success hover:text-white",
+				accent: " hover:bg-accent hover:border-accent hover:text-muted",
+				success: " hover:bg-success hover:text-muted",
 				successOutline: "hover:text-success hover:outline-success",
 				danger: "hover:bg-danger hover:text-white",
 				dangerOutline: "hover:text-danger hover:outline-danger",
 				"danger-light": "hover:text-danger hover:bg-danger/10",
 				"success-light": "hover:text-success hover:bg-success/10",
 				"accent-light": "hover:text-accent hover:bg-accent/10",
-				"primary-light": "hover:text-primary hover:bg-primary/10",
 				"ghost-light": "hover:text-light hover:bg-light/10",
 				"dark-light": "hover:text-dark hover:bg-dark/10",
 				none: "outline-none!",
@@ -56,6 +52,7 @@ export const buttonVariants = cva(
 				"2xl": "rounded-2xl",
 				"3xl": "rounded-3xl",
 				"4xl": "rounded-4xl",
+				none: "rounded-none",
 			},
 			pad: {
 				xs: "px-1 py-0.5",
@@ -63,7 +60,7 @@ export const buttonVariants = cva(
 				md: "px-3.5 py-1.5",
 				lg: "px-6 py-2",
 				xl: "px-8 py-2.5",
-				none: "",
+				none: "p-0",
 			},
 			x: {
 				center: "justify-center",

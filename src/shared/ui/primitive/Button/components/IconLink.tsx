@@ -24,7 +24,8 @@ export function StyledLink({
 }: StyledLinkProps) {
 	return (
 		<Link
-			to={href}
+			// biome-ignore lint/suspicious/noExplicitAny: I do not need the tanstack type
+			to={href as any}
 			{...props}
 			className={cn(
 				buttonVariants({
@@ -54,8 +55,11 @@ export function IconLink({
 }: IconLinkProps) {
 	return (
 		<StyledLink
+			y="center"
+			x="center"
+			pad="lg"
 			{...props}
-			className={cn("flex-place-center rounded-full", className)}
+			className={cn("flex-place-center gap-x-1.5 rounded-full", className)}
 		>
 			<Icon className={iconClassName} />
 			{children}
@@ -88,7 +92,7 @@ export function StyledDotLink({
 		<StyledIconLink
 			icon={Dot}
 			iconClassName={cn(
-				"size-2 rounded-full p-0 bg-white group-hover:animate-pulse",
+				"size-2 rounded-full bg-current group-hover:animate-pulse",
 				iconClassName,
 			)}
 			{...props}

@@ -12,7 +12,6 @@ export function Footer() {
 				href={routes.contact}
 				variant="outline"
 				className="mx-auto"
-				size="lg"
 			>
 				Contact Me
 			</StyledDotLink>

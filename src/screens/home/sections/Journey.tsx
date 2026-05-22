@@ -1,31 +1,30 @@
-import { PROFESSIONAL_TIMELIINE } from "@/shared/db"
-import { useMediaQuery } from "@/shared/hooks/useMediaQuery"
+import { FEATURED_PROFESSIONAL_TIMELINE } from "@/shared/db"
 import { routes } from "@/shared/routes"
 import { JourneyCard } from "@/shared/ui/JourneyCard"
+import { AccentText } from "@/shared/ui/primitive/AccentText"
 import { StyledDotLink } from "@/shared/ui/primitive/Button"
+import { TimelineCard, TimelineContainer } from "@/shared/ui/TimelineContainer"
 
 export function JourneyPreview() {
-	const isMobile = useMediaQuery({ size: "sm", comparison: "<" })
-	const data = PROFESSIONAL_TIMELIINE.slice(0, isMobile ? 1 : 2)
-
 	return (
 		<div className="bg-background-primary">
 			<section className="section space-y-4">
-				<h2 className="text-3xl mb-12 text-gradient text-center">
-					Professional Journey
+				<h2 className="text-3xl mb-12 font-bold text-center">
+					Professional <AccentText>Mile</AccentText>stones
 				</h2>
 
-				<ul className="grid sm:grid-cols-2 gap-x-4">
-					{data.map((item) => (
-						<li key={item.cardId}>
+				<TimelineContainer wrapperClassName="gap-y-4 grid">
+					{FEATURED_PROFESSIONAL_TIMELINE.map((item) => (
+						<TimelineCard key={item.cardId}>
 							<JourneyCard {...item} />
-						</li>
+						</TimelineCard>
 					))}
-				</ul>
+				</TimelineContainer>
 
 				<StyledDotLink
 					href={`${routes.about}#professioanaljourney`}
 					variant="ghost-light"
+					hover="light"
 					className="mx-auto gap-x-4"
 				>
 					Explore Full Journey

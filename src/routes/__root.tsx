@@ -43,14 +43,14 @@ function RootLayout() {
 				<HeadContent />
 			</head>
 
-			<body className="text-neutral bg-background-secondary font-poppins">
+			<body className="font-sensation bg-muted text-neutral">
 				<DataProviders>
 					<AppLayout>
 						<Outlet />
 					</AppLayout>
 				</DataProviders>
-				<Scripts />
 			</body>
+			<Scripts />
 		</html>
 	)
 }

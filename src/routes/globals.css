@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Finlandica+Headline:ital,wght@0,100..900;1,100..900&family=Sansation:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap");
 
 @import "tailwindcss";
 @import "tw-animate-css";
@@ -7,27 +8,32 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-	--bg-primary: #0b0e14;
-	--bg-secondary: #0f131a;
-	--border-subtle: rgba(255, 255, 255, 0.08);
-	--neutral: #f8fafc;
-	--muted: #94a3b8;
 	--font-poppins: "Poppins", sans-serif;
+	--font-sensation: "Sensation", "Finlandica Headline", sans-serif;
+	--font-finlainca: "Finlandica Headline", sans-serif;
 	--font-inter: "Inter", sans-serif;
 	--app-height: calc(100vh - 4.5rem);
+
+	--muted: #000000;
+	--muted-secondary: #1e1e1e;
+	--accent: #53dd6c;
+	--accent-hover: #44c75a;
+	--neutral: #f5f5f5;
+	--neutral-secondary: #a3a3a3;
 }
 
 @theme inline {
 	--font-poppins: var(--font-poppins);
 	--font-inter: var(--font-inter);
+	--font-sensation: var(--font-sensation);
+	--font-finlainca: var(--font-finlainca);
 
-	--color-background-primary: var(--bg-primary);
-	--color-background-secondary: var(--bg-secondary);
-	--color-primary: var(--color-sky-500);
-	--color-accent: var(--color-slate-900);
-	--color-neutral: var(--neutral);
 	--color-muted: var(--muted);
-	--color-border-subtle: var(--border-subtle);
+	--color-muted-secondary: var(--muted-secondary);
+	--color-accent: var(--accent);
+	--accent-secondary: var(--accent-secondary);
+	--color-neutral: var(--neutral);
+	--color-neutral-secondary: var(--neutral-secondary);
 	--color-success: var(--color-emerald-500);
 	--color-danger: var(--color-rose-500);
 	--height-app-height: var(--app-height);
@@ -35,19 +41,19 @@
 
 @layer base {
 	* {
-		@apply border-border-subtle;
 		scrollbar-width: thin;
 	}
 	body {
-		@apply bg-background-primary text-neutral font-inter overflow-x-hidden h-full p-0 tracking-tight;
+		@apply bg-muted text-neutral font-finlainca overflow-x-hidden h-full p-0 tracking-tight;
 	}
 
-	h1, h2, h3, h4, h5, h6 {
-		@apply font-poppins font-bold tracking-tighter text-neutral;
-	}
-
-	p {
-		@apply text-muted leading-relaxed;
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		@apply font-finlainca tracking-tighter;
 	}
 
 	button {
@@ -56,7 +62,7 @@
 
 	input,
 	textarea {
-		@apply border py-2 bg-background-secondary border-border-subtle rounded-md focus:border-primary/50 focus:outline-none;
+		@apply border py-2 bg-muted-secondary border-neutral-secondary rounded-md focus:border-neutral focus:outline-none;
 	}
 
 	* ::-webkit-scrollbar {
@@ -64,11 +70,11 @@
 	}
 
 	* ::-webkit-scrollbar-track {
-		@apply bg-background-primary;
+		@apply bg-muted;
 	}
 
 	* ::-webkit-scrollbar-thumb {
-		@apply bg-muted/20 rounded-full cursor-grab hover:bg-muted/40;
+		@apply bg-muted-secondary rounded-full cursor-grab hover:bg-muted;
 	}
 }
 
@@ -76,23 +82,23 @@
 	.flex-place-center {
 		@apply flex justify-center items-center;
 	}
-	
-	.text-gradient {
-		@apply bg-gradient-to-br from-white via-slate-300 to-slate-500 bg-clip-text text-transparent;
-	}
 }
 
 @layer components {
 	.section {
 		@apply grid mx-auto px-6 py-12 md:py-24 md:max-w-6xl w-full;
 	}
-	
+
 	.card-surface {
-		@apply bg-background-secondary border border-border-subtle rounded-2xl shadow-sm;
+		@apply bg-muted border border-neutral-secondary/10 rounded-xl shadow-sm;
 	}
 
-	.link-ring {
-		@apply flex items-center gap-1.5 bg-background-secondary border border-border-subtle rounded-xl px-4 py-2 text-sm font-medium transition-all hover:border-primary/50;
+	.floating-dot-timeline {
+		@apply size-3 absolute top-[8%] -left-7 bg-accent rounded-full;
+	}
+
+	.timeline-view-container {
+		@apply grid w-1 absolute top-[2%] bg-neutral rounded-xl;
 	}
 }
 

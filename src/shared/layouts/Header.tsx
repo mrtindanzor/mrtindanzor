@@ -1,31 +1,31 @@
 import { Menu, X } from "lucide-react"
 import { useState } from "react"
+import { useDirectionContext } from "@/providers/ScrollDirectionProvider"
 import { DEVELOPER } from "../db"
 import { routes } from "../routes"
-import { motionVariants } from "../ui/Framer"
 import { Button, StyledLink } from "../ui/primitive/Button"
 import { MImage } from "../ui/primitive/Image"
+import { cn } from "../utils/cn"
 import { DesktopNavbar, MobileNavbar } from "./Navbar"
 
-const headerVariants = motionVariants({
-	hidden: { y: "-5rem" },
-	show: { transition: { duration: 0.2, ease: "easeOut", stiffness: 50 } },
-})
-
 export function Header() {
-	const [active, setActive] = useState(false)  
+	const [active, setActive] = useState(false)
+	const { current } = useDirectionContext()
 
 	return (
 		<>
 			<header
-				className="fixed inset-x-0 top-0 h-18 bg-background-primary z-50 flex items-center border-b border-border-subtle shadow-sm transition-all duration-300"
+				className={cn(
+					"fixed bg-muted inset-x-0 top-0 h-18 z-50 flex items-center",
+					current > 2 && "border-b border-b-muted-secondary shadow-sm",
+				)}
 			>
-				<div className="max-w-6xl mx-auto px-6 w-full flex justify-between items-center">
+				<div className="max-w-7xl mx-auto px-6 w-full flex justify-between items-center">
 					<div className="flex items-center gap-3">
 						<MImage
 							url={DEVELOPER.avatar}
 							alt={DEVELOPER.name}
-							className="size-10 rounded-full border border-border-subtle bg-background-secondary p-0.5"
+							className="size-10 rounded-full border-muted-secondary border p-0.5"
 						/>
 						<StyledLink
 							variant="none"
@@ -36,14 +36,14 @@ export function Header() {
 						</StyledLink>
 					</div>
 					<DesktopNavbar />
-					
+
 					<StyledLink
 						href={routes.contact}
 						animation="enlargeX"
-						variant="primary-light" 
-						className="hidden! lg:flex! items-center gap-x-2 rounded-full px-6 py-2"
+						variant="accent"
+						className="hidden! hover:shadow-md hover:shadow-accent/40 lg:flex! items-center gap-x-2 rounded-full px-6 py-2"
 					>
-						Contact
+						Contact me
 					</StyledLink>
 
 					<Button
@@ -54,7 +54,6 @@ export function Header() {
 						{active && <X />}
 					</Button>
 				</div>
-
 			</header>
 			<MobileNavbar active={active} setActive={setActive} />
 		</>

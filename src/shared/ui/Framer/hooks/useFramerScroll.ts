@@ -2,7 +2,7 @@ import { useScroll, useSpring, useTransform } from "framer-motion"
 import { useRef } from "react"
 import type { FramerScrollWrapperProps } from "../framer.types"
 
-export function useFramerScroll<T extends HTMLElement = HTMLDivElement>({
+export function useFramerScroll<T extends HTMLElement | null>({
 	container,
 	target,
 	axis = "y",

@@ -1,23 +1,17 @@
+import { ExternalLink } from "lucide-react"
 import { DEVELOPER, FEATURED_PROJECTS } from "@/shared/db"
-import { routes } from "@/shared/routes"
-import { StyledArrowLink, StyledDotLink } from "@/shared/ui/primitive/Button"
-import { MImage } from "@/shared/ui/primitive/Image"
+import { ConnectButton } from "@/shared/ui/ConnectButton"
+import { AccentText } from "@/shared/ui/primitive/AccentText"
+import { StyledLink } from "@/shared/ui/primitive/Button"
 
 export function HeroSection() {
 	return (
 		<section className="section text-center">
-			<MImage
-				url={DEVELOPER.avatar}
-				alt={DEVELOPER.name}
-				className="size-50 md:size-70 mx-auto bg-background-secondary border border-border-subtle rounded-full p-1 shadow-2xl"
-				imageClassName="object-cover rounded-full"
-			/>
-
 			<h1 className="text-4xl md:text-6xl mt-12 mb-6 text-gradient">
-				Meet the Developer
+				Meet <AccentText>the Developer</AccentText>
 			</h1>
 
-			<p className="max-w-4xl mx-auto text-lg md:text-xl leading-relaxed mb-12">
+			<p className="max-w-4xl mx-auto text-sm text-neutral-secondary md:text-base leading-relaxed mb-12">
 				I&apos;m a Full-Stack and DevOps developer passionate about building
 				innovative, scalable, and user-focused applications. I have hands-on
 				experience with projects like{" "}
@@ -32,18 +26,19 @@ export function HeroSection() {
 			</p>
 
 			<div className="flex gap-4 items-center flex-col sm:flex-row w-fit mx-auto">
-				<StyledArrowLink
+				<ConnectButton />
+
+				<StyledLink
 					target="_blank"
 					rel="noreferrer noopener"
 					href={DEVELOPER.resume}
-					size="lg"
+					variant="ghost-light"
+					className="flex gap-x-1.5 px-8 py-2"
+					y="center"
 				>
+					<ExternalLink className="size-4" />
 					See My Resume
-				</StyledArrowLink>
-
-				<StyledDotLink href={routes.contact} variant="outline" size="lg">
-					Contact Me
-				</StyledDotLink>
+				</StyledLink>
 			</div>
 		</section>
 	)

@@ -1,30 +1,26 @@
 import { SKILLS } from "@/shared/db"
-import { SkillsContainerCard } from "@/shared/ui/skills/SkillsContainerCard"
-import { cn } from "@/shared/utils/cn"
+import { AccentText } from "@/shared/ui/primitive/AccentText"
+import { SkillCard } from "@/shared/ui/skills/SkillCard"
 
 export function Skills() {
 	return (
-		<div className="bg-background-secondary border-y border-border-subtle">
-			<section id="skills" className="section">
-				<h2 className="text-3xl md:text-5xl mb-12 text-gradient">
-					Engineering Toolkit
-				</h2>
+		<section id="skills" className="section">
+			<h2 className="text-3xl md:text-5xl font-bold mb-6">
+				Areas <AccentText>I Excel</AccentText> In
+			</h2>
 
-				<ul className="grid sm:grid-cols-2 gap-4">
-					{SKILLS.map((skill, index) => (
-						<li
-							key={skill.category}
-							className={cn(
-								index === 0 && skill.category === "Languages"
-									? "col-span-full"
-									: "",
-							)}
-						>
-							<SkillsContainerCard {...skill} />
-						</li>
-					))}
-				</ul>
-			</section>
-		</div>
+			<p className="mb-12 text-neutral-secondary max-w-2xl">
+				My engineering toolkit covers frontend technologies, backend
+				architecture, database design, DevOps workflows, and the tools that
+				support modern engineering, enabling me to deliver full-stack solutions
+				with efficiency and consistency.
+			</p>
+
+			<ul className="grid mb-5 grid-cols-[repeat(auto-fill,minmax(15rem,1fr))] overflow-hidden border-neutral-secondary/10">
+				{SKILLS.map(({ items }) =>
+					items.map((item) => <SkillCard key={item.title} {...item} />),
+				)}
+			</ul>
+		</section>
 	)
 }

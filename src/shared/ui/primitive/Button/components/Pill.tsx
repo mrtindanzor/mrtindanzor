@@ -7,12 +7,30 @@ export function Pill({
 	className,
 	variant,
 	animation,
+	rad,
+	pad,
+	x,
+	y,
+	w,
+	hover,
 	...props
 }: ButtonProps & ComponentProps<"span">) {
 	return (
 		<span
 			{...props}
-			className={cn(buttonVariants({ variant, animation, className }))}
+			className={cn(
+				buttonVariants({
+					variant,
+					rad,
+					pad,
+					x,
+					y,
+					w,
+					hover,
+					animation,
+					className,
+				}),
+			)}
 		/>
 	)
 }

@@ -13,7 +13,7 @@ export function FramerAnimatePosition({
 		<motion.div
 			variants={updatedVariants}
 			initial="hidden"
-			exit="exit"
+			exit="hidden"
 			viewport={{ once: true }}
 			{...props}
 		/>

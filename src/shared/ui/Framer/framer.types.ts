@@ -30,8 +30,8 @@ type Intersection = `${Edge} ${Edge}`
 type ScrollOffset = Array<Edge | Intersection | ProgressIntersection>
 
 export type FramerScrollWrapperProps = {
-	container?: RefObject<HTMLElement>
-	target?: RefObject<HTMLElement>
+	container?: RefObject<HTMLElement | null>
+	target?: RefObject<HTMLElement | null>
 	axis?: "x" | "y"
 	offset?: ScrollOffset
 	spring?: SpringOptions

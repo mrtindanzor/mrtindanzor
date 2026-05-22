@@ -1,17 +1,20 @@
+import { socials } from "@/config/socials"
+
 export const DEVELOPER = Object.freeze({
 	avatar: "/images/mrtindanzor/avatar-main.png",
+	avatar2: "/images/mrtindanzor/avatar.png",
 	name: "Mr. Tindanzor Simon",
 	lastName: "Tindanzor",
 	firstName: "Simon",
-	resume: "/resume/mrtindanzor.pdf",
-	email: "mrtindanzor@gmail.com",
-	phone: "+233546087679",
+	resume: socials.resume,
+	email: socials.email,
+	phone: socials.phone,
 	socials: {
-		github: "https://github.com/mrtindanzor",
-		linkedin: "https://linkedin.com/in/mrtindanzor",
-		tiktok: "https://tiktok.com/@mrtindanzor",
-		whatsapp: "https://wa.me/+233546087679",
-		instagram: "https://instagram.com/mrtindanzor",
-		facebook: "https://web.facebook.com/mrtindanzor",
+		github: socials.github,
+		linkedin: socials.linkedin,
+		tiktok: socials.tiktok,
+		whatsapp: socials.whatsapp,
+		instagram: socials.instagram,
+		facebook: socials.facebook,
 	},
 })

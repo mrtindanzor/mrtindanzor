@@ -99,13 +99,15 @@ function NavLink({
 	...props
 }: { title: string; path: string } & MotionProps & ComponentProps<"li">) {
 	const pathname = useAppPathname()
+	const active = pathname === path
 
 	return (
 		<li {...props}>
 			<StyledLink
 				href={path}
-				variant={pathname === path ? "primary-light" : "none"}
-				hover="default"
+				variant={active ? "success-light" : "none"}
+				hover="accent"
+				className={active ? "outline-none bg-transparent" : ""}
 			>
 				{title}
 			</StyledLink>

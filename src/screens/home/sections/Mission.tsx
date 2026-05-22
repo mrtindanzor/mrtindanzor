@@ -1,16 +1,22 @@
+import { AccentText } from "@/shared/ui/primitive/AccentText"
+
 export function Mission() {
 	return (
-		<div className="bg-linear-to-b from-background-secondary to-background-primary">
+		<div className="bg-muted">
 			<section className="section text-center">
-				<h2 className="text-3xl md:text-4xl mb-6 text-gradient">Mission</h2>
+				<h2 className="text-3xl md:text-4xl mb-6">
+					What <AccentText as="span">I Can</AccentText> Build For You
+				</h2>
 
-				<p className="max-w-3xl mx-auto text-lg leading-relaxed">
-					My mission is to turn ideas into meaningful digital products by
-					merging creativity with technical precision. I believe every project
-					should solve a real problem, communicate clearly, and feel intuitive
-					at every interaction point. Through careful planning, clean coding,
-					and consistent refinement, I work to deliver experiences that inspire
-					confidence, support growth, and create lasting impact.
+				<p className="max-w-3xl mx-auto text-neutral-secondary leading-relaxed">
+					I build modern, fast, and scalable web applications that help
+					businesses, brands, and ideas grow online. From responsive frontend
+					interfaces to full-stack systems and deployment infrastructure, I
+					focus on creating solutions that are clean, reliable, and built for
+					real users. Whether you need a modern website, a custom web
+					application, or a complete product experience, I turn ideas into
+					functional digital products with strong performance, intuitive design,
+					and maintainable architecture.
 				</p>
 			</section>
 		</div>

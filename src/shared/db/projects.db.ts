@@ -2,25 +2,25 @@ import type { ProjectProps } from "./projects.db.types"
 
 const projectsMeta = Object.freeze({
 	myghmart: {
-		image: "/assets/images/projects/myghmart.png",
+		image: "/images/projects/myghmart.png",
 		name: "MyGhmart",
 		repo: "",
 		link: "https://myghmart.com",
 	},
 	successfield: {
-		image: "/assets/images/projects/successfield.png",
+		image: "/images/projects/successfield.png",
 		name: "Successfield College",
 		repo: "",
 		link: "https://successfieldcollege.com",
 	},
 	lpm: {
-		image: "/assets/images/projects/lpm.png",
+		image: "/images/projects/lpm.png",
 		name: "LPM (Local Package Manager)",
 		repo: "https://github.com/mrtindanzor/lpm",
 		link: "",
 	},
 	consensus: {
-		image: "/assets/images/projects/consensus.png",
+		image: "/images/projects/consensus.png",
 		name: "Consensus",
 		repo: "https://github.com/mrtindanzor/alx-project-nexus",
 		link: "https://polls.tindanzorsolutions.com",
@@ -71,8 +71,8 @@ export const PROJECTS: ProjectProps[] = [
 		],
 		link: projectsMeta.successfield.link,
 	},
-
 	{
+		featured: true,
 		imgSrc: projectsMeta.consensus.image,
 		title: projectsMeta.consensus.name,
 		link: projectsMeta.consensus.link,

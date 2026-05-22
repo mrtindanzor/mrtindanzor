@@ -1,6 +1,7 @@
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useState } from "react"
+import { useElRef } from "./useElRef"
 
-export default function useIntersection<T = HTMLDivElement>({
+export default function useIntersection({
 	threshold = 0.5,
 	rootMargin = "0px",
 	once,
@@ -10,13 +11,13 @@ export default function useIntersection<T = HTMLDivElement>({
 	once?: boolean
 } = {}) {
 	const [isIntersecting, setIsIntersecting] = useState(false)
-	const ref = useRef<T>(null)
+	const { refObject, ref } = useElRef(null)
 
 	useEffect(() => {
 		let observer: IntersectionObserver
 
 		requestAnimationFrame(() => {
-			const currentRef = ref.current
+			const currentRef = refObject.current
 
 			if (!(currentRef instanceof HTMLElement)) return
 			observer = new IntersectionObserver(
@@ -36,7 +37,7 @@ export default function useIntersection<T = HTMLDivElement>({
 		return () => {
 			if (observer) observer.disconnect()
 		}
-	}, [threshold, rootMargin, once])
+	}, [threshold, rootMargin, refObject, once])
 
 	return { isIntersecting, ref }
 }

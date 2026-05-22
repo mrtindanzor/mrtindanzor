@@ -1,8 +1,8 @@
 import type { ComponentProps } from "react"
-import { cn } from "@/shared/utils/cn" 
+import { cn } from "@/shared/utils/cn"
 import type { SkillItemsProps } from "../../db/skills.db.types"
 
-export type SkillCardProps = ComponentProps<"div"> & SkillItemsProps
+export type SkillCardProps = ComponentProps<"li"> & SkillItemsProps
 
 export function SkillCard({
 	icon: Icon,
@@ -13,24 +13,27 @@ export function SkillCard({
 	...props
 }: SkillCardProps) {
 	return (
-		<div
+		<li
 			{...props}
 			className={cn(
-				"card-surface p-4 flex flex-col gap-3 transition-all hover:border-primary/30",
+				"card-surface rounded-none hover:bg-muted-secondary/20 p-4 flex flex-col gap-3",
 				className,
 			)}
 		>
 			<div className="flex items-center gap-3">
-				<div className={cn("p-2 rounded-xl bg-background-primary border border-border-subtle flex items-center justify-center", color)}>
+				<div
+					className={cn(
+						"p-2 rounded-xl  flex items-center justify-center",
+						color,
+					)}
+				>
 					<Icon className="size-5 md:size-6" />
 				</div>
-				<h4 className="font-bold text-neutral">
-					{title}
-				</h4>
+				<h4 className="font-bold text-neutral">{title}</h4>
 			</div>
-			<p className="text-sm text-muted leading-relaxed">
+			<p className="text-sm text-neutral-secondary leading-relaxed">
 				{description}
 			</p>
-		</div>
+		</li>
 	)
 }

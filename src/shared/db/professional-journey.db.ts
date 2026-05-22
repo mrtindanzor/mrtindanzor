@@ -3,6 +3,7 @@ import type { ProfessionalJourneyType } from "./professional-journey.db.types"
 export const PROFESSIONAL_TIMELIINE: ProfessionalJourneyType[] = [
 	{
 		cardId: 1,
+		featured: true,
 		organization: "Successfield College",
 		role: "Full-Stack Web Developer",
 		locationType: "Remote",
@@ -23,6 +24,7 @@ export const PROFESSIONAL_TIMELIINE: ProfessionalJourneyType[] = [
 	},
 	{
 		cardId: 2,
+		featured: true,
 		organization: "Myghmart",
 		role: "Full-Stack & DevOps Engineer",
 		locationType: "Remote",
@@ -42,4 +44,41 @@ export const PROFESSIONAL_TIMELIINE: ProfessionalJourneyType[] = [
 			"Troubleshot complex issues in production and development environments efficiently.",
 		],
 	},
+	{
+		cardId: 3,
+		organization: "ALX Africa",
+		role: "Professional Foundations Learner",
+		locationType: "Remote",
+		period: {
+			start: "June 2025",
+			end: "September 2025",
+		},
+		achievements: [
+			"Built strong professional communication and collaboration skills",
+			"Developed problem-solving and critical thinking abilities",
+			"Learned effective teamwork and project management practices",
+			"Strengthened leadership, time management, and accountability",
+		],
+	},
+	{
+		cardId: 4,
+		featured: true,
+		organization: "ALX Africa",
+		role: "Frontend Pro Development Learner",
+		locationType: "Remote",
+		period: {
+			start: "September 2025",
+			end: "Feb 2026",
+		},
+		achievements: [
+			"Built responsive and modern web applications using React and TypeScript",
+			"Improved frontend architecture and reusable component design skills",
+			"Worked with APIs, state management, and modern development workflows",
+			"Focused on creating clean UI/UX experiences and scalable applications",
+		],
+	},
 ]
+
+export const FEATURED_PROFESSIONAL_TIMELINE = PROFESSIONAL_TIMELIINE.filter(
+	(journey) => journey.featured,
+)

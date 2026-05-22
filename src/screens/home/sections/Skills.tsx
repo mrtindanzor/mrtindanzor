@@ -1,43 +1,37 @@
 import { FEATURED_SKILLS } from "@/shared/db"
 import { routes } from "@/shared/routes"
+import { AccentText } from "@/shared/ui/primitive/AccentText"
 import { StyledDotLink } from "@/shared/ui/primitive/Button"
-import { SkillsContainerCard } from "@/shared/ui/skills/SkillsContainerCard"
-import { cn } from "@/shared/utils/cn"
+import { SkillCard } from "@/shared/ui/skills/SkillCard"
 
 export function SkillsPreview() {
 	return (
 		<div>
 			<section className="section">
-				<h2 className="text-3xl md:text-4xl mb-4 text-gradient">Engineering Toolkit</h2>
+				<h2 className="text-3xl font-bold md:text-4xl mb-4 text-center">
+					Areas <AccentText>I Excel </AccentText> In
+				</h2>
 
-				<p className="max-w-2xl mb-12 text-lg">
+				<p className="max-w-2xl mb-12 text-sm text-center mx-auto text-neutral-secondary">
 					My engineering toolkit covers frontend technologies, backend
 					architecture, database design, DevOps workflows, and the tools that
 					support modern engineering, enabling me to deliver full-stack
 					solutions with efficiency and consistency.
 				</p>
 
-				<ul className="grid sm:grid-cols-2 gap-4">
-					{FEATURED_SKILLS.map((skill, index) => (
-						<li
-							key={skill.category}
-							className={cn(
-								index === 0 &&
-									skill.category === "Languages" &&
-									"col-span-full",
-							)}
-						>
-							<SkillsContainerCard {...skill} />
-						</li>
-					))}
+				<ul className="grid mb-5 grid-cols-[repeat(auto-fill,minmax(15rem,1fr))] rounded-xl overflow-hidden border border-neutral-secondary/10">
+					{FEATURED_SKILLS.map(({ items }) =>
+						items.map((item) => <SkillCard key={item.title} {...item} />),
+					)}
 				</ul>
 
 				<StyledDotLink
 					href={`${routes.about}#skills`}
 					variant="outline"
 					className="mx-auto"
+					hover="light"
 				>
-					Explore Engineering Toolkit
+					Explore My Full Engineering Toolkit
 				</StyledDotLink>
 			</section>
 		</div>

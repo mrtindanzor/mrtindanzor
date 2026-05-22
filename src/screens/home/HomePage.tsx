@@ -1,4 +1,3 @@
-import { Footer } from "./sections/Footer"
 import { HeroSection } from "./sections/Hero"
 import { JourneyPreview } from "./sections/Journey"
 import { Mission } from "./sections/Mission"
@@ -10,10 +9,9 @@ export function HomePage() {
 		<main>
 			<HeroSection />
 			<Mission />
-			<JourneyPreview />
 			<FeatureProjects />
+			<JourneyPreview />
 			<SkillsPreview />
-			<Footer />
 		</main>
 	)
 }
