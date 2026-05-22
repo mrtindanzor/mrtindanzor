@@ -84,7 +84,7 @@
 	}
 
 	.link {
-		@apply before:content-[''] before:absolute before:inset-0 before:z-1 before:cursor-pointer;
+		@apply before:content-['_'] before:absolute before:inset-0 before:z-1 before:cursor-pointer;
 	}
 }
 

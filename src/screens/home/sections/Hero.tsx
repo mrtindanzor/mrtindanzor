@@ -20,26 +20,25 @@ export function HeroSection() {
 			<Pill
 				variant="accent-light"
 				pad="xs"
-				className="font-medium font-finlainca  block w-fit mx-auto px-4 my-4 tracking-wide uppercase text-xs md:text-sm animate-pulse"
+				className="font-medium font-finlainca block w-fit mx-auto px-4 my-4 tracking-wide uppercase text-xs md:text-sm animate-pulse"
 			>
 				Modern Web Engineering
 			</Pill>
-			<section className="section grid items-start gap-y-8 md:grid-cols-2 min-h-app-height relative z-1">
-				<div className="grid  h-fit">
+			<section className="section grid gap-y-4 grid-rows-2 md:grid-rows-1 md:grid-cols-2 min-h-app-height relative z-1">
+				<div className="h-fit">
 					<h1 className="text-7xl font-finlainca tracking-tighter leading-[0.9] mb-4 max-w-lg">
 						Full-<AccentText>Stack</AccentText> Develop
 						<AccentText>er</AccentText>
 					</h1>
-					<p className="text-neutral-secondary max-w-md min-h-10" ref={ref}>
+
+					<p className="text-neutral-secondary max-w-md" ref={ref}>
 						{description}
 					</p>
 
-					<div className="flex gap-x-2 mt-8">
-						<ConnectButton />
-					</div>
+					<ConnectButton className="w-fit mt-8" />
 				</div>
 
-				<div className="relative h-fit z-10 group">
+				<div className="relative h-fit group">
 					<div className="absolute inset-0 bg-accent/10 blur-[140px] rounded-full scale-150 opacity-50"></div>
 					<FramerAnimatePosition
 						whileInView="show"
