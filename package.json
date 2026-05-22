@@ -8,7 +8,8 @@
 		"build": "vite build",
 		"start": "node .output/server/index.mjs",
 		"lint": "biome check && tsc --noEmit",
-		"format": "biome check --write"
+		"format": "biome check --write",
+		"lint:fix": "pnpm format && pnpm lint"
 	},
 	"dependencies": {
 		"@heroicons/react": "^2.2.0",
