@@ -51,7 +51,7 @@ export const PROFESSIONAL_TIMELIINE: ProfessionalJourneyType[] = [
 		organization: "ALX Africa",
 		logo: "/images/projects/branding/alx.png",
 		role: "Professional Foundations Learner",
-		locationType: "Remote",
+		locationType: "Online",
 		period: {
 			start: "June 2025",
 			end: "September 2025",
@@ -69,7 +69,7 @@ export const PROFESSIONAL_TIMELIINE: ProfessionalJourneyType[] = [
 		organization: "ALX Africa",
 		logo: "/images/projects/branding/alx.png",
 		role: "Frontend Pro Development Learner",
-		locationType: "Remote",
+		locationType: "Online",
 		period: {
 			start: "September 2025",
 			end: "Feb 2026",

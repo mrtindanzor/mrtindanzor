@@ -35,6 +35,7 @@ export function HeroSection() {
 					variant="ghost-light"
 					className="flex gap-x-1.5 px-8 py-2"
 					y="center"
+					hover="light"
 				>
 					<ExternalLink className="size-4" />
 					See My Resume
