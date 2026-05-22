@@ -36,6 +36,7 @@ export function JourneyCard({
 	locationType,
 	cardId: _,
 	featured: _f,
+	logo,
 	...props
 }: ProfessionalJourneyCardProps) {
 	return (
@@ -51,6 +52,7 @@ export function JourneyCard({
 				role={role}
 				period={period}
 				locationType={locationType}
+				logo={logo}
 			/>
 
 			<JourneyCardContent achievements={achievements} />
