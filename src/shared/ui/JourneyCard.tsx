@@ -82,7 +82,7 @@ function JourneyCardHeader({
 				<h3 className="font-bold text-neutral">
 					<AccentText>{role}</AccentText>
 				</h3>
-				<div className="flex gap-x-2">
+				<div className="flex gap-x-2 mx-auto sm:mx-[unset]">
 					<h4 className="text-sm text-neutral-secondary">{organization}</h4>
 					<Dot className="size-4 my-auto" />
 

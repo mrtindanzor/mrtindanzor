@@ -1,6 +1,7 @@
 import { PROFESSIONAL_TIMELIINE } from "@/shared/db"
 import { JourneyCard } from "@/shared/ui/JourneyCard"
 import { AccentText } from "@/shared/ui/primitive/AccentText"
+import { TimelineCard, TimelineContainer } from "@/shared/ui/TimelineContainer"
 export function Journey() {
 	return (
 		<div className="bg-background-primary">
@@ -9,11 +10,13 @@ export function Journey() {
 					Professional <AccentText>Mile</AccentText>stones
 				</h2>
 
-				<ul className="grid gap-4">
+				<TimelineContainer wrapperClassName="gap-y-4 grid">
 					{PROFESSIONAL_TIMELIINE.map((timeline) => (
-						<JourneyCard key={timeline.cardId} {...timeline} />
+						<TimelineCard key={timeline.cardId}>
+							<JourneyCard {...timeline} />
+						</TimelineCard>
 					))}
-				</ul>
+				</TimelineContainer>
 			</section>
 		</div>
 	)
