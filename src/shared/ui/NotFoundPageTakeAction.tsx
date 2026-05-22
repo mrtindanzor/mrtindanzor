@@ -16,6 +16,7 @@ export function TakeAction() {
 					className="py-3 gap-2"
 					iconClassName="size-4"
 					variant="light"
+					hover="ghost-light"
 				>
 					Return to start
 				</IconLink>

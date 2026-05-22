@@ -39,7 +39,7 @@ export const buttonVariants = cva(
 				"danger-light": "hover:text-danger hover:bg-danger/10",
 				"success-light": "hover:text-success hover:bg-success/10",
 				"accent-light": "hover:text-accent hover:bg-accent/10",
-				"ghost-light": "hover:text-light hover:bg-light/10",
+				"ghost-light": "hover:text-neutral hover:bg-neutral/10",
 				"dark-light": "hover:text-dark hover:bg-dark/10",
 				none: "outline-none!",
 			},
