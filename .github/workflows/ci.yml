@@ -21,6 +21,6 @@ jobs:
       - name: Run lint
         run: |
           corepack enable
-          pnpm install
+          pnpm install --ignore-scripts=true
           pnpm lint
           pnpm build
