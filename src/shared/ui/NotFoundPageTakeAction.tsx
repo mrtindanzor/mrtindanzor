@@ -8,13 +8,14 @@ export function TakeAction() {
 	const router = useNavigate()
 
 	return (
-		<div className="@container">
-			<div className=" grid @sm:grid-cols-2 gap-2 mt-4 *:hover:bg-gray-100/5">
+		<div className="@container w-full">
+			<div className="grid w-full @sm:grid-cols-2 gap-2 mt-4 *:hover:bg-gray-100/5">
 				<IconLink
 					icon={Home}
 					href={routes.home}
 					className="py-3 gap-2"
 					iconClassName="size-4"
+					variant="light"
 				>
 					Return to start
 				</IconLink>
