@@ -20,7 +20,7 @@ export function ProjectsPage() {
 				<hr className="border-neutral-secondary/10 mb-12" />
 
 				<div className="@container">
-					<ul className="grid grid-cols-3 gap-x-4 md:gap-x-6 gap-y-16">
+					<ul className="grid @lg:grid-cols-2 @4xl:grid-cols-3 gap-x-4 md:gap-x-6 gap-y-10">
 						{PROJECTS.map((project) => (
 							<ProjectCard key={project.title} {...project} />
 						))}
