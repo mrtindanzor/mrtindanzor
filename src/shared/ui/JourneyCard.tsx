@@ -43,7 +43,7 @@ export function JourneyCard({
 		<div
 			{...props}
 			className={cn(
-				"relative bg-muted/60 @container backgrop-blur-sm p-6 flex flex-col gap-6",
+				"relative bg-muted/60 backgrop-blur-sm p-6 flex flex-col gap-6",
 				className,
 			)}
 		>

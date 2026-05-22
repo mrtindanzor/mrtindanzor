@@ -65,9 +65,12 @@ const imageVariants = motionVariants({
 	hidden: {
 		height: 0,
 		opacity: 0,
+		filter: "grayscale(100%)",
 	},
 	show: {
 		height: "fit-content",
+
+		filter: "grayscale(0%)",
 		opacity: 1,
 		transition: {
 			ease: "linear",
