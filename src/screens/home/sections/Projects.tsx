@@ -9,7 +9,8 @@ export function FeatureProjects() {
 		<div className="bg-muted">
 			<section className="section space-y-4">
 				<h2 className="text-3xl md:text-4xl text-center font-bold mb-12">
-					Featured <AccentText>Projects</AccentText>
+					A Collection of <AccentText>Projects I&apos;ve</AccentText> Crafted
+					Over Time
 				</h2>
 
 				<div className="@container">

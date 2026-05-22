@@ -19,7 +19,7 @@ export function SkillsPreview() {
 					solutions with efficiency and consistency.
 				</p>
 
-				<ul className="grid mb-5 grid-cols-[repeat(auto-fill,minmax(15rem,1fr))] rounded-xl overflow-hidden border border-neutral-secondary/10">
+				<ul className="grid mb-5 grid-cols-[repeat(auto-fill,minmax(15rem,1fr))] overflow-hidden ">
 					{FEATURED_SKILLS.map(({ items }) =>
 						items.map((item) => <SkillCard key={item.title} {...item} />),
 					)}
