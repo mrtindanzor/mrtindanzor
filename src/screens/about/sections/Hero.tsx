@@ -8,7 +8,7 @@ export function HeroSection() {
 	return (
 		<section className="section text-center">
 			<h1 className="text-4xl md:text-6xl mt-12 mb-6 text-gradient">
-				Meet <AccentText>the Developer</AccentText>
+				<AccentText className="font-bold">Developer </AccentText> Profile
 			</h1>
 
 			<p className="max-w-4xl mx-auto text-sm text-neutral-secondary md:text-base leading-relaxed mb-12">

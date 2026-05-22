@@ -5,7 +5,7 @@ type AccentTextProps<T extends React.ElementType> = {
 	as?: T
 } & ComponentProps<T>
 
-export function AccentText<T extends React.ElementType>({
+export function AccentText<T extends React.ElementType = "i">({
 	as: Tag = "i",
 	children,
 	className,

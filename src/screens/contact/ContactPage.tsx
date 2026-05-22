@@ -1,5 +1,5 @@
-import { ContactSection } from "./components/Contact"
-import { ContactLinks } from "./components/ContactLinks"
+import { ContactSection } from "./sections/Contact"
+import { ContactLinks } from "./sections/ContactLinks"
 
 export function ContactPage() {
 	return (

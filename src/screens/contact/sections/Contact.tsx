@@ -2,6 +2,7 @@ import { PaperAirplaneIcon } from "@heroicons/react/24/solid"
 import type { ComponentProps } from "react"
 import { useContact } from "@/features/contact"
 import { useTyping } from "@/shared/hooks/useTyping"
+import { FramerAnimatePosition } from "@/shared/ui/Framer"
 import { AccentText } from "@/shared/ui/primitive/AccentText"
 import { Button } from "@/shared/ui/primitive/Button"
 import { ErrorCard } from "@/shared/ui/primitive/ErrorCard"
@@ -10,6 +11,7 @@ import { Label } from "@/shared/ui/primitive/Label"
 import { LoadingSwap } from "@/shared/ui/primitive/LoadingSwap"
 import { Textarea } from "@/shared/ui/primitive/Textarea"
 import { cn } from "@/shared/utils/cn"
+import { formButtonVariants, formSectionVariants } from "./constants"
 
 export function ContactSection({
 	className,
@@ -55,7 +57,11 @@ export function ContactSection({
 					</ErrorCard>
 				)}
 
-				<div className="flex flex-col gap-6">
+				<FramerAnimatePosition
+					animate="show"
+					variants={formSectionVariants}
+					className="flex flex-col gap-6"
+				>
 					<Label.Wrapper>
 						<Label.Title className="text-neutral-secondary text-sm tracking-tight">
 							Name
@@ -85,22 +91,25 @@ export function ContactSection({
 					</Label.Wrapper>
 
 					<Input hidden {...register("honeypot")} autoComplete="off" />
-				</div>
-				<Button
-					type="submit"
-					disabled={submitting}
-					y="center"
-					x="center"
-					w="full"
-					pad="lg"
-					variant="accent"
-					className="flex group gap-x-1.5 font-semibold"
-				>
-					<LoadingSwap isLoading={submitting}>
-						Send Message
-						<PaperAirplaneIcon className="size-4" />
-					</LoadingSwap>
-				</Button>
+				</FramerAnimatePosition>
+
+				<FramerAnimatePosition animate="show" variants={formButtonVariants}>
+					<Button
+						type="submit"
+						disabled={submitting}
+						y="center"
+						x="center"
+						w="full"
+						pad="lg"
+						variant="accent"
+						className="flex group gap-x-1.5 font-semibold"
+					>
+						<LoadingSwap isLoading={submitting}>
+							Send Message
+							<PaperAirplaneIcon className="size-4" />
+						</LoadingSwap>
+					</Button>
+				</FramerAnimatePosition>
 			</section>
 		</form>
 	)
