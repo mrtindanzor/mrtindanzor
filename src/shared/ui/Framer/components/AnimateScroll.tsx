@@ -15,7 +15,7 @@ export function AnimateScroll({
 
 	...props
 }: FramerAnimateScrollProps) {
-	const { ref, motionValue } = useFramerScroll({
+	const { ref, motionValue } = useFramerScroll<HTMLDivElement>({
 		offset,
 		inputRange,
 		outputRange,

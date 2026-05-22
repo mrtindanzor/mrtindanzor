@@ -12,9 +12,9 @@ export default function WarningText({
 		<div
 			className={cn(
 				"flex items-center gap-3 p-3 rounded-xl border transition-all",
-				success 
-					? "bg-emerald-500/10 border-emerald-500/20 text-emerald-500" 
-					: "bg-danger/10 border-danger/20 text-danger"
+				success
+					? "bg-emerald-500/10 border-emerald-500/20 text-emerald-500"
+					: "bg-danger/10 border-danger/20 text-danger",
 			)}
 		>
 			<Info className="size-5 shrink-0" />

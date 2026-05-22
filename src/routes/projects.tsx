@@ -7,8 +7,7 @@ export const Route = createFileRoute("/projects")({
 	component: ProjectsPage,
 	head: () => ({
 		meta: generateMetaData({
-			title:
-				"Where Design Meets Development: Projects I've Brought to Life",
+			title: "Where Design Meets Development: Projects I've Brought to Life",
 			description: `These projects showcase my work in designing and building web
       applications that solve real-world problems. From educational
       platforms to e-commerce solutions, each project highlights the

@@ -20,8 +20,8 @@ import {
 	SiTailwindcss,
 	SiTypescript,
 } from "react-icons/si"
-import type { SkillProps } from "./skills.db.types"
 import { TanstackLogo } from "@/assets/svgs/tanstack"
+import type { SkillProps } from "./skills.db.types"
 
 export const SKILLS: SkillProps[] = [
 	{
