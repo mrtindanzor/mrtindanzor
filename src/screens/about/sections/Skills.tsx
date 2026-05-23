@@ -9,7 +9,7 @@ export function Skills() {
 				Areas <AccentText>I Excel</AccentText> In
 			</h2>
 
-			<p className="mb-12 text-neutral-secondary mx-auto max-w-2xl">
+			<p className="mb-12 text-center text-neutral-secondary mx-auto max-w-2xl">
 				My engineering toolkit covers frontend technologies, backend
 				architecture, database design, DevOps workflows, and the tools that
 				support modern engineering, enabling me to deliver full-stack solutions
