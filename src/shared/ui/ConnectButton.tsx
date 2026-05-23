@@ -11,7 +11,7 @@ export function ConnectButton({ className, ...props }: StyledLinkProps) {
 			target="_blank"
 			y="center"
 			className={cn(
-				"bg-green-600 hover:bg-green-500 hover:border py-2 px-8 hover:scale-x-105 text-xl flex gap-x-2 font-medium tracking-wide",
+				"bg-green-600 hover:bg-green-500  py-2 px-8 hover:scale-x-105 text-xl flex gap-x-2 font-medium tracking-wide",
 				className,
 			)}
 		>

@@ -4,7 +4,7 @@ export function Mission() {
 	return (
 		<div className="bg-muted">
 			<section className="section text-center">
-				<h2 className="text-3xl md:text-4xl mb-6 font-bold">
+				<h2 className="section-title">
 					What <AccentText as="span">I Can</AccentText> Build For You
 				</h2>
 

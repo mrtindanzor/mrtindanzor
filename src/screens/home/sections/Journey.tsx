@@ -9,7 +9,7 @@ export function JourneyPreview() {
 	return (
 		<div className="bg-background-primary">
 			<section className="section space-y-4">
-				<h2 className="text-3xl md:text-4xl mb-12 font-bold text-center">
+				<h2 className="section-title">
 					Professional <AccentText>Mile</AccentText>stones
 				</h2>
 
