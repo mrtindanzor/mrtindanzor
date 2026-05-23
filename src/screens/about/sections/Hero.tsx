@@ -7,7 +7,7 @@ import { StyledLink } from "@/shared/ui/primitive/Button"
 export function HeroSection() {
 	return (
 		<section className="section text-center">
-			<h1 className="text-4xl md:text-6xl mt-12 mb-6 text-gradient">
+			<h1 className="font-bold text-4xl md:text-6xl mt-12 mb-6">
 				<AccentText className="font-bold">Developer </AccentText> Profile
 			</h1>
 

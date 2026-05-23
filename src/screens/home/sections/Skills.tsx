@@ -8,7 +8,7 @@ export function SkillsPreview() {
 	return (
 		<div>
 			<section className="section">
-				<h2 className="text-3xl font-bold md:text-4xl mb-4 text-center">
+				<h2 className="section-title">
 					Areas <AccentText>I Excel </AccentText> In
 				</h2>
 

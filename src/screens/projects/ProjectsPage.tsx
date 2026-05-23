@@ -1,15 +1,16 @@
 import { PROJECTS } from "@/shared/db"
 import { ProjectCard } from "@/shared/ui/ProjectCard"
+import { AccentText } from "@/shared/ui/primitive/AccentText"
 
 export function ProjectsPage() {
 	return (
-		<main className="bg-background-primary">
+		<main>
 			<section className="section">
-				<h1 className="text-4xl mb-6 font-semibold max-w-2xl">
-					Solutions I&apos;ve Crafted
+				<h1 className="section-title">
+					Solutions <AccentText as="span">I&apos;ve</AccentText> Crafted
 				</h1>
 
-				<p className="max-w-3xl text-sm md:text-base text-neutral-secondary leading-relaxed mb-12">
+				<p className="max-w-3xl mx-auto text-center text-sm md:text-base text-neutral-secondary leading-relaxed mb-12">
 					These projects showcase my work in designing and building web
 					applications that solve real-world problems. From educational
 					platforms to e-commerce solutions, each project highlights the

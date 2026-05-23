@@ -5,11 +5,11 @@ import { SkillCard } from "@/shared/ui/skills/SkillCard"
 export function Skills() {
 	return (
 		<section id="skills" className="section">
-			<h2 className="text-3xl md:text-5xl font-bold mb-6">
+			<h2 className="section-title">
 				Areas <AccentText>I Excel</AccentText> In
 			</h2>
 
-			<p className="mb-12 text-neutral-secondary max-w-2xl">
+			<p className="mb-12 text-neutral-secondary mx-auto max-w-2xl">
 				My engineering toolkit covers frontend technologies, backend
 				architecture, database design, DevOps workflows, and the tools that
 				support modern engineering, enabling me to deliver full-stack solutions

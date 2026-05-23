@@ -26,7 +26,7 @@ export function HeroSection() {
 			</Pill>
 			<section className="section grid gap-y-8 grid-rows-[auto_auto] md:grid-rows-1 md:grid-cols-2 min-h-app-height relative z-1">
 				<div className="h-fit">
-					<h1 className="text-7xl font-finlainca tracking-tighter leading-[0.9] mb-4 max-w-lg">
+					<h1 className="text-7xl font-finlainca tracking-tighter leading-[0.9] mb-4 font-semibold max-w-lg">
 						Full-<AccentText>Stack</AccentText> Develop
 						<AccentText>er</AccentText>
 					</h1>
