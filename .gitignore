@@ -12,7 +12,7 @@
 
 # testing
 /coverage
- 
+
 # tanstack
 /.output
 /.tanstack
@@ -41,3 +41,5 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+skills

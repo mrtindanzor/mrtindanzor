@@ -25,9 +25,57 @@ const projectsMeta = Object.freeze({
 		repo: "https://github.com/mrtindanzor/alx-project-nexus",
 		link: "https://polls.tindanzorsolutions.com",
 	},
+	fbci: {
+		image: "/images/projects/fbci.png",
+		name: "FBCI (Fundamental Baptist Church International)",
+		repo: "https://github.com/mrtindanzor/fbci-kumasi",
+		link: "https://fbci.tindanzorsolutions.com",
+	},
+	"arise-foundation": {
+		image: "/images/projects/arise-foundation.png",
+		name: "Arise (Advocacy for Resilience and Inclusive Sustainable Environment Arise Foundation)",
+		link: "https://arise.tindanzorsolutions.com",
+	},
 })
 
 export const PROJECTS: ProjectProps[] = [
+	{
+		featured: true,
+		imgSrc: projectsMeta["arise-foundation"].image,
+		title: projectsMeta["arise-foundation"].name,
+		link: projectsMeta["arise-foundation"].link,
+		description:
+			"Founded on the principles of ecological stewardship, Arise Foundation bridges the gap between environmental awareness and tangible action. We believe that lasting change begins in the heart of local communities",
+		tags: [
+			"Cloudflare Workers",
+			"Github Actions",
+			"HTML5",
+			"CSS 3",
+			"Tailwind CSS",
+		],
+	},
+	{
+		featured: true,
+		imgSrc: projectsMeta.fbci.image,
+		title: projectsMeta.fbci.name,
+		link: projectsMeta.fbci.link,
+		description: `Developed a comprehensive digital platform for a global church community.
+            Integrated Cloudflare R2 for scalable storage of images, documents, and other media assets.
+            Engineered with a modern tech stack for speed, reliability, and accessibility.`,
+		tags: [
+			"Tanstack Start",
+			"Redis",
+			"Github Actions",
+			"Cloudflare R2",
+			"JWT",
+			"NestJs",
+			"React Js",
+			"CSS 3",
+			"Tailwind CSS",
+			"Tanstack Query",
+			"Framer Motion",
+		],
+	},
 	{
 		featured: true,
 		imgSrc: projectsMeta.myghmart.image,
@@ -43,7 +91,7 @@ export const PROJECTS: ProjectProps[] = [
 			"JWT",
 			"Express Js",
 			"Apollo GraphQl",
-			"Next Js",
+			"Tanstack Start (Migrated from Next Js)",
 			"React Js",
 			"CSS 3",
 			"Tailwind CSS",
@@ -72,7 +120,7 @@ export const PROJECTS: ProjectProps[] = [
 		link: projectsMeta.successfield.link,
 	},
 	{
-		featured: true,
+		featured: false,
 		imgSrc: projectsMeta.consensus.image,
 		title: projectsMeta.consensus.name,
 		link: projectsMeta.consensus.link,
@@ -93,6 +141,7 @@ export const PROJECTS: ProjectProps[] = [
 		],
 	},
 	{
+		featured: false,
 		imgSrc: projectsMeta.lpm.image,
 		title: projectsMeta.lpm.name,
 		repo: projectsMeta.lpm.repo,
