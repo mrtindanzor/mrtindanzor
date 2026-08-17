@@ -7,6 +7,14 @@ export type ContactDataType = {
 	honeypot?: string | undefined | null
 }
 
-export abstract class IContactService {
-	abstract create(props: ContactDataType): Promise<FetchStatus>
+export type SocailMediaProps = {
+	title: string
+	link: string
+	icon: React.ElementType
+	color: string
+}
+
+export interface IContactService {
+	create(props: ContactDataType): Promise<FetchStatus>
+	socials: () => SocailMediaProps[]
 }

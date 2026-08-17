@@ -1,14 +1,14 @@
-import { Link } from "@tanstack/react-router"
+import { Link as TanstackLink } from "@tanstack/react-router"
 import { ArrowUp, Dot } from "lucide-react"
 import { cn } from "@/shared/utils/cn"
 import type {
 	IconLinkProps,
+	LinkProps,
 	StyledIconLinkProps,
-	StyledLinkProps,
 } from "../button.types"
 import { buttonVariants } from "./Button"
 
-export function StyledLink({
+export function Link({
 	children,
 	className,
 	variant,
@@ -21,11 +21,10 @@ export function StyledLink({
 	animation,
 	href,
 	...props
-}: StyledLinkProps) {
+}: LinkProps) {
 	return (
-		<Link
-			// biome-ignore lint/suspicious/noExplicitAny: I do not need the tanstack type
-			to={href as any}
+		<TanstackLink
+			to={href as never}
 			{...props}
 			className={cn(
 				buttonVariants({
@@ -42,7 +41,7 @@ export function StyledLink({
 			)}
 		>
 			{children}
-		</Link>
+		</TanstackLink>
 	)
 }
 
@@ -54,7 +53,7 @@ export function IconLink({
 	...props
 }: IconLinkProps) {
 	return (
-		<StyledLink
+		<Link
 			y="center"
 			x="center"
 			pad="lg"
@@ -63,7 +62,7 @@ export function IconLink({
 		>
 			<Icon className={iconClassName} />
 			{children}
-		</StyledLink>
+		</Link>
 	)
 }
 

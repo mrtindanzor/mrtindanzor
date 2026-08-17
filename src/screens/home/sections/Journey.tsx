@@ -1,4 +1,4 @@
-import { FEATURED_PROFESSIONAL_TIMELINE } from "@/shared/db"
+import { aboutService } from "@/features/about"
 import { routes } from "@/shared/routes"
 import { JourneyCard } from "@/shared/ui/JourneyCard"
 import { AccentText } from "@/shared/ui/primitive/AccentText"
@@ -6,6 +6,8 @@ import { StyledDotLink } from "@/shared/ui/primitive/Button"
 import { TimelineCard, TimelineContainer } from "@/shared/ui/TimelineContainer"
 
 export function JourneyPreview() {
+	const timelines = aboutService.getProfessionalJourney({ featured: true })
+
 	return (
 		<div className="bg-background-primary">
 			<section className="section space-y-4">
@@ -15,7 +17,7 @@ export function JourneyPreview() {
 
 				<div className="max-w-4xl mx-auto md:w-screen">
 					<TimelineContainer wrapperClassName="gap-y-4 grid">
-						{FEATURED_PROFESSIONAL_TIMELINE.map((item) => (
+						{timelines.map((item) => (
 							<TimelineCard key={item.cardId}>
 								<JourneyCard {...item} />
 							</TimelineCard>
@@ -24,7 +26,7 @@ export function JourneyPreview() {
 				</div>
 
 				<StyledDotLink
-					href={`${routes.about}#professioanaljourney`}
+					href={routes.about.professionalJourney}
 					variant="ghost-light"
 					hover="light"
 					className="mx-auto gap-x-4"

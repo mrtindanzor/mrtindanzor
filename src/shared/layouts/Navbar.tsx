@@ -6,7 +6,7 @@ import {
 	motionVariants,
 } from "@/shared/ui/Framer"
 import Backdrop from "@/shared/ui/primitive/Backdrop"
-import { StyledDotLink, StyledLink } from "@/shared/ui/primitive/Button"
+import { Link, StyledDotLink } from "@/shared/ui/primitive/Button"
 import { cn } from "@/shared/utils/cn"
 import { useAppPathname } from "../hooks/useNavigation"
 import { routes } from "../routes"
@@ -107,7 +107,7 @@ function NavLink({
 
 	return (
 		<li {...props}>
-			<StyledLink
+			<Link
 				href={path}
 				variant={active ? "success-light" : "none"}
 				hover="accent"
@@ -115,7 +115,7 @@ function NavLink({
 				className={cn(active ? "outline-none bg-transparent" : "", className)}
 			>
 				{title}
-			</StyledLink>
+			</Link>
 		</li>
 	)
 }

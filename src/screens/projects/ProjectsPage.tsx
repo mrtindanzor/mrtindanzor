@@ -1,8 +1,11 @@
-import { PROJECTS } from "@/shared/db"
+import { projectService } from "@/features/projects"
+
 import { ProjectCard } from "@/shared/ui/ProjectCard"
 import { AccentText } from "@/shared/ui/primitive/AccentText"
 
 export function ProjectsPage() {
+	const projects = projectService.find()
+
 	return (
 		<main>
 			<section className="section">
@@ -22,7 +25,7 @@ export function ProjectsPage() {
 
 				<div className="@container">
 					<ul className="grid @lg:grid-cols-2 @4xl:grid-cols-3 gap-x-4 md:gap-x-6 gap-y-10">
-						{PROJECTS.map((project) => (
+						{projects.map((project) => (
 							<ProjectCard key={project.title} {...project} />
 						))}
 					</ul>

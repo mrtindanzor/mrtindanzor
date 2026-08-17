@@ -1,8 +1,10 @@
-import { SKILLS } from "@/shared/db"
+import { skillService } from "@/features/skills"
 import { AccentText } from "@/shared/ui/primitive/AccentText"
 import { SkillCard } from "@/shared/ui/skills/SkillCard"
 
 export function Skills() {
+	const skills = skillService.find()
+
 	return (
 		<section id="skills" className="section">
 			<h2 className="section-title">
@@ -17,7 +19,7 @@ export function Skills() {
 			</p>
 
 			<ul className="grid mb-5 grid-cols-[repeat(auto-fill,minmax(15rem,1fr))] overflow-hidden border-neutral-secondary/10">
-				{SKILLS.map(({ items }) =>
+				{skills.map(({ items }) =>
 					items.map((item) => <SkillCard key={item.title} {...item} />),
 				)}
 			</ul>

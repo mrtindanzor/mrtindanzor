@@ -1,4 +1,4 @@
-import { routes } from "../routes"
+import { routes } from "@/shared/routes"
 
 export const NAV_LINKS = [
 	{
@@ -7,7 +7,7 @@ export const NAV_LINKS = [
 	},
 	{
 		title: "About",
-		path: routes.about,
+		path: routes.about.home,
 	},
 	{
 		title: "Projects",

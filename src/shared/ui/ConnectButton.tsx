@@ -1,13 +1,14 @@
 import { SiWhatsapp } from "react-icons/si"
-import { DEVELOPER } from "../db"
+import { aboutService } from "@/features/about"
 import { cn } from "../utils/cn"
-import { StyledLink, type StyledLinkProps } from "./primitive/Button"
+import { Link, type LinkProps } from "./primitive/Button"
 
-export function ConnectButton({ className, ...props }: StyledLinkProps) {
+export function ConnectButton({ className, ...props }: LinkProps) {
+	const developer = aboutService.getDeveloper()
 	return (
-		<StyledLink
+		<Link
 			{...props}
-			href={DEVELOPER.socials.whatsapp}
+			href={developer.socials.whatsapp}
 			target="_blank"
 			y="center"
 			className={cn(
@@ -16,6 +17,6 @@ export function ConnectButton({ className, ...props }: StyledLinkProps) {
 			)}
 		>
 			<SiWhatsapp /> Let&apos;s Build
-		</StyledLink>
+		</Link>
 	)
 }

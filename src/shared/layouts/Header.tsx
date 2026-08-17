@@ -1,11 +1,11 @@
 import { Menu, X } from "lucide-react"
 import { useState } from "react"
+import { DEVELOPER } from "@/features/about/developer.db"
 import { useDirectionContext } from "@/providers/ScrollDirectionProvider"
-import { DEVELOPER } from "../db"
 import { useAutoHide } from "../hooks/useAutoHide"
 import { routes } from "../routes"
-import { Button, StyledLink } from "../ui/primitive/Button"
-import { MImage } from "../ui/primitive/Image"
+import { Button, Link } from "../ui/primitive/Button"
+import { Image } from "../ui/primitive/Image"
 import { cn } from "../utils/cn"
 import { DesktopNavbar, MobileNavbar } from "./Navbar"
 
@@ -29,29 +29,29 @@ export function Header() {
 			>
 				<div className="max-w-7xl mx-auto px-6 w-full flex justify-between items-center">
 					<div className="flex items-center gap-3">
-						<MImage
+						<Image
 							url={DEVELOPER.avatar2}
 							alt={DEVELOPER.name}
 							className="size-10 rounded-full border-muted-secondary border p-0.5"
 						/>
-						<StyledLink
+						<Link
 							variant="none"
 							href={routes.home}
 							className="font-bold text-xl uppercase tracking-tighter text-gradient"
 						>
 							{DEVELOPER.lastName}
-						</StyledLink>
+						</Link>
 					</div>
 					<DesktopNavbar />
 
-					<StyledLink
+					<Link
 						href={routes.contact}
 						animation="enlargeX"
 						variant="accent"
 						className="hidden! hover:shadow-md hover:shadow-accent/40 lg:flex! items-center gap-x-2 rounded-full px-6 py-2"
 					>
 						Contact me
-					</StyledLink>
+					</Link>
 
 					<Button
 						className="lg:hidden *:stroke-2 p-0"

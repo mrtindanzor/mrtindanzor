@@ -1,7 +1,7 @@
 import { EnvelopeIcon } from "@heroicons/react/24/solid"
 import { SiGithub, SiLinkedin, SiWhatsapp } from "react-icons/si"
-import type { SocailMediaProps } from "./contact.db.types"
-import { DEVELOPER } from "./developer.db"
+import { DEVELOPER } from "../about/developer.db"
+import type { SocailMediaProps } from "./contact.contract.types"
 
 export const CONTACT_LINKS: SocailMediaProps[] = [
 	{

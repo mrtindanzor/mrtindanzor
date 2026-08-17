@@ -1,4 +1,4 @@
-import type { ProfessionalJourneyType } from "./professional-journey.db.types"
+import type { ProfessionalJourneyType } from "./about.contract.types"
 
 export const PROFESSIONAL_TIMELIINE: ProfessionalJourneyType[] = [
 	{
@@ -82,7 +82,3 @@ export const PROFESSIONAL_TIMELIINE: ProfessionalJourneyType[] = [
 		],
 	},
 ]
-
-export const FEATURED_PROFESSIONAL_TIMELINE = PROFESSIONAL_TIMELIINE.filter(
-	(journey) => journey.featured,
-)

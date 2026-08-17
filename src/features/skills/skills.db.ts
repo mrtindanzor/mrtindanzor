@@ -22,9 +22,9 @@ import {
 	SiTypescript,
 } from "react-icons/si"
 import { TanstackLogo } from "@/assets/svgs/tanstack"
-import type { SkillProps } from "./skills.db.types"
+import type { SkillType } from "./skills.contracts.types"
 
-export const SKILLS: SkillProps[] = [
+export const SKILLS: SkillType[] = [
 	{
 		featured: true,
 		category: "Languages",

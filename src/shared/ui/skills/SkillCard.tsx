@@ -1,8 +1,8 @@
 import type { ComponentProps } from "react"
+import type { SkillItemType } from "@/features/skills"
 import { cn } from "@/shared/utils/cn"
-import type { SkillItemsProps } from "../../db/skills.db.types"
 
-export type SkillCardProps = ComponentProps<"li"> & SkillItemsProps
+export type SkillCardProps = ComponentProps<"li"> & SkillItemType
 
 export function SkillCard({
 	icon: Icon,

@@ -1,10 +1,12 @@
-import { FEATURED_SKILLS } from "@/shared/db"
+import { skillService } from "@/features/skills"
 import { routes } from "@/shared/routes"
 import { AccentText } from "@/shared/ui/primitive/AccentText"
 import { StyledDotLink } from "@/shared/ui/primitive/Button"
 import { SkillCard } from "@/shared/ui/skills/SkillCard"
 
 export function SkillsPreview() {
+	const featuredSkills = skillService.find({ featured: true })
+
 	return (
 		<div>
 			<section className="section">
@@ -20,13 +22,13 @@ export function SkillsPreview() {
 				</p>
 
 				<ul className="grid mb-5 grid-cols-[repeat(auto-fill,minmax(15rem,1fr))] overflow-hidden ">
-					{FEATURED_SKILLS.map(({ items }) =>
+					{featuredSkills.map(({ items }) =>
 						items.map((item) => <SkillCard key={item.title} {...item} />),
 					)}
 				</ul>
 
 				<StyledDotLink
-					href={`${routes.about}#skills`}
+					href={routes.about.skills}
 					variant="outline"
 					className="mx-auto"
 					hover="light"

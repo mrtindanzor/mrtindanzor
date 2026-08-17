@@ -1,14 +1,20 @@
-import type { MImageProps } from "@/shared/types/types"
+import type { ComponentProps } from "react"
 import { cn } from "@/shared/utils/cn"
 
-export function MImage({
+export type ImageProps = {
+	alt: string
+	url: string
+	imageClassName?: string
+} & ComponentProps<"div">
+
+export function Image({
 	alt,
 	url,
 	className,
 	imageClassName,
 	children,
 	...props
-}: MImageProps) {
+}: ImageProps) {
 	return (
 		<div
 			{...props}

@@ -1,12 +1,13 @@
-import { DEVELOPER } from "@/shared/db"
+import { aboutService } from "@/features/about"
 import { useTyping } from "@/shared/hooks/useTyping"
 import { ConnectButton } from "@/shared/ui/ConnectButton"
 import { FramerAnimatePosition, motionVariants } from "@/shared/ui/Framer"
 import { AccentText } from "@/shared/ui/primitive/AccentText"
 import { Pill } from "@/shared/ui/primitive/Button"
-import { MImage } from "@/shared/ui/primitive/Image"
+import { Image } from "@/shared/ui/primitive/Image"
 
 export function HeroSection() {
+	const developer = aboutService.getDeveloper()
 	const { output: description, ref } = useTyping({
 		whileInView: true,
 		speedInSeconds: 0.2,
@@ -47,9 +48,9 @@ export function HeroSection() {
 						variants={imageVariants}
 					>
 						<div className="py-4">
-							<MImage
+							<Image
 								alt="Mr. Tindanzor Simon image"
-								url={DEVELOPER.avatar}
+								url={developer.avatar}
 								className="relative z-10 h-100 w-full mx-auto bg-text p-1 transition-transform duration-500  "
 								imageClassName="rounded-full transition-all duration-500"
 							/>

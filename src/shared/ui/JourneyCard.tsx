@@ -1,11 +1,11 @@
 import { Briefcase, Dot } from "lucide-react"
 import type { ComponentProps } from "react"
+import type { ProfessionalJourneyType } from "@/features/about"
 import { cn } from "@/shared/utils/cn"
-import type { ProfessionalJourneyType } from "../db"
 import { useTyping } from "../hooks/useTyping"
 import { AccentText } from "./primitive/AccentText"
 import { Pill } from "./primitive/Button/components/Pill"
-import { MImage } from "./primitive/Image"
+import { Image } from "./primitive/Image"
 
 type WithEl<T extends React.ElementType, P> = ComponentProps<T> & P
 
@@ -79,7 +79,7 @@ function JourneyCardHeader({
 		>
 			<div className="mx-auto sm:mx-[unset]">
 				{logo && (
-					<MImage url={logo} alt={organization} className="size-10 m-auto" />
+					<Image url={logo} alt={organization} className="size-10 m-auto" />
 				)}
 				{!logo && <Briefcase className="size-10 m-auto" />}
 			</div>

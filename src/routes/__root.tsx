@@ -7,7 +7,6 @@ import {
 import { AppLayout } from "@/Layout"
 import { generateMetaData } from "@/libs/tanstack"
 import { DataProviders } from "@/providers/BaseProvider"
-import { DEVELOPER } from "@/shared/db"
 import { opengraphs } from "@/shared/routes"
 import { NotFoundPage } from "@/shared/ui/NotFoundPage"
 import appCss from "./globals.css?url"
@@ -24,8 +23,8 @@ export const Route = createRootRoute({
 			},
 			{ name: "apple-mobile-web-app-title", content: "MrTindanzor" },
 			...generateMetaData({
-				title: DEVELOPER.name,
-				description: `${DEVELOPER.name} - Full-Stack Web Developer`,
+				title: "",
+				description: `Full-Stack Web Developer`,
 				path: "",
 				images: opengraphs.select("home"),
 			}),

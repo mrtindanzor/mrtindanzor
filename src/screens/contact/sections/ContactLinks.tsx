@@ -1,8 +1,8 @@
 import type { ComponentProps } from "react"
-import { CONTACT_LINKS, type SocailMediaProps } from "@/shared/db"
+import { contactService, type SocailMediaProps } from "@/features/contact"
 import { useTyping } from "@/shared/hooks/useTyping"
 import { FramerAnimatePosition } from "@/shared/ui/Framer"
-import { StyledLink } from "@/shared/ui/primitive/Button"
+import { Link } from "@/shared/ui/primitive/Button"
 import { cn } from "@/shared/utils/cn"
 import { socialMediaLinkVariants } from "./constants"
 
@@ -26,10 +26,12 @@ export function ContactLinks({ className, ...props }: ComponentProps<"div">) {
 }
 
 function SocialMediaLinks() {
+	const socials = contactService.socials()
+
 	return (
 		<FramerAnimatePosition variants={socialMediaLinkVariants} animate="show">
 			<ul className="w-full grid grid-cols-[repeat(auto-fill,minmax(3.5rem,1fr))] gap-4">
-				{CONTACT_LINKS.map((link) => (
+				{socials.map((link) => (
 					<SocialMediaCard key={link.link} {...link} />
 				))}
 			</ul>
@@ -55,7 +57,7 @@ function SocialMediaCard({
 				className,
 			)}
 		>
-			<StyledLink
+			<Link
 				href={link}
 				target="_blank"
 				rel="noopener noreferrer"
@@ -67,7 +69,7 @@ function SocialMediaCard({
 				title={title}
 			>
 				<Icon className="size-5" />
-			</StyledLink>
+			</Link>
 		</div>
 	)
 }

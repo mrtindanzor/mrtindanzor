@@ -1,4 +1,4 @@
-import type { ProjectProps } from "./projects.db.types"
+import type { ProjectType } from "./projects.contracts.types"
 
 const projectsMeta = Object.freeze({
 	myghmart: {
@@ -38,7 +38,7 @@ const projectsMeta = Object.freeze({
 	},
 })
 
-export const PROJECTS: ProjectProps[] = [
+export const PROJECTS: ProjectType[] = [
 	{
 		featured: true,
 		imgSrc: projectsMeta["arise-foundation"].image,
@@ -150,5 +150,3 @@ export const PROJECTS: ProjectProps[] = [
 		tags: ["Typescript", "Node Js", "NeDb", "Ts Morph", "Clack Prompts"],
 	},
 ]
-
-export const FEATURED_PROJECTS = PROJECTS.filter((project) => project.featured)

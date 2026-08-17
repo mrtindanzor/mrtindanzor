@@ -1,13 +1,13 @@
 import { LucideExternalLink } from "lucide-react"
 import type { ComponentProps } from "react"
 import { SiGithub } from "react-icons/si"
-import type { ProjectProps } from "../db"
+import type { ProjectType } from "@/features/projects"
 import { cn } from "../utils/cn"
-import { StyledLink } from "./primitive/Button"
+import { Link } from "./primitive/Button"
 import { Pill } from "./primitive/Button/components/Pill"
-import { MImage } from "./primitive/Image"
+import { Image } from "./primitive/Image"
 
-export type ProjectCardProps = ComponentProps<"div"> & ProjectProps
+export type ProjectCardProps = ComponentProps<"div"> & ProjectType
 
 export function ProjectCard({
 	imgSrc,
@@ -21,7 +21,7 @@ export function ProjectCard({
 	return (
 		<div className="group card-surface bg-muted grid transition-all  hover:border-accent/30 hover:shadow-lg hover:shadow-accent/5">
 			<div className="overflow-hidden h-50 w-full rounded-t-2xl">
-				<MImage
+				<Image
 					url={imgSrc}
 					alt={title}
 					className="*:object-cover *:object-top size-full transition-transform duration-500 group-hover:scale-[1.02]"
@@ -61,7 +61,7 @@ function Links({
 			{...props}
 		>
 			{repo && (
-				<StyledLink
+				<Link
 					href={repo}
 					target="_blank"
 					pad="none"
@@ -70,11 +70,11 @@ function Links({
 					className="outline-none  flex gap-x-1.5"
 				>
 					<SiGithub className="size-4" /> Repo
-				</StyledLink>
+				</Link>
 			)}
 
 			{link && (
-				<StyledLink
+				<Link
 					href={link}
 					target="_blank"
 					pad="none"
@@ -84,7 +84,7 @@ function Links({
 					className="group outline-none bg-transparent  flex gap-x-1.5"
 				>
 					<LucideExternalLink className="size-4" /> Live
-				</StyledLink>
+				</Link>
 			)}
 		</div>
 	)

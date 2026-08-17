@@ -1,10 +1,13 @@
-import { FEATURED_PROJECTS } from "@/shared/db"
+import { projectService } from "@/features/projects"
+
 import { routes } from "@/shared/routes"
 import { ProjectCard } from "@/shared/ui/ProjectCard"
 import { AccentText } from "@/shared/ui/primitive/AccentText"
 import { StyledDotLink } from "@/shared/ui/primitive/Button"
 
 export function FeatureProjects() {
+	const projects = projectService.find({ featured: true })
+
 	return (
 		<div className="bg-muted">
 			<section className="section">
@@ -15,7 +18,7 @@ export function FeatureProjects() {
 
 				<div className="@container mb-6">
 					<ul className="grid @lg:grid-cols-2 @4xl:grid-cols-3 gap-x-4 md:gap-x-6 gap-y-10">
-						{FEATURED_PROJECTS.map((project) => (
+						{projects.map((project) => (
 							<ProjectCard key={project.title} {...project} />
 						))}
 					</ul>

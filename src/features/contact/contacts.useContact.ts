@@ -1,6 +1,6 @@
 import { useForm } from "@/shared/hooks/useForm"
 import type { ContactDataType } from "./contact.contract.types"
-import { contactService } from "./contact.services"
+import { contactService } from "./contact.service"
 import { contactValidator } from "./contact.validators"
 
 export function useContact() {
