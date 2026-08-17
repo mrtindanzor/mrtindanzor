@@ -114,7 +114,15 @@
 	}
 }
 
-.animate-scroll {
+@utility scrollbar-hide {
+	&::-webkit-scrollbar {
+		display: none;
+	}
+
+	scrollbar-width: none;
+}
+
+@utility animate-scroll {
 	animation: Scroll 40s linear infinite;
 }
 
