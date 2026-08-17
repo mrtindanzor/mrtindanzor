@@ -18,10 +18,43 @@ type AppRoutingContext = {
 
 export const AppRoutingContext = createContext<AppRoutingContext | null>(null)
 
+const parseSearchParams = (search: object) => {
+	const searchParams: Search = {}
+
+	for (const [key, value] of Object.entries(search)) {
+		if (typeof value !== "string" && !Array.isArray(value)) continue
+
+		let isExists = searchParams[key]
+
+		if (isExists && Array.isArray(isExists)) {
+			if (typeof value === "string") isExists.push(value)
+			if (Array.isArray(value)) {
+				isExists = [...isExists, ...value]
+			}
+			continue
+		}
+
+		if (isExists && !Array.isArray(isExists)) {
+			if (typeof value === "string") isExists = [isExists, value]
+			if (Array.isArray(value)) {
+				isExists = [isExists, ...value]
+			}
+
+			continue
+		}
+
+		searchParams[key] = value
+	}
+
+	return searchParams
+}
+
 export function AppRoutingProvider({ children }: PropsWithChildren) {
 	const route = useRouter()
-	const { pathname: path } = route.state.location
-	const [searchParams, setSearchParams] = useState({})
+	const { pathname: path, search } = route.state.location
+	const [searchParams, setSearchParams] = useState(
+		() => parseSearchParams(search) || {},
+	)
 	const [pathname, setPathname] = useState(path)
 
 	const value = useMemo(
@@ -61,36 +94,7 @@ function RouteChangeListener({
 			const { pathname, search } = route.latestLocation
 
 			setPathname(pathname)
-			setSearchParams(() => {
-				const searchParams: Search = {}
-
-				for (const [key, value] of Object.entries(search)) {
-					if (typeof value !== "string" && !Array.isArray(value)) continue
-
-					let isExists = searchParams[key]
-
-					if (isExists && Array.isArray(isExists)) {
-						if (typeof value === "string") isExists.push(value)
-						if (Array.isArray(value)) {
-							isExists = [...isExists, ...value]
-						}
-						continue
-					}
-
-					if (isExists && !Array.isArray(isExists)) {
-						if (typeof value === "string") isExists = [isExists, value]
-						if (Array.isArray(value)) {
-							isExists = [isExists, ...value]
-						}
-
-						continue
-					}
-
-					searchParams[key] = value
-				}
-
-				return searchParams
-			})
+			setSearchParams(parseSearchParams(search))
 		})
 	}, [route, setPathname, setSearchParams])
 
