@@ -40,6 +40,15 @@ const projectsMeta = Object.freeze({
 
 export const PROJECTS: ProjectType[] = [
 	{
+		featured: false,
+		imgSrc: "/images/projects/twitter-video-downloader-shortcut-ios.jpeg",
+		title: "Twitter Video Downloader Shortcut iOS",
+		description:
+			"A tool that allows you to easily download videos from Twitter. It provides a simple and user-friendly shortcut for downloading videos from Twitter. The app is only compatible with iOS devices.",
+		tags: ["Shortcuts", "Async Api Calls"],
+		link: "https://www.icloud.com/shortcuts/6d41437281f4431eacc8831dfb29c148",
+	},
+	{
 		featured: true,
 		imgSrc: projectsMeta["arise-foundation"].image,
 		title: projectsMeta["arise-foundation"].name,

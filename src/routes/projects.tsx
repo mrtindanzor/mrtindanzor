@@ -7,12 +7,8 @@ export const Route = createFileRoute("/projects")({
 	component: ProjectsPage,
 	head: () => ({
 		meta: generateMetaData({
-			title: "Where Design Meets Development: Projects I've Brought to Life",
-			description: `These projects showcase my work in designing and building web
-      applications that solve real-world problems. From educational
-      platforms to e-commerce solutions, each project highlights the
-      technologies I use, my problem-solving approach, and the impact
-      achieved.`,
+			title: "Things I've Built",
+			description: `A collection of projects I've designed and developed, showcasing my experience building modern web applications, backend systems, APIs, and scalable digital solutions.`,
 			path: "projects",
 			images: opengraphs.select("projects"),
 		}),

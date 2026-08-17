@@ -22,14 +22,16 @@ export function SkillsPreview() {
 				</p>
 
 				<ul className="grid mb-5 grid-cols-[repeat(auto-fill,minmax(15rem,1fr))] overflow-hidden ">
-					{featuredSkills.map(({ items }) =>
-						items.map((item) => <SkillCard key={item.title} {...item} />),
-					)}
+					{featuredSkills
+						.flatMap((item) => item.items)
+						.slice(0, 12)
+						.map((item) => (
+							<SkillCard key={item.title} {...item} />
+						))}
 				</ul>
 
 				<StyledDotLink
 					href={routes.about.skills}
-					variant="outline"
 					className="mx-auto"
 					hover="light"
 				>

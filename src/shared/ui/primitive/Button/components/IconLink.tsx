@@ -90,6 +90,7 @@ export function StyledDotLink({
 	return (
 		<StyledIconLink
 			icon={Dot}
+			variant="ghost-light"
 			iconClassName={cn(
 				"size-2 rounded-full bg-current group-hover:animate-pulse",
 				iconClassName,

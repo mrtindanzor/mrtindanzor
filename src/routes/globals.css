@@ -40,8 +40,12 @@
 }
 
 @layer base {
-	* {
+	*,
+	html,
+	body {
 		scrollbar-width: thin;
+		scrollbar-color: var(--color-muted);
+		scrollbar-track-color: var(--accent);
 	}
 	body {
 		@apply bg-muted text-neutral font-finlainca overflow-x-hidden h-full p-0 tracking-tight;

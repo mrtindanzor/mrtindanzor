@@ -18,7 +18,7 @@ export function FeatureProjects() {
 
 				<div className="@container mb-6">
 					<ul className="grid @lg:grid-cols-2 @4xl:grid-cols-3 gap-x-4 md:gap-x-6 gap-y-10">
-						{projects.map((project) => (
+						{projects.slice(0, 3).map((project) => (
 							<ProjectCard key={project.title} {...project} />
 						))}
 					</ul>

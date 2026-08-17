@@ -4,12 +4,13 @@ import { cn } from "@/shared/utils/cn"
 import type { ButtonVariants } from "../button.types"
 
 export const buttonVariants = cva(
-	"transition duration-300 flex ease-in-out outline link relative rounded focus-visible:outline-2",
+	"transition duration-300 outline-none flex ease-in-out outline link relative rounded focus-visible:outline-2",
 	{
 		variants: {
 			variant: {
 				light: "bg-neutral text-muted",
-				outline: "bg-transparent text-neutral outline-neutral",
+				outline:
+					"bg-transparent text-neutral-secondary outline-neutral-secondary",
 				"outline-muted": "bg-transparent text-muted outline-muted",
 				muted: "bg-muted text-neutral outline-1",
 				accent: " bg-accent border-accent text-muted",
@@ -27,7 +28,7 @@ export const buttonVariants = cva(
 			hover: {
 				light: "hover:bg-neutral hover:text-muted",
 				outline:
-					"hover:bg-transparent hover:text-neutral hover:outline-neutral",
+					"hover:bg-transparent hover:text-neutral-secondary hover:outline-neutral-secondary",
 				"outline-muted":
 					"hover:bg-transparent hover:text-muted hover:outline-muted",
 				muted: "hover:bg-muted hover:text-neutral hover:outline-1",

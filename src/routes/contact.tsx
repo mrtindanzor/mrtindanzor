@@ -7,9 +7,9 @@ export const Route = createFileRoute("/contact")({
 	component: ContactPage,
 	head: () => ({
 		meta: generateMetaData({
-			title: "Contact",
+			title: "Let's Build Something Together",
 			description:
-				"Get in touch with me for collaboration, inquiries, or just to say hi.",
+				"Have an idea, a project, or an opportunity in mind? I'd love to hear about it. Let's talk about how we can turn it into something useful and impactful.",
 			path: "contact",
 			images: opengraphs.select("contact"),
 		}),
