@@ -11,6 +11,6 @@ export const NAV_LINKS = [
 	},
 	{
 		title: "Projects",
-		path: routes.projects,
+		path: routes.projects(),
 	},
 ] as const

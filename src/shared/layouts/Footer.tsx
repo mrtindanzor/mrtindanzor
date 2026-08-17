@@ -89,7 +89,7 @@ function SocialLinks() {
 const NAVIGATIONS = [
 	{ title: "Home", path: routes.home },
 	{ title: "About", path: routes.about.home },
-	{ title: "Projects", path: routes.projects },
+	{ title: "Projects", path: routes.projects() },
 	{ title: "Contact", path: routes.contact },
 ] as const
 function Navigations() {
@@ -119,7 +119,7 @@ const RESOURCES = [
 	{ title: "Resume", path: DEVELOPER.resume },
 	{ title: "Engineering Toolkit", path: routes.about.skills },
 	{ title: "Professional Journey", path: routes.about.professionalJourney },
-	{ title: "Projects", path: routes.projects },
+	{ title: "Projects", path: routes.projects() },
 ] as const
 
 function Resources() {

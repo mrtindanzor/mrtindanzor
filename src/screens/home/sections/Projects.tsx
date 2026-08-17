@@ -25,7 +25,7 @@ export function FeatureProjects() {
 				</div>
 
 				<StyledDotLink
-					href={routes.projects}
+					href={routes.projects()}
 					className="mx-auto"
 					variant="ghost-light"
 					hover="light"

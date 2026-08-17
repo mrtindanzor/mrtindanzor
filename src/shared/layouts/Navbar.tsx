@@ -8,7 +8,7 @@ import {
 import Backdrop from "@/shared/ui/primitive/Backdrop"
 import { Link, StyledDotLink } from "@/shared/ui/primitive/Button"
 import { cn } from "@/shared/utils/cn"
-import { useAppPathname } from "../hooks/useNavigation"
+import { usePathname } from "../hooks/useNavigation"
 import { routes } from "../routes"
 import { NAV_LINKS } from "./constants"
 
@@ -102,7 +102,7 @@ function NavLink({
 	path,
 	...props
 }: { title: string; path: string } & MotionProps & ComponentProps<"li">) {
-	const pathname = useAppPathname()
+	const pathname = usePathname()
 	const active = pathname === path
 
 	return (

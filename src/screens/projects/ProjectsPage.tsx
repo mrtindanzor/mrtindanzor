@@ -1,10 +1,15 @@
-import { projectService } from "@/features/projects"
+import { type ProjectCategory, projectService } from "@/features/projects"
 
+import { useSearchParams } from "@/shared/hooks/useNavigation"
 import { ProjectCard } from "@/shared/ui/ProjectCard"
 import { AccentText } from "@/shared/ui/primitive/AccentText"
+import { FilterBar } from "./sections/FilterBar"
 
 export function ProjectsPage() {
-	const projects = projectService.find()
+	const { category = "All" } = useSearchParams<{
+		category: ProjectCategory | "All"
+	}>()
+	const projects = projectService.find({ category: category ?? "All" })
 
 	return (
 		<main>
@@ -21,8 +26,8 @@ export function ProjectsPage() {
 					achieved.
 				</p>
 
-				<hr className="border-neutral-secondary/10 mb-12" />
-
+				<hr className="border-neutral-secondary/10" />
+				<FilterBar />
 				<div className="@container">
 					<ul className="grid @lg:grid-cols-2 @4xl:grid-cols-3 gap-x-4 md:gap-x-6 gap-y-10">
 						{projects.map((project) => (

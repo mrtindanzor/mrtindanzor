@@ -7,33 +7,29 @@ import {
 	useMemo,
 	useState,
 } from "react"
+import type { SetState } from "@/shared/types/utils/setState"
+
+type Search = Record<string, string | string[]>
 
 type AppRoutingContext = {
-	searchParams: URLSearchParams
+	searchParams: Search
 	pathname: string
-	url: string
 }
 
 export const AppRoutingContext = createContext<AppRoutingContext | null>(null)
 
 export function AppRoutingProvider({ children }: PropsWithChildren) {
 	const route = useRouter()
-	const { search, pathname: path } = route.state.location
-	const [searchParams, setSearchParams] = useState(new URLSearchParams(search))
+	const { pathname: path } = route.state.location
+	const [searchParams, setSearchParams] = useState({})
 	const [pathname, setPathname] = useState(path)
-
-	const url = useMemo(() => {
-		const query = searchParams.toString().trim()
-		return query ? `${pathname}?${query}` : pathname
-	}, [pathname, searchParams])
 
 	const value = useMemo(
 		() => ({
 			searchParams,
 			pathname,
-			url,
 		}),
-		[searchParams, pathname, url],
+		[searchParams, pathname],
 	)
 
 	return (
@@ -51,8 +47,8 @@ export function AppRoutingProvider({ children }: PropsWithChildren) {
 }
 
 type RouteChangeListenerProps = {
-	setPathname: (pathname: string) => void
-	setSearchParams: (searchParams: URLSearchParams) => void
+	setPathname: SetState<string>
+	setSearchParams: SetState<Search>
 }
 function RouteChangeListener({
 	setSearchParams,
@@ -63,8 +59,38 @@ function RouteChangeListener({
 	useLayoutEffect(() => {
 		route.subscribe("onLoad", () => {
 			const { pathname, search } = route.latestLocation
+
 			setPathname(pathname)
-			setSearchParams(new URLSearchParams(search))
+			setSearchParams(() => {
+				const searchParams: Search = {}
+
+				for (const [key, value] of Object.entries(search)) {
+					if (typeof value !== "string" && !Array.isArray(value)) continue
+
+					let isExists = searchParams[key]
+
+					if (isExists && Array.isArray(isExists)) {
+						if (typeof value === "string") isExists.push(value)
+						if (Array.isArray(value)) {
+							isExists = [...isExists, ...value]
+						}
+						continue
+					}
+
+					if (isExists && !Array.isArray(isExists)) {
+						if (typeof value === "string") isExists = [isExists, value]
+						if (Array.isArray(value)) {
+							isExists = [isExists, ...value]
+						}
+
+						continue
+					}
+
+					searchParams[key] = value
+				}
+
+				return searchParams
+			})
 		})
 	}, [route, setPathname, setSearchParams])
 
