@@ -57,6 +57,7 @@ export const PROJECTS: ProjectType[] = [
 			"Founded on the principles of ecological stewardship, Arise Foundation bridges the gap between environmental awareness and tangible action. We believe that lasting change begins in the heart of local communities",
 		tags: [
 			"Cloudflare Workers",
+			"Vite",
 			"Github Actions",
 			"HTML5",
 			"CSS 3",
@@ -72,7 +73,7 @@ export const PROJECTS: ProjectType[] = [
             Integrated Cloudflare R2 for scalable storage of images, documents, and other media assets.
             Engineered with a modern tech stack for speed, reliability, and accessibility.`,
 		tags: [
-			"Tanstack Start",
+			"Next Js",
 			"Redis",
 			"Github Actions",
 			"Cloudflare R2",
