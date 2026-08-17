@@ -1,0 +1,28 @@
+name: Push to deploy branch
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Push to deploy branch
+
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          git checkout --orphan deploy
+
+          git reset --hard
+          git checkout master -- .
+
+          git add .
+          git commit --allow-empty -m "Deploy [ci skip]"
+
+          git push -f origin HEAD:deploy
