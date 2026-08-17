@@ -20,7 +20,7 @@ jobs:
           git checkout --orphan deploy
 
           git reset --hard
-          git checkout main -- .
+          git checkout master -- .
 
           git add .
           git commit --allow-empty -m "Deploy [ci skip]"
